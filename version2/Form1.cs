@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace version2
 {
+   // database db; 
+
     public partial class MainMenuForm : Form
     {
         public MainMenuForm()
