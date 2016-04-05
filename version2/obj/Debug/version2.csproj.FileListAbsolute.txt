@@ -1,1 +1,9 @@
 C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\bin\Debug\version2.exe.config
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\bin\Debug\version2.exe
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\bin\Debug\version2.pdb
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.csprojResolveAssemblyReference.cache
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.MainMenuForm.resources
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.Properties.Resources.resources
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.csproj.GenerateResource.Cache
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.exe
+C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.pdb
