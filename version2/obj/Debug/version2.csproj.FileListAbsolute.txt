@@ -7,3 +7,12 @@ C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\Sof
 C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.csproj.GenerateResource.Cache
 C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.exe
 C:\Users\Taylor Rowan\Desktop\UHD Courses\CS 3420 SoftEng\Group Project\Code\SoftwareEngineeringProjectCode version 2\version2\obj\Debug\version2.pdb
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\bin\Debug\version2.exe.config
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\obj\Debug\version2.exe
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\obj\Debug\version2.pdb
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\bin\Debug\version2.exe
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\bin\Debug\version2.pdb
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\obj\Debug\version2.csprojResolveAssemblyReference.cache
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\obj\Debug\version2.MainMenuForm.resources
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\obj\Debug\version2.Properties.Resources.resources
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\version2\obj\Debug\version2.csproj.GenerateResource.Cache
