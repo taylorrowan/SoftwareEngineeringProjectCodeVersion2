@@ -2,6 +2,8 @@
 {
     partial class mainMenu
     {
+
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -47,23 +49,23 @@
             this.groupBox_step2 = new System.Windows.Forms.GroupBox();
             this.groupBox_step3 = new System.Windows.Forms.GroupBox();
             this.groupBox_step4 = new System.Windows.Forms.GroupBox();
-            this.groupBox_stone = new System.Windows.Forms.GroupBox();
-            this.label_compStone = new System.Windows.Forms.Label();
             this.groupBox_whoGoesFirst = new System.Windows.Forms.GroupBox();
-            this.groupBox_difficulty = new System.Windows.Forms.GroupBox();
             this.checkBox_player1GoesFirst = new System.Windows.Forms.CheckBox();
             this.checkBox_player2GoesFirst = new System.Windows.Forms.CheckBox();
-            this.checkBox_diffEasy = new System.Windows.Forms.CheckBox();
-            this.checkBox_diffMedium = new System.Windows.Forms.CheckBox();
+            this.groupBox_difficulty = new System.Windows.Forms.GroupBox();
             this.checkBox_diffHard = new System.Windows.Forms.CheckBox();
+            this.checkBox_diffMedium = new System.Windows.Forms.CheckBox();
+            this.checkBox_diffEasy = new System.Windows.Forms.CheckBox();
+            this.groupBox_stone = new System.Windows.Forms.GroupBox();
+            this.label_compStone = new System.Windows.Forms.Label();
             this.button_startGame = new System.Windows.Forms.Button();
             this.groupBox_step1.SuspendLayout();
             this.groupBox_step2.SuspendLayout();
             this.groupBox_step3.SuspendLayout();
             this.groupBox_step4.SuspendLayout();
-            this.groupBox_stone.SuspendLayout();
             this.groupBox_whoGoesFirst.SuspendLayout();
             this.groupBox_difficulty.SuspendLayout();
+            this.groupBox_stone.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_regNewPlayer
@@ -111,6 +113,7 @@
             this.checkBox_PvC.TabIndex = 8;
             this.checkBox_PvC.Text = "Player vs. Computer";
             this.checkBox_PvC.UseVisualStyleBackColor = true;
+            this.checkBox_PvC.CheckedChanged += new System.EventHandler(this.checkBox_PvC_CheckedChanged);
             // 
             // comboBox1
             // 
@@ -148,6 +151,7 @@
             this.checkBox_player2Guest.TabIndex = 12;
             this.checkBox_player2Guest.Text = "Guest";
             this.checkBox_player2Guest.UseVisualStyleBackColor = true;
+            this.checkBox_player2Guest.CheckedChanged += new System.EventHandler(this.checkBox_player2Guest_CheckedChanged);
             // 
             // label_Player1Name
             // 
@@ -170,6 +174,10 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Blue",
+            "Red",
+            "Yellow"});
             this.comboBox3.Location = new System.Drawing.Point(22, 46);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(133, 21);
@@ -178,6 +186,10 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Blue",
+            "Red",
+            "Yellow"});
             this.comboBox4.Location = new System.Drawing.Point(22, 95);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(133, 21);
@@ -250,6 +262,85 @@
             this.groupBox_step4.TabIndex = 21;
             this.groupBox_step4.TabStop = false;
             this.groupBox_step4.Text = "STEP 4: Select Game Options";
+            this.groupBox_step4.Enter += new System.EventHandler(this.groupBox_step4_Enter);
+            // 
+            // groupBox_whoGoesFirst
+            // 
+            this.groupBox_whoGoesFirst.Controls.Add(this.checkBox_player1GoesFirst);
+            this.groupBox_whoGoesFirst.Controls.Add(this.checkBox_player2GoesFirst);
+            this.groupBox_whoGoesFirst.Location = new System.Drawing.Point(233, 42);
+            this.groupBox_whoGoesFirst.Name = "groupBox_whoGoesFirst";
+            this.groupBox_whoGoesFirst.Size = new System.Drawing.Size(182, 164);
+            this.groupBox_whoGoesFirst.TabIndex = 22;
+            this.groupBox_whoGoesFirst.TabStop = false;
+            this.groupBox_whoGoesFirst.Text = "Who Goes First?";
+            // 
+            // checkBox_player1GoesFirst
+            // 
+            this.checkBox_player1GoesFirst.AutoSize = true;
+            this.checkBox_player1GoesFirst.Location = new System.Drawing.Point(29, 50);
+            this.checkBox_player1GoesFirst.Name = "checkBox_player1GoesFirst";
+            this.checkBox_player1GoesFirst.Size = new System.Drawing.Size(64, 17);
+            this.checkBox_player1GoesFirst.TabIndex = 23;
+            this.checkBox_player1GoesFirst.Text = "Player 1";
+            this.checkBox_player1GoesFirst.UseVisualStyleBackColor = true;
+            this.checkBox_player1GoesFirst.CheckedChanged += new System.EventHandler(this.checkBox_player1GoesFirst_CheckedChanged);
+            // 
+            // checkBox_player2GoesFirst
+            // 
+            this.checkBox_player2GoesFirst.AutoSize = true;
+            this.checkBox_player2GoesFirst.Location = new System.Drawing.Point(29, 95);
+            this.checkBox_player2GoesFirst.Name = "checkBox_player2GoesFirst";
+            this.checkBox_player2GoesFirst.Size = new System.Drawing.Size(124, 17);
+            this.checkBox_player2GoesFirst.TabIndex = 24;
+            this.checkBox_player2GoesFirst.Text = "Player 2 or Computer";
+            this.checkBox_player2GoesFirst.UseVisualStyleBackColor = true;
+            this.checkBox_player2GoesFirst.CheckedChanged += new System.EventHandler(this.checkBox_player2GoesFirst_CheckedChanged);
+            // 
+            // groupBox_difficulty
+            // 
+            this.groupBox_difficulty.Controls.Add(this.checkBox_diffHard);
+            this.groupBox_difficulty.Controls.Add(this.checkBox_diffMedium);
+            this.groupBox_difficulty.Controls.Add(this.checkBox_diffEasy);
+            this.groupBox_difficulty.Location = new System.Drawing.Point(435, 42);
+            this.groupBox_difficulty.Name = "groupBox_difficulty";
+            this.groupBox_difficulty.Size = new System.Drawing.Size(198, 164);
+            this.groupBox_difficulty.TabIndex = 0;
+            this.groupBox_difficulty.TabStop = false;
+            this.groupBox_difficulty.Text = "Computer Difficulty Levels";
+            // 
+            // checkBox_diffHard
+            // 
+            this.checkBox_diffHard.AutoSize = true;
+            this.checkBox_diffHard.Location = new System.Drawing.Point(50, 112);
+            this.checkBox_diffHard.Name = "checkBox_diffHard";
+            this.checkBox_diffHard.Size = new System.Drawing.Size(49, 17);
+            this.checkBox_diffHard.TabIndex = 2;
+            this.checkBox_diffHard.Text = "Hard";
+            this.checkBox_diffHard.UseVisualStyleBackColor = true;
+            this.checkBox_diffHard.CheckedChanged += new System.EventHandler(this.checkBox_diffHard_CheckedChanged);
+            // 
+            // checkBox_diffMedium
+            // 
+            this.checkBox_diffMedium.AutoSize = true;
+            this.checkBox_diffMedium.Location = new System.Drawing.Point(50, 79);
+            this.checkBox_diffMedium.Name = "checkBox_diffMedium";
+            this.checkBox_diffMedium.Size = new System.Drawing.Size(63, 17);
+            this.checkBox_diffMedium.TabIndex = 1;
+            this.checkBox_diffMedium.Text = "Medium";
+            this.checkBox_diffMedium.UseVisualStyleBackColor = true;
+            this.checkBox_diffMedium.CheckedChanged += new System.EventHandler(this.checkBox_diffMedium_CheckedChanged);
+            // 
+            // checkBox_diffEasy
+            // 
+            this.checkBox_diffEasy.AutoSize = true;
+            this.checkBox_diffEasy.Location = new System.Drawing.Point(50, 46);
+            this.checkBox_diffEasy.Name = "checkBox_diffEasy";
+            this.checkBox_diffEasy.Size = new System.Drawing.Size(49, 17);
+            this.checkBox_diffEasy.TabIndex = 0;
+            this.checkBox_diffEasy.Text = "Easy";
+            this.checkBox_diffEasy.UseVisualStyleBackColor = true;
+            this.checkBox_diffEasy.CheckedChanged += new System.EventHandler(this.checkBox_diffEasy_CheckedChanged);
             // 
             // groupBox_stone
             // 
@@ -275,79 +366,6 @@
             this.label_compStone.TabIndex = 1;
             this.label_compStone.Text = "Computer stone color: Black";
             // 
-            // groupBox_whoGoesFirst
-            // 
-            this.groupBox_whoGoesFirst.Controls.Add(this.checkBox_player1GoesFirst);
-            this.groupBox_whoGoesFirst.Controls.Add(this.checkBox_player2GoesFirst);
-            this.groupBox_whoGoesFirst.Location = new System.Drawing.Point(233, 42);
-            this.groupBox_whoGoesFirst.Name = "groupBox_whoGoesFirst";
-            this.groupBox_whoGoesFirst.Size = new System.Drawing.Size(182, 164);
-            this.groupBox_whoGoesFirst.TabIndex = 22;
-            this.groupBox_whoGoesFirst.TabStop = false;
-            this.groupBox_whoGoesFirst.Text = "Who Goes First?";
-            // 
-            // groupBox_difficulty
-            // 
-            this.groupBox_difficulty.Controls.Add(this.checkBox_diffHard);
-            this.groupBox_difficulty.Controls.Add(this.checkBox_diffMedium);
-            this.groupBox_difficulty.Controls.Add(this.checkBox_diffEasy);
-            this.groupBox_difficulty.Location = new System.Drawing.Point(435, 42);
-            this.groupBox_difficulty.Name = "groupBox_difficulty";
-            this.groupBox_difficulty.Size = new System.Drawing.Size(198, 164);
-            this.groupBox_difficulty.TabIndex = 0;
-            this.groupBox_difficulty.TabStop = false;
-            this.groupBox_difficulty.Text = "Computer Difficulty Levels";
-            // 
-            // checkBox_player1GoesFirst
-            // 
-            this.checkBox_player1GoesFirst.AutoSize = true;
-            this.checkBox_player1GoesFirst.Location = new System.Drawing.Point(29, 50);
-            this.checkBox_player1GoesFirst.Name = "checkBox_player1GoesFirst";
-            this.checkBox_player1GoesFirst.Size = new System.Drawing.Size(64, 17);
-            this.checkBox_player1GoesFirst.TabIndex = 23;
-            this.checkBox_player1GoesFirst.Text = "Player 1";
-            this.checkBox_player1GoesFirst.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_player2GoesFirst
-            // 
-            this.checkBox_player2GoesFirst.AutoSize = true;
-            this.checkBox_player2GoesFirst.Location = new System.Drawing.Point(29, 95);
-            this.checkBox_player2GoesFirst.Name = "checkBox_player2GoesFirst";
-            this.checkBox_player2GoesFirst.Size = new System.Drawing.Size(124, 17);
-            this.checkBox_player2GoesFirst.TabIndex = 24;
-            this.checkBox_player2GoesFirst.Text = "Player 2 or Computer";
-            this.checkBox_player2GoesFirst.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_diffEasy
-            // 
-            this.checkBox_diffEasy.AutoSize = true;
-            this.checkBox_diffEasy.Location = new System.Drawing.Point(50, 46);
-            this.checkBox_diffEasy.Name = "checkBox_diffEasy";
-            this.checkBox_diffEasy.Size = new System.Drawing.Size(49, 17);
-            this.checkBox_diffEasy.TabIndex = 0;
-            this.checkBox_diffEasy.Text = "Easy";
-            this.checkBox_diffEasy.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_diffMedium
-            // 
-            this.checkBox_diffMedium.AutoSize = true;
-            this.checkBox_diffMedium.Location = new System.Drawing.Point(50, 79);
-            this.checkBox_diffMedium.Name = "checkBox_diffMedium";
-            this.checkBox_diffMedium.Size = new System.Drawing.Size(63, 17);
-            this.checkBox_diffMedium.TabIndex = 1;
-            this.checkBox_diffMedium.Text = "Medium";
-            this.checkBox_diffMedium.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_diffHard
-            // 
-            this.checkBox_diffHard.AutoSize = true;
-            this.checkBox_diffHard.Location = new System.Drawing.Point(50, 112);
-            this.checkBox_diffHard.Name = "checkBox_diffHard";
-            this.checkBox_diffHard.Size = new System.Drawing.Size(49, 17);
-            this.checkBox_diffHard.TabIndex = 2;
-            this.checkBox_diffHard.Text = "Hard";
-            this.checkBox_diffHard.UseVisualStyleBackColor = true;
-            // 
             // button_startGame
             // 
             this.button_startGame.Location = new System.Drawing.Point(270, 450);
@@ -356,6 +374,7 @@
             this.button_startGame.TabIndex = 22;
             this.button_startGame.Text = "Start Game";
             this.button_startGame.UseVisualStyleBackColor = true;
+            this.button_startGame.Click += new System.EventHandler(this.button_startGame_Click);
             // 
             // mainMenu
             // 
@@ -369,6 +388,7 @@
             this.Controls.Add(this.groupBox_step1);
             this.Name = "mainMenu";
             this.Text = "DITZY MAIN MENU";
+            this.Load += new System.EventHandler(this.mainMenu_Load);
             this.groupBox_step1.ResumeLayout(false);
             this.groupBox_step1.PerformLayout();
             this.groupBox_step2.ResumeLayout(false);
@@ -376,12 +396,12 @@
             this.groupBox_step3.ResumeLayout(false);
             this.groupBox_step3.PerformLayout();
             this.groupBox_step4.ResumeLayout(false);
-            this.groupBox_stone.ResumeLayout(false);
-            this.groupBox_stone.PerformLayout();
             this.groupBox_whoGoesFirst.ResumeLayout(false);
             this.groupBox_whoGoesFirst.PerformLayout();
             this.groupBox_difficulty.ResumeLayout(false);
             this.groupBox_difficulty.PerformLayout();
+            this.groupBox_stone.ResumeLayout(false);
+            this.groupBox_stone.PerformLayout();
             this.ResumeLayout(false);
 
         }
