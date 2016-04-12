@@ -35,6 +35,11 @@ namespace Test_TTT_Game
 
         private void checkBox_PvC_CheckedChanged(object sender, EventArgs e)
         {
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            checkBox_player1Guest.Checked = false;
+            checkBox_player2Guest.Checked = false;
+
             if (checkBox_PvC.Checked)
             {
                 checkBox_player2Guest.Enabled = false;
