@@ -22,34 +22,44 @@ namespace Test_TTT_Game
             if (checkBox_PvP.Checked)
             {
                 checkBox_player2Guest.Enabled = true;
-                comboBox2.Enabled = true;
+                comboBox_player2Name.Enabled = true;
+                comboBox_player2Stone.Enabled = true;
+                label_compStone.Enabled = false;
+                checkBox_diffEasy.Enabled = false;
+                checkBox_diffMedium.Enabled = false;
+                checkBox_diffHard.Enabled = false;
                 checkBox_PvC.Checked = false;
             }
             else
             {
                 checkBox_player2Guest.Enabled = false;
-                comboBox2.Enabled = false;
+                comboBox_player2Name.Enabled = false;
+                comboBox_player2Stone.Enabled = false;
+                label_compStone.Enabled = true;
+                checkBox_diffEasy.Enabled = true;
+                checkBox_diffMedium.Enabled = true;
+                checkBox_diffHard.Enabled = true;
                 checkBox_PvC.Checked = true;
             }
         }
 
         private void checkBox_PvC_CheckedChanged(object sender, EventArgs e)
         {
-            comboBox1.Text = "";
-            comboBox2.Text = "";
+            comboBox_player1Name.Text = "";
+            comboBox_player2Name.Text = "";
             checkBox_player1Guest.Checked = false;
             checkBox_player2Guest.Checked = false;
 
             if (checkBox_PvC.Checked)
             {
                 checkBox_player2Guest.Enabled = false;
-                comboBox2.Enabled = false;
+                comboBox_player2Name.Enabled = false;
                 checkBox_PvP.Checked = false;
             }
             else
             {
                 checkBox_player2Guest.Enabled = true;
-                comboBox2.Enabled = true;
+                comboBox_player2Name.Enabled = true;
                 checkBox_PvP.Checked = true;
             }
         }
@@ -58,12 +68,12 @@ namespace Test_TTT_Game
         {
             if (checkBox_player1Guest.Checked)
             {
-                comboBox1.Enabled = false;
-                comboBox1.Text = "";
+                comboBox_player1Name.Enabled = false;
+                comboBox_player1Name.Text = "";
             }
             else 
             {
-                comboBox1.Enabled = true;
+                comboBox_player1Name.Enabled = true;
             }
         }
 
@@ -71,12 +81,12 @@ namespace Test_TTT_Game
         {
             if (checkBox_player2Guest.Checked)
             {
-                comboBox2.Enabled = false;
-                comboBox2.Text = "";
+                comboBox_player2Name.Enabled = false;
+                comboBox_player2Name.Text = "";
             }
             else
             {
-                comboBox2.Enabled = true;
+                comboBox_player2Name.Enabled = true;
             }
         }
 
@@ -90,10 +100,11 @@ namespace Test_TTT_Game
             checkBox_PvC.Checked = true;
             checkBox_player1GoesFirst.Checked = true;
             checkBox_diffEasy.Checked = true;
-            comboBox2.Enabled = false;
+            comboBox_player2Name.Enabled = false;
             checkBox_player2Guest.Enabled = false;
-            comboBox3.Text = "Blue";
-            comboBox4.Text = "Red";
+            comboBox_player1Stone.Text = "Blue";
+            comboBox_player2Stone.Text = "Red";
+            comboBox_player2Stone.Enabled = false;
         }
 
         private void checkBox_player1GoesFirst_CheckedChanged(object sender, EventArgs e)
@@ -122,7 +133,7 @@ namespace Test_TTT_Game
 
         private void button_startGame_Click(object sender, EventArgs e)
         {
-            if (comboBox3.Text == comboBox4.Text)
+            if (comboBox_player1Stone.Text == comboBox_player2Stone.Text)
             {
                 MessageBox.Show("Please select different color stones");
             }
@@ -167,8 +178,9 @@ namespace Test_TTT_Game
             }
         }
 
-        
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-        
+        }
     }
 }

@@ -35,14 +35,14 @@
             this.label_enterNewPlayerName = new System.Windows.Forms.Label();
             this.checkBox_PvP = new System.Windows.Forms.CheckBox();
             this.checkBox_PvC = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_player1Name = new System.Windows.Forms.ComboBox();
+            this.comboBox_player2Name = new System.Windows.Forms.ComboBox();
             this.checkBox_player1Guest = new System.Windows.Forms.CheckBox();
             this.checkBox_player2Guest = new System.Windows.Forms.CheckBox();
             this.label_Player1Name = new System.Windows.Forms.Label();
             this.label_player2Name = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox_player1Stone = new System.Windows.Forms.ComboBox();
+            this.comboBox_player2Stone = new System.Windows.Forms.ComboBox();
             this.label_Player1Stone = new System.Windows.Forms.Label();
             this.label_player2Stone = new System.Windows.Forms.Label();
             this.groupBox_step1 = new System.Windows.Forms.GroupBox();
@@ -59,6 +59,8 @@
             this.groupBox_stone = new System.Windows.Forms.GroupBox();
             this.label_compStone = new System.Windows.Forms.Label();
             this.button_startGame = new System.Windows.Forms.Button();
+            this.button_viewHistory = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox_step1.SuspendLayout();
             this.groupBox_step2.SuspendLayout();
             this.groupBox_step3.SuspendLayout();
@@ -115,21 +117,21 @@
             this.checkBox_PvC.UseVisualStyleBackColor = true;
             this.checkBox_PvC.CheckedChanged += new System.EventHandler(this.checkBox_PvC_CheckedChanged);
             // 
-            // comboBox1
+            // comboBox_player1Name
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(27, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 21);
-            this.comboBox1.TabIndex = 9;
+            this.comboBox_player1Name.FormattingEnabled = true;
+            this.comboBox_player1Name.Location = new System.Drawing.Point(27, 51);
+            this.comboBox_player1Name.Name = "comboBox_player1Name";
+            this.comboBox_player1Name.Size = new System.Drawing.Size(143, 21);
+            this.comboBox_player1Name.TabIndex = 9;
             // 
-            // comboBox2
+            // comboBox_player2Name
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(27, 103);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(143, 21);
-            this.comboBox2.TabIndex = 10;
+            this.comboBox_player2Name.FormattingEnabled = true;
+            this.comboBox_player2Name.Location = new System.Drawing.Point(27, 103);
+            this.comboBox_player2Name.Name = "comboBox_player2Name";
+            this.comboBox_player2Name.Size = new System.Drawing.Size(143, 21);
+            this.comboBox_player2Name.TabIndex = 10;
             // 
             // checkBox_player1Guest
             // 
@@ -171,29 +173,29 @@
             this.label_player2Name.TabIndex = 14;
             this.label_player2Name.Text = "Player 2:";
             // 
-            // comboBox3
+            // comboBox_player1Stone
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboBox_player1Stone.FormattingEnabled = true;
+            this.comboBox_player1Stone.Items.AddRange(new object[] {
             "Blue",
             "Red",
             "Yellow"});
-            this.comboBox3.Location = new System.Drawing.Point(22, 46);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(133, 21);
-            this.comboBox3.TabIndex = 15;
+            this.comboBox_player1Stone.Location = new System.Drawing.Point(22, 46);
+            this.comboBox_player1Stone.Name = "comboBox_player1Stone";
+            this.comboBox_player1Stone.Size = new System.Drawing.Size(133, 21);
+            this.comboBox_player1Stone.TabIndex = 15;
             // 
-            // comboBox4
+            // comboBox_player2Stone
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.comboBox_player2Stone.FormattingEnabled = true;
+            this.comboBox_player2Stone.Items.AddRange(new object[] {
             "Blue",
             "Red",
             "Yellow"});
-            this.comboBox4.Location = new System.Drawing.Point(22, 95);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(133, 21);
-            this.comboBox4.TabIndex = 16;
+            this.comboBox_player2Stone.Location = new System.Drawing.Point(22, 95);
+            this.comboBox_player2Stone.Name = "comboBox_player2Stone";
+            this.comboBox_player2Stone.Size = new System.Drawing.Size(133, 21);
+            this.comboBox_player2Stone.TabIndex = 16;
             // 
             // label_Player1Stone
             // 
@@ -239,10 +241,10 @@
             // groupBox_step3
             // 
             this.groupBox_step3.Controls.Add(this.label_Player1Name);
-            this.groupBox_step3.Controls.Add(this.comboBox1);
+            this.groupBox_step3.Controls.Add(this.comboBox_player1Name);
             this.groupBox_step3.Controls.Add(this.checkBox_player1Guest);
             this.groupBox_step3.Controls.Add(this.label_player2Name);
-            this.groupBox_step3.Controls.Add(this.comboBox2);
+            this.groupBox_step3.Controls.Add(this.comboBox_player2Name);
             this.groupBox_step3.Controls.Add(this.checkBox_player2Guest);
             this.groupBox_step3.Location = new System.Drawing.Point(446, 34);
             this.groupBox_step3.Name = "groupBox_step3";
@@ -346,9 +348,9 @@
             // 
             this.groupBox_stone.Controls.Add(this.label_compStone);
             this.groupBox_stone.Controls.Add(this.label_Player1Stone);
-            this.groupBox_stone.Controls.Add(this.comboBox3);
+            this.groupBox_stone.Controls.Add(this.comboBox_player1Stone);
             this.groupBox_stone.Controls.Add(this.label_player2Stone);
-            this.groupBox_stone.Controls.Add(this.comboBox4);
+            this.groupBox_stone.Controls.Add(this.comboBox_player2Stone);
             this.groupBox_stone.Location = new System.Drawing.Point(29, 42);
             this.groupBox_stone.Name = "groupBox_stone";
             this.groupBox_stone.Size = new System.Drawing.Size(182, 164);
@@ -368,7 +370,7 @@
             // 
             // button_startGame
             // 
-            this.button_startGame.Location = new System.Drawing.Point(270, 450);
+            this.button_startGame.Location = new System.Drawing.Point(123, 450);
             this.button_startGame.Name = "button_startGame";
             this.button_startGame.Size = new System.Drawing.Size(182, 37);
             this.button_startGame.TabIndex = 22;
@@ -376,11 +378,32 @@
             this.button_startGame.UseVisualStyleBackColor = true;
             this.button_startGame.Click += new System.EventHandler(this.button_startGame_Click);
             // 
+            // button_viewHistory
+            // 
+            this.button_viewHistory.Location = new System.Drawing.Point(407, 450);
+            this.button_viewHistory.Name = "button_viewHistory";
+            this.button_viewHistory.Size = new System.Drawing.Size(182, 22);
+            this.button_viewHistory.TabIndex = 23;
+            this.button_viewHistory.Text = "View History";
+            this.button_viewHistory.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(404, 477);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(189, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "NOTE: anyone may view player history";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 499);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button_viewHistory);
             this.Controls.Add(this.button_startGame);
             this.Controls.Add(this.groupBox_step4);
             this.Controls.Add(this.groupBox_step3);
@@ -403,6 +426,7 @@
             this.groupBox_stone.ResumeLayout(false);
             this.groupBox_stone.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -412,14 +436,14 @@
         private System.Windows.Forms.Label label_enterNewPlayerName;
         private System.Windows.Forms.CheckBox checkBox_PvP;
         private System.Windows.Forms.CheckBox checkBox_PvC;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_player1Name;
+        private System.Windows.Forms.ComboBox comboBox_player2Name;
         private System.Windows.Forms.CheckBox checkBox_player1Guest;
         private System.Windows.Forms.CheckBox checkBox_player2Guest;
         private System.Windows.Forms.Label label_Player1Name;
         private System.Windows.Forms.Label label_player2Name;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox_player1Stone;
+        private System.Windows.Forms.ComboBox comboBox_player2Stone;
         private System.Windows.Forms.Label label_Player1Stone;
         private System.Windows.Forms.Label label_player2Stone;
         private System.Windows.Forms.GroupBox groupBox_step1;
@@ -436,6 +460,8 @@
         private System.Windows.Forms.CheckBox checkBox_diffEasy;
         private System.Windows.Forms.Label label_compStone;
         private System.Windows.Forms.Button button_startGame;
+        private System.Windows.Forms.Button button_viewHistory;
+        private System.Windows.Forms.Label label1;
     }
 }
 
