@@ -17,6 +17,11 @@ namespace Test_TTT_Game
             InitializeComponent();
         }
 
+        private void Form_mainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_PvP.Checked)
@@ -181,6 +186,13 @@ namespace Test_TTT_Game
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_viewHistory_Click(object sender, EventArgs e)
+        {
+            Form_playerHistory frm_pH = new Form_playerHistory();
+            frm_pH.Show();
+            this.Hide();
         }
     }
 }

@@ -386,6 +386,7 @@
             this.button_viewHistory.TabIndex = 23;
             this.button_viewHistory.Text = "View History";
             this.button_viewHistory.UseVisualStyleBackColor = true;
+            this.button_viewHistory.Click += new System.EventHandler(this.button_viewHistory_Click);
             // 
             // label1
             // 

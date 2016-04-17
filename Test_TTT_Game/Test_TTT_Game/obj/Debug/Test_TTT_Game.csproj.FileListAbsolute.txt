@@ -29,3 +29,4 @@ Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\Test_TTT_Game\Test_TTT_G
 Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\Test_TTT_Game\Test_TTT_Game\obj\Debug\Test_TTT_Game.Properties.Resources.resources
 Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\Test_TTT_Game\Test_TTT_Game\obj\Debug\Test_TTT_Game.csproj.GenerateResource.Cache
 Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\Test_TTT_Game\Test_TTT_Game\obj\Debug\Test_TTT_Game.Form_gameBoard.resources
+Z:\Users\MingZhu\SoftwareEngineeringProjectCodeVersion2\Test_TTT_Game\Test_TTT_Game\obj\Debug\Test_TTT_Game.Form_playerHistory.resources

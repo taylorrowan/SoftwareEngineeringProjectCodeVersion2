@@ -60,6 +60,12 @@
     <Compile Include="Form_mainMenu.Designer.cs">
       <DependentUpon>Form_mainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="playerHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="playerHistory.Designer.cs">
+      <DependentUpon>playerHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_gameBoard.resx">
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_mainMenu.resx">
       <DependentUpon>Form_mainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="playerHistory.resx">
+      <DependentUpon>playerHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
