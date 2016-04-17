@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.Xml;
+using System.IO;
 
 namespace Test_TTT_Game
 {
@@ -189,6 +192,78 @@ namespace Test_TTT_Game
             Form_playerHistory frm_pH = new Form_playerHistory();
             frm_pH.Show();
             this.Hide();
+        }
+
+        /*INSERT USERNAME TO DATABASE XML*/
+        private void insertNode(string username)
+        {
+            //create an instant of xmldocument and load content of xml file.
+            XmlDocument doc = new XmlDocument();
+            doc.Load("playerDatabase.xml");
+
+            //add user details node
+            XmlNode node = doc.CreateNode(XmlNodeType.Element, "User", "");
+
+            XmlNode nodeName = doc.CreateElement("Name");
+            nodeName.InnerText = username;
+            XmlNode nodeWin = doc.CreateElement("Win");
+            nodeWin.InnerText = "0";
+            XmlNode nodeLoss = doc.CreateElement("Loss");
+            nodeLoss.InnerText = "0";
+            XmlNode nodeTie = doc.CreateElement("Tie");
+            nodeTie.InnerText = "0";
+
+            node.AppendChild(nodeName);
+            node.AppendChild(nodeWin);
+            node.AppendChild(nodeLoss);
+            node.AppendChild(nodeTie);
+            doc.DocumentElement.AppendChild(node);
+
+            doc.Save("playerDatabase.xml");
+        }
+
+        private void button_regNewPlayer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBox_playerName.Text != "")
+                {
+                    string name;
+                    //start checking if user exists
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load("playerDatabase.xml");
+
+                    XmlNodeList xnlist = xml.SelectNodes("Users/User"); // This is not selecting all the nodes to add to the list, it's only selecting the 1st one
+
+                    foreach (XmlNode xn in xnlist)
+                    {
+                        name = xn["Name"].InnerText;
+                        if (textBox_playerName.Text == name)
+                        {
+                            MessageBox.Show("\"" + textBox_playerName.Text + "\" is taken! Please choose another name.", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBox_playerName.Text = "";
+                            return;
+                        }
+                        else
+                        {
+                            insertNode(textBox_playerName.Text);
+
+                            MessageBox.Show("\"" + textBox_playerName.Text + "\" is created sucessfully!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            textBox_playerName.Text = "";
+                            //Form2 mainfrm = new Form2();
+                            //mainfrm.Show();
+                            //this.Close();
+                            return;
+                        }
+                    }
+                }
+                else
+                    MessageBox.Show("The name entered is unexceptable!  Please choose another name.", "Validation");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

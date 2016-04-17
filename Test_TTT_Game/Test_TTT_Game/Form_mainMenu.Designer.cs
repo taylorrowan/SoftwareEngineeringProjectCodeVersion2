@@ -31,7 +31,7 @@
         private void InitializeComponent()
         {
             this.button_regNewPlayer = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_playerName = new System.Windows.Forms.TextBox();
             this.label_enterNewPlayerName = new System.Windows.Forms.Label();
             this.checkBox_PvP = new System.Windows.Forms.CheckBox();
             this.checkBox_PvC = new System.Windows.Forms.CheckBox();
@@ -79,13 +79,14 @@
             this.button_regNewPlayer.TabIndex = 4;
             this.button_regNewPlayer.Text = "Register";
             this.button_regNewPlayer.UseVisualStyleBackColor = true;
+            this.button_regNewPlayer.Click += new System.EventHandler(this.button_regNewPlayer_Click);
             // 
-            // textBox1
+            // textBox_playerName
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBox_playerName.Location = new System.Drawing.Point(29, 60);
+            this.textBox_playerName.Name = "textBox_playerName";
+            this.textBox_playerName.Size = new System.Drawing.Size(143, 20);
+            this.textBox_playerName.TabIndex = 5;
             // 
             // label_enterNewPlayerName
             // 
@@ -185,7 +186,7 @@
             this.comboBox_player1Stone.Name = "comboBox_player1Stone";
             this.comboBox_player1Stone.Size = new System.Drawing.Size(133, 21);
             this.comboBox_player1Stone.TabIndex = 15;
-            //
+            // 
             // comboBox_player2Stone
             // 
             this.comboBox_player2Stone.FormattingEnabled = true;
@@ -218,7 +219,7 @@
             // 
             // groupBox_step1
             // 
-            this.groupBox_step1.Controls.Add(this.textBox1);
+            this.groupBox_step1.Controls.Add(this.textBox_playerName);
             this.groupBox_step1.Controls.Add(this.label_enterNewPlayerName);
             this.groupBox_step1.Controls.Add(this.button_regNewPlayer);
             this.groupBox_step1.Location = new System.Drawing.Point(28, 34);
@@ -441,7 +442,7 @@
 
         #endregion
         private System.Windows.Forms.Button button_regNewPlayer;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_playerName;
         private System.Windows.Forms.Label label_enterNewPlayerName;
         private System.Windows.Forms.CheckBox checkBox_PvP;
         private System.Windows.Forms.CheckBox checkBox_PvC;
