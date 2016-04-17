@@ -46,5 +46,19 @@ namespace Test_TTT_Game
         {
 
         }
+
+        private void button_backToMenuFrmBoard_Click(object sender, EventArgs e)
+        {
+            Form_mainMenu frm_mM = new Form_mainMenu();
+            frm_mM.Show();
+            this.Hide();
+        }
+
+        private void button_playAgain_Click(object sender, EventArgs e)
+        {
+            Form_gameBoard frm_gB = new Form_gameBoard();
+            frm_gB.Show();
+            this.Hide();
+        }
     }
 }

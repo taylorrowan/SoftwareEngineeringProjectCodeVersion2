@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Test_TTT_Game
 {
-    public partial class mainMenu : Form
+    public partial class Form_mainMenu : Form
     {
-        public mainMenu()
+        public Form_mainMenu()
         {
             InitializeComponent();
-        }
-
-        private void Form_mainMenu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -146,6 +141,12 @@ namespace Test_TTT_Game
             {
                 MessageBox.Show("Please select a difficulty");
             }
+            else
+            {
+                Form_gameBoard frm_gB = new Form_gameBoard();
+                frm_gB.Show();
+                this.Hide();
+            }
         }
 
         private void groupBox_step4_Enter(object sender, EventArgs e)
@@ -181,11 +182,6 @@ namespace Test_TTT_Game
                 checkBox_diffEasy.Checked = false;
                 checkBox_diffMedium.Checked = false;
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button_viewHistory_Click(object sender, EventArgs e)

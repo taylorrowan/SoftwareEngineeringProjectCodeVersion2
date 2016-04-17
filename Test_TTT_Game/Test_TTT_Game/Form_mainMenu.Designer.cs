@@ -1,9 +1,9 @@
 ﻿namespace Test_TTT_Game
 {
-    partial class mainMenu
+    partial class Form_mainMenu
     {
 
-        
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -61,6 +61,7 @@
             this.button_startGame = new System.Windows.Forms.Button();
             this.button_viewHistory = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label_historyNote = new System.Windows.Forms.Label();
             this.groupBox_step1.SuspendLayout();
             this.groupBox_step2.SuspendLayout();
             this.groupBox_step3.SuspendLayout();
@@ -184,7 +185,7 @@
             this.comboBox_player1Stone.Name = "comboBox_player1Stone";
             this.comboBox_player1Stone.Size = new System.Drawing.Size(133, 21);
             this.comboBox_player1Stone.TabIndex = 15;
-            // 
+            //
             // comboBox_player2Stone
             // 
             this.comboBox_player2Stone.FormattingEnabled = true;
@@ -390,19 +391,26 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(404, 477);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "NOTE: anyone may view player history";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
             // 
-            // mainMenu
+            // label_historyNote
+            // 
+            this.label_historyNote.AutoSize = true;
+            this.label_historyNote.Location = new System.Drawing.Point(404, 477);
+            this.label_historyNote.Name = "label_historyNote";
+            this.label_historyNote.Size = new System.Drawing.Size(193, 13);
+            this.label_historyNote.TabIndex = 24;
+            this.label_historyNote.Text = "NOTE: Anyone may view player history.";
+            // 
+            // Form_mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 499);
+            this.Controls.Add(this.label_historyNote);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_viewHistory);
             this.Controls.Add(this.button_startGame);
@@ -410,7 +418,7 @@
             this.Controls.Add(this.groupBox_step3);
             this.Controls.Add(this.groupBox_step2);
             this.Controls.Add(this.groupBox_step1);
-            this.Name = "mainMenu";
+            this.Name = "Form_mainMenu";
             this.Text = "DITZY MAIN MENU";
             this.Load += new System.EventHandler(this.mainMenu_Load);
             this.groupBox_step1.ResumeLayout(false);
@@ -463,6 +471,7 @@
         private System.Windows.Forms.Button button_startGame;
         private System.Windows.Forms.Button button_viewHistory;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_historyNote;
     }
 }
 
