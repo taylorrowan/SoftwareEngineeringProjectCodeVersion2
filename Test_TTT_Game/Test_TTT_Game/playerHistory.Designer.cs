@@ -123,7 +123,11 @@
             this.Controls.Add(this.button_backToMenuFrmHistory);
             this.Controls.Add(this.groupBox_history_playerInfo);
             this.Controls.Add(this.groupBox_historySearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_playerHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DITZY PLAYER HISTORY";
             this.groupBox_historySearch.ResumeLayout(false);
             this.groupBox_historySearch.PerformLayout();

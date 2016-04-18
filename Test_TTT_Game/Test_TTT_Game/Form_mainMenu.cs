@@ -108,6 +108,8 @@ namespace Test_TTT_Game
             comboBox_player1Stone.Text = "Blue";
             comboBox_player2Stone.Text = "Red";
             comboBox_player2Stone.Enabled = false;
+
+            //getPlayer();
         }
 
         private void checkBox_player1GoesFirst_CheckedChanged(object sender, EventArgs e)
@@ -250,9 +252,6 @@ namespace Test_TTT_Game
 
                             MessageBox.Show("\"" + textBox_playerName.Text + "\" is created sucessfully!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             textBox_playerName.Text = "";
-                            //Form2 mainfrm = new Form2();
-                            //mainfrm.Show();
-                            //this.Close();
                             return;
                         }
                     }
@@ -264,6 +263,39 @@ namespace Test_TTT_Game
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void getPlayer()  // Suppose to populate comboBox_playerName... but doesn't work
+        {
+            comboBox_player1Name.Items.Clear();
+            comboBox_player2Name.Items.Clear();
+            string name;
+            //start checking if user exists
+            XmlDocument xml = new XmlDocument();
+            xml.Load("playerDatabase.xml");
+
+            XmlNodeList xnlist = xml.SelectNodes("Users/User");
+
+            foreach (XmlNode xn in xnlist)
+            {
+                name = xn["Name"].InnerText;
+                if (name != "")
+
+                    comboBox_player1Name.Items.Add(name);
+                //cmbPlayer2.Items.Add(name);
+
+            }
+            foreach (XmlNode xn in xnlist)
+            {
+                name = xn["Name"].InnerText;
+                if (name != "")
+
+                    // cmbPlayer1.Items.Add(name);
+                    comboBox_player2Name.Items.Add(name);
+
+            }
+            comboBox_player1Name.SelectedIndex = 1;
+            comboBox_player2Name.SelectedIndex = 2;
         }
     }
 }

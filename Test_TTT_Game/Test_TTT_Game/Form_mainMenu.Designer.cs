@@ -83,6 +83,7 @@
             // 
             // textBox_playerName
             // 
+            this.textBox_playerName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox_playerName.Location = new System.Drawing.Point(29, 60);
             this.textBox_playerName.Name = "textBox_playerName";
             this.textBox_playerName.Size = new System.Drawing.Size(143, 20);
@@ -121,6 +122,7 @@
             // 
             // comboBox_player1Name
             // 
+            this.comboBox_player1Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player1Name.FormattingEnabled = true;
             this.comboBox_player1Name.Location = new System.Drawing.Point(27, 51);
             this.comboBox_player1Name.Name = "comboBox_player1Name";
@@ -129,6 +131,7 @@
             // 
             // comboBox_player2Name
             // 
+            this.comboBox_player2Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player2Name.FormattingEnabled = true;
             this.comboBox_player2Name.Location = new System.Drawing.Point(27, 103);
             this.comboBox_player2Name.Name = "comboBox_player2Name";
@@ -177,6 +180,7 @@
             // 
             // comboBox_player1Stone
             // 
+            this.comboBox_player1Stone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player1Stone.FormattingEnabled = true;
             this.comboBox_player1Stone.Items.AddRange(new object[] {
             "Blue",
@@ -189,6 +193,7 @@
             // 
             // comboBox_player2Stone
             // 
+            this.comboBox_player2Stone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player2Stone.FormattingEnabled = true;
             this.comboBox_player2Stone.Items.AddRange(new object[] {
             "Blue",
@@ -419,7 +424,11 @@
             this.Controls.Add(this.groupBox_step3);
             this.Controls.Add(this.groupBox_step2);
             this.Controls.Add(this.groupBox_step1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_mainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DITZY MAIN MENU";
             this.Load += new System.EventHandler(this.mainMenu_Load);
             this.groupBox_step1.ResumeLayout(false);

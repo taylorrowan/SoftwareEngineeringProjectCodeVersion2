@@ -759,7 +759,11 @@
             this.Controls.Add(this.button_backToMenuFrmBoard);
             this.Controls.Add(this.button_playAgain);
             this.Controls.Add(this.panel_gameBoard);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_gameBoard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DITZY GAME BOARD";
             this.panel_gameBoard.ResumeLayout(false);
             this.panel_gameBoard.PerformLayout();
