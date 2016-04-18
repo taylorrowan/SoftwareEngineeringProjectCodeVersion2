@@ -109,7 +109,7 @@ namespace Test_TTT_Game
             comboBox_player2Stone.Text = "Red";
             comboBox_player2Stone.Enabled = false;
 
-            //getPlayer();
+            getPlayer();
         }
 
         private void checkBox_player1GoesFirst_CheckedChanged(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace Test_TTT_Game
             }
         }
 
-        private void getPlayer()  // Suppose to populate comboBox_playerName... but doesn't work
+        private void getPlayer() 
         {
             comboBox_player1Name.Items.Clear();
             comboBox_player2Name.Items.Clear();

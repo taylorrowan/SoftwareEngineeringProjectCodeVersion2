@@ -119,4 +119,28 @@
     <Loss>0</Loss>
     <Tie>0</Tie>
   </User>
+  <User>
+    <Name>MING</Name>
+    <Win>0</Win>
+    <Loss>0</Loss>
+    <Tie>0</Tie>
+  </User>
+  <User>
+    <Name>JACK</Name>
+    <Win>0</Win>
+    <Loss>0</Loss>
+    <Tie>0</Tie>
+  </User>
+  <User>
+    <Name>JACK1</Name>
+    <Win>0</Win>
+    <Loss>0</Loss>
+    <Tie>0</Tie>
+  </User>
+  <User>
+    <Name>JACK2</Name>
+    <Win>0</Win>
+    <Loss>0</Loss>
+    <Tie>0</Tie>
+  </User>
 </Users>
