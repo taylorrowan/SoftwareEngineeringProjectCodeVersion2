@@ -235,7 +235,7 @@ namespace Test_TTT_Game
                     XmlDocument xml = new XmlDocument();
                     xml.Load("playerDatabase.xml");
 
-                    XmlNodeList xnlist = xml.SelectNodes("Users/User"); // This is not selecting all the nodes to add to the list, it's only selecting the 1st one
+                    XmlNodeList xnlist = xml.SelectNodes("/Users/User"); // This is not selecting all the nodes to add to the list, it's only selecting the 1st one
 
                     foreach (XmlNode xn in xnlist)
                     {
@@ -274,7 +274,7 @@ namespace Test_TTT_Game
             XmlDocument xml = new XmlDocument();
             xml.Load("playerDatabase.xml");
 
-            XmlNodeList xnlist = xml.SelectNodes("Users/User");
+            XmlNodeList xnlist = xml.SelectNodes("/Users/User");
 
             foreach (XmlNode xn in xnlist)
             {

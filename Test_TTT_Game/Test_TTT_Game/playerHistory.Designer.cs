@@ -61,6 +61,7 @@
             this.button_historySearch_viewAll.TabIndex = 3;
             this.button_historySearch_viewAll.Text = "View All";
             this.button_historySearch_viewAll.UseVisualStyleBackColor = true;
+            this.button_historySearch_viewAll.Click += new System.EventHandler(this.button_historySearch_viewAll_Click_1);
             // 
             // button_historySearch_search
             // 
@@ -70,6 +71,7 @@
             this.button_historySearch_search.TabIndex = 2;
             this.button_historySearch_search.Text = "Search";
             this.button_historySearch_search.UseVisualStyleBackColor = true;
+            this.button_historySearch_search.Click += new System.EventHandler(this.button_historySearch_search_Click_1);
             // 
             // textBox_historySearch_name
             // 
@@ -77,6 +79,7 @@
             this.textBox_historySearch_name.Name = "textBox_historySearch_name";
             this.textBox_historySearch_name.Size = new System.Drawing.Size(159, 20);
             this.textBox_historySearch_name.TabIndex = 1;
+            this.textBox_historySearch_name.TextChanged += new System.EventHandler(this.textBox_historySearch_name_TextChanged);
             // 
             // label_historySearch_name
             // 
