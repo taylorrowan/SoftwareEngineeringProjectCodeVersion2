@@ -231,11 +231,12 @@ namespace Test_TTT_Game
                 if (textBox_playerName.Text != "")
                 {
                     string name;
+                    bool nameExist = false;
                     //start checking if user exists
                     XmlDocument xml = new XmlDocument();
                     xml.Load("playerDatabase.xml");
 
-                    XmlNodeList xnlist = xml.SelectNodes("/Users/User"); // This is not selecting all the nodes to add to the list, it's only selecting the 1st one
+                    XmlNodeList xnlist = xml.SelectNodes("/Users/User");
 
                     foreach (XmlNode xn in xnlist)
                     {
@@ -244,25 +245,27 @@ namespace Test_TTT_Game
                         {
                             MessageBox.Show("\"" + textBox_playerName.Text + "\" is taken! Please choose another name.", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             textBox_playerName.Text = "";
-                            return;
+                            nameExist = true;
                         }
-                        else
-                        {
-                            insertNode(textBox_playerName.Text);
+                    }
 
-                            MessageBox.Show("\"" + textBox_playerName.Text + "\" is created sucessfully!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            textBox_playerName.Text = "";
-                            return;
-                        }
+                    if (nameExist == false)
+                    {
+                        insertNode(textBox_playerName.Text);
+
+                        MessageBox.Show("\"" + textBox_playerName.Text + "\" is created sucessfully!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        textBox_playerName.Text = "";
                     }
                 }
                 else
-                    MessageBox.Show("The name entered is unexceptable!  Please choose another name.", "Validation");
+                    MessageBox.Show("The name entered is unacceptable!  Please choose another name.", "Validation");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            getPlayer();
         }
 
         private void getPlayer() 
@@ -294,8 +297,8 @@ namespace Test_TTT_Game
                     comboBox_player2Name.Items.Add(name);
 
             }
-            comboBox_player1Name.SelectedIndex = 1;
-            comboBox_player2Name.SelectedIndex = 2;
+            comboBox_player1Name.SelectedIndex = 0;
+            comboBox_player2Name.SelectedIndex = 1;
         }
     }
 }

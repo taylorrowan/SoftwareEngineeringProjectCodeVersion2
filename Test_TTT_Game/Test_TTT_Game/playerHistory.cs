@@ -39,6 +39,8 @@ namespace Test_TTT_Game
 
         private void button_historySearch_search_Click_1(object sender, EventArgs e)
         {
+            richTextBox_history_playerInfo.Text = "";
+
             string player = "";
             double win1, loss1, tie1, total1;
             bool found = false;
@@ -57,7 +59,7 @@ namespace Test_TTT_Game
                         richTextBox_history_playerInfo.AppendText("Player : " + player + "\n");
                         richTextBox_history_playerInfo.AppendText("Won   : " + xn["Win"].InnerText.ToString() + "\n");
                         richTextBox_history_playerInfo.AppendText("Loss   : " + xn["Loss"].InnerText.ToString() + "\n");
-                        richTextBox_history_playerInfo.AppendText("Draw  : " + xn["Tide"].InnerText.ToString() + "\n");
+                        richTextBox_history_playerInfo.AppendText("Draw  : " + xn["Tie"].InnerText.ToString() + "\n");
                         win1 = System.Convert.ToDouble(xn["Win"].InnerText.ToString());
                         loss1 = System.Convert.ToDouble(xn["Loss"].InnerText.ToString());
                         tie1 = System.Convert.ToDouble(xn["Tie"].InnerText.ToString());

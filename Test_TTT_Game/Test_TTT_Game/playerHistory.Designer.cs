@@ -75,6 +75,7 @@
             // 
             // textBox_historySearch_name
             // 
+            this.textBox_historySearch_name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox_historySearch_name.Location = new System.Drawing.Point(85, 23);
             this.textBox_historySearch_name.Name = "textBox_historySearch_name";
             this.textBox_historySearch_name.Size = new System.Drawing.Size(159, 20);
