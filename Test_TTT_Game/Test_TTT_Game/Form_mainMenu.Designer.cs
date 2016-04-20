@@ -183,7 +183,7 @@
             this.comboBox_player1Stone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player1Stone.FormattingEnabled = true;
             this.comboBox_player1Stone.Items.AddRange(new object[] {
-            "Blue",
+            "Green",
             "Red",
             "Yellow"});
             this.comboBox_player1Stone.Location = new System.Drawing.Point(22, 46);
@@ -196,9 +196,10 @@
             this.comboBox_player2Stone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player2Stone.FormattingEnabled = true;
             this.comboBox_player2Stone.Items.AddRange(new object[] {
-            "Blue",
+            "Green",
             "Red",
-            "Yellow"});
+            "Yellow",
+            "..."});
             this.comboBox_player2Stone.Location = new System.Drawing.Point(22, 95);
             this.comboBox_player2Stone.Name = "comboBox_player2Stone";
             this.comboBox_player2Stone.Size = new System.Drawing.Size(133, 21);

@@ -37,6 +37,7 @@ namespace Test_TTT_Game
             {
                 checkBox_player2Guest.Enabled = false;
                 comboBox_player2Name.Enabled = false;
+                comboBox_player2Stone.Text = "...";
                 comboBox_player2Stone.Enabled = false;
                 label_compStone.Enabled = true;
                 checkBox_diffEasy.Enabled = true;
@@ -72,7 +73,7 @@ namespace Test_TTT_Game
             if (checkBox_player1Guest.Checked)
             {
                 comboBox_player1Name.Enabled = false;
-                comboBox_player1Name.Text = "";
+                comboBox_player1Name.Text = "...";
             }
             else 
             {
@@ -85,7 +86,7 @@ namespace Test_TTT_Game
             if (checkBox_player2Guest.Checked)
             {
                 comboBox_player2Name.Enabled = false;
-                comboBox_player2Name.Text = "";
+                comboBox_player2Name.Text = "...";
             }
             else
             {
@@ -105,8 +106,8 @@ namespace Test_TTT_Game
             checkBox_diffEasy.Checked = true;
             comboBox_player2Name.Enabled = false;
             checkBox_player2Guest.Enabled = false;
-            comboBox_player1Stone.Text = "Blue";
-            comboBox_player2Stone.Text = "Red";
+            comboBox_player1Stone.Text = "Green";
+            comboBox_player2Stone.Text = "...";
             comboBox_player2Stone.Enabled = false;
 
             getPlayer();
@@ -138,9 +139,13 @@ namespace Test_TTT_Game
 
         private void button_startGame_Click(object sender, EventArgs e)
         {
-            if (comboBox_player1Stone.Text == comboBox_player2Stone.Text)
+            if (comboBox_player1Name.Text == comboBox_player2Stone.Text || comboBox_player1Name.Text == "..." || comboBox_player2Name.Text == "...")
             {
-                MessageBox.Show("Please select different color stones");
+                MessageBox.Show("Please select a different player name");
+            }
+            else if (comboBox_player1Stone.Text == comboBox_player2Stone.Text || comboBox_player2Stone.Text == "...")
+            {
+                MessageBox.Show("Please select a different stone color");
             }
             else if (!(checkBox_diffHard.Checked || checkBox_diffMedium.Checked || checkBox_diffEasy.Checked))
             {
@@ -298,7 +303,7 @@ namespace Test_TTT_Game
 
             }
             comboBox_player1Name.SelectedIndex = 0;
-            comboBox_player2Name.SelectedIndex = 1;
+            comboBox_player2Name.SelectedIndex = 0;
         }
     }
 }
