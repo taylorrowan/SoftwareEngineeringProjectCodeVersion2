@@ -139,11 +139,11 @@ namespace Test_TTT_Game
 
         private void button_startGame_Click(object sender, EventArgs e)
         {
-            if (comboBox_player1Name.Text == comboBox_player2Stone.Text || comboBox_player1Name.Text == "..." || comboBox_player2Name.Text == "...")
+            if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.Text == "..." && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.Text == "..t." && !(checkBox_player2Guest.Checked)))
             {
                 MessageBox.Show("Please select a different player name");
             }
-            else if (comboBox_player1Stone.Text == comboBox_player2Stone.Text || comboBox_player2Stone.Text == "...")
+            else if (comboBox_player1Stone.Text == comboBox_player2Stone.Text || (comboBox_player2Stone.Text == "..." && checkBox_PvP.Checked))
             {
                 MessageBox.Show("Please select a different stone color");
             }
