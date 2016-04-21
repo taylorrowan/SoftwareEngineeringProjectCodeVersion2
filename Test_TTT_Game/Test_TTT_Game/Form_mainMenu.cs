@@ -73,7 +73,7 @@ namespace Test_TTT_Game
             if (checkBox_player1Guest.Checked)
             {
                 comboBox_player1Name.Enabled = false;
-                comboBox_player1Name.Text = "...";
+                comboBox_player1Name.Text = "Guest1";
             }
             else 
             {
@@ -86,7 +86,7 @@ namespace Test_TTT_Game
             if (checkBox_player2Guest.Checked)
             {
                 comboBox_player2Name.Enabled = false;
-                comboBox_player2Name.Text = "...";
+                comboBox_player2Name.Text = "Guest2";
             }
             else
             {
@@ -302,8 +302,8 @@ namespace Test_TTT_Game
                     comboBox_player2Name.Items.Add(name);
 
             }
-            comboBox_player1Name.SelectedIndex = 0;
-            comboBox_player2Name.SelectedIndex = 0;
+            //comboBox_player1Name.SelectedIndex = 0;
+            //comboBox_player2Name.SelectedIndex = 0;
         }
     }
 }
