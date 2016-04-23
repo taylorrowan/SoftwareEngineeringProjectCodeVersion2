@@ -24,6 +24,12 @@ namespace Test_TTT_Game
         int[,] SubResult2 = new int[4, 4]; //case 1
         int[,] SubResult3 = new int[4, 4]; //case 1
         int[,] SubResult4 = new int[4, 4]; //case 1
+        int[,] SubResult5 = new int[4, 4];
+        int[,] SubResult6 = new int[4, 4];
+        int[,] SubResult7 = new int[4, 4];
+        int[,] SubResult8 = new int[4, 4];
+        int[,] SubResult9 = new int[4, 4];
+
 
         String[,] names = new String[6, 6] {{"A1","B1","C1","D1","E1","F1"},
                                             {"A2","B2","C2","D2","E2","F2"},
@@ -88,175 +94,7 @@ namespace Test_TTT_Game
                                          {0,1,0,0},
                                          {1,0,0,0}};
 
-        /*int[,] result11 = new int[5, 5] {{1,1,1,1,1},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0}};
 
-        int[,] result12 = new int[5, 5] {{0,0,0,0,0},
-                                         {1,1,1,1,1},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0}};
-
-        int[,] result13 = new int[5, 5] {{0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {1,1,1,1,1},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0}};
-
-        int[,] result14 = new int[5, 5] {{0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {1,1,1,1,1},
-                                         {0,0,0,0,0}};
-
-        int[,] result15 = new int[5, 5] {{0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {0,0,0,0,0},
-                                         {1,1,1,1,1}};
-
-        int[,] result16 = new int[5, 5] {{1,0,0,0,0},
-                                         {0,1,0,0,0},
-                                         {0,0,1,0,0},
-                                         {0,0,0,1,0},
-                                         {0,0,0,0,1}};
-
-        int[,] result17 = new int[5, 5] {{1,0,0,0,0},
-                                         {1,0,0,0,0},
-                                         {1,0,0,0,0},
-                                         {1,0,0,0,0},
-                                         {1,0,0,0,0}};
-
-        int[,] result18 = new int[5, 5] {{0,1,0,0,0},
-                                         {0,1,0,0,0},
-                                         {0,1,0,0,0},
-                                         {0,1,0,0,0},
-                                         {0,1,0,0,0}};
-
-        int[,] result19 = new int[5, 5] {{0,0,1,0,0},
-                                         {0,0,1,0,0},
-                                         {0,0,1,0,0},
-                                         {0,0,1,0,0},
-                                         {0,0,1,0,0}};
-
-        int[,] result20 = new int[5, 5] {{0,0,0,1,0},
-                                         {0,0,0,1,0},
-                                         {0,0,0,1,0},
-                                         {0,0,0,1,0},
-                                         {0,0,0,1,0}};
-
-        int[,] result21 = new int[5, 5] {{0,0,0,0,1},
-                                         {0,0,0,0,1},
-                                         {0,0,0,0,1},
-                                         {0,0,0,0,1},
-                                         {0,0,0,0,1}};
-
-        int[,] result22 = new int[5, 5] {{0,0,0,0,1},
-                                         {0,0,0,1,0},
-                                         {0,0,1,0,0},
-                                         {0,1,0,0,0},
-                                         {1,0,0,0,0}};
-
-        int[,] result23 = new int[6, 6] {{1,1,1,1,1,1},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0}};
-
-        int[,] result24 = new int[6, 6] {{0,0,0,0,0,0},
-                                         {1,1,1,1,1,1},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0}};
-
-        int[,] result25 = new int[6, 6] {{0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {1,1,1,1,1,1},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0}};
-
-        int[,] result26 = new int[6, 6] {{0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {1,1,1,1,1,1},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0}};
-
-        int[,] result27 = new int[6, 6] {{0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {1,1,1,1,1,1},
-                                         {0,0,0,0,0,0}};
-
-        int[,] result28 = new int[6, 6] {{0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {0,0,0,0,0,0},
-                                         {1,1,1,1,1,1}};
-
-        int[,] result29 = new int[6, 6] {{1,0,0,0,0,0},
-                                         {0,1,0,0,0,0},
-                                         {0,0,1,0,0,0},
-                                         {0,0,0,1,0,0},
-                                         {0,0,0,0,1,0},
-                                         {0,0,0,0,0,1}};
-
-        int[,] result30 = new int[6, 6] {{1,0,0,0,0,0},
-                                         {1,0,0,0,0,0},
-                                         {1,0,0,0,0,0},
-                                         {1,0,0,0,0,0},
-                                         {1,0,0,0,0,0},
-                                         {1,0,0,0,0,0}};
-
-        int[,] result31 = new int[6, 6] {{0,1,0,0,0,0},
-                                         {0,1,0,0,0,0},
-                                         {0,1,0,0,0,0},
-                                         {0,1,0,0,0,0},
-                                         {0,1,0,0,0,0},
-                                         {0,1,0,0,0,0}};
-
-        int[,] result32 = new int[6, 6] {{0,0,1,0,0,0},
-                                         {0,0,1,0,0,0},
-                                         {0,0,1,0,0,0},
-                                         {0,0,1,0,0,0},
-                                         {0,0,1,0,0,0},
-                                         {0,0,1,0,0,0}};
-
-        int[,] result33 = new int[6, 6] {{0,0,0,1,0,0},
-                                         {0,0,0,1,0,0},
-                                         {0,0,0,1,0,0},
-                                         {0,0,0,1,0,0},
-                                         {0,0,0,1,0,0},
-                                         {0,0,0,1,0,0}};
-
-        int[,] result34 = new int[6, 6] {{0,0,0,0,1,0},
-                                         {0,0,0,0,1,0},
-                                         {0,0,0,0,1,0},
-                                         {0,0,0,0,1,0},
-                                         {0,0,0,0,1,0},
-                                         {0,0,0,0,1,0}};
-
-        int[,] result35 = new int[6, 6] {{0,0,0,0,0,1},
-                                         {0,0,0,0,0,1},
-                                         {0,0,0,0,0,1},
-                                         {0,0,0,0,0,1},
-                                         {0,0,0,0,0,1},
-                                         {0,0,0,0,0,1}};
-
-        int[,] result36 = new int[6, 6] {{0,0,0,0,0,1},
-                                         {0,0,0,0,1,0},
-                                         {0,0,0,1,0,0},
-                                         {0,0,1,0,0,0},
-                                         {0,1,0,0,0,0},
-                                         {1,0,0,0,0,0}};*/
 
 
         private void fillMatrix()
@@ -347,6 +185,7 @@ namespace Test_TTT_Game
 
         private void CompareMatrix(string name, int value)
         {
+
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
@@ -355,52 +194,280 @@ namespace Test_TTT_Game
                         result[i, j] = value;
                 }
             }
+            // // Orginal Code bellow
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    for (int j = 0; j < 6; j++)
+            //    {
+            //        if (name == names[i, j])
+            //            result[i, j] = value;
+            //    }
+            //}
         }
 
         private void CopyResults()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 6; j++)
                 {
                     if (i == 0 && j == 0)
-
-                        // MessageBox.Show(result[i,j].ToString());
                         SubResult1[i, j] = result[i, j];
-                    else if (i == 4 && j == 4)
-                        SubResult4[i - 1, j - 1] = result[i, j];
-                    else if (i == 0 && j == 4)
-                        SubResult2[i, j - 1] = result[i, j];
-                    else if (i == 4 && j == 0)
-                        SubResult3[i - 1, j] = result[i, j];
-                    else if (i == 0 && (j >= 1 && j <= 3))
+                    else if (i == 0 && j == 1)
+                    {
+						SubResult1[i,j] = result[i,j];
+                        SubResult2[i,j-1] = result[i,j];
+                    }
+                    else if (i == 0 && j == 2)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+                    }
+					else if (i == 0 && j == 3)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+                    }
+					else if (i == 0 && j == 4)
+                    {
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+                    }
+					else if (i == 0 && j == 5)
+                    {
+						SubResult3[i,j-2] = result[i,j];
+                    }
+						// new row
+					else if (i == 1 && j == 0)
                     {
                         SubResult1[i, j] = result[i, j];
-                        SubResult2[i, j - 1] = result[i, j];
+						SubResult4[i-1, j] = result[i, j];
                     }
-                    else if (i == 4 && (j >= 1 && j <= 3))
+                    else if (i == 1 && j == 1)
                     {
-                        SubResult3[i - 1, j] = result[i, j];
-                        SubResult4[i - 1, j - 1] = result[i, j];
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
                     }
-                    else if (j == 0 && (i >= 1 && i <= 3))
+					else if (i == 1 && j == 2)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+                    }
+					else if (i == 1 && j == 3)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+                    }
+					else if (i == 1 && j == 4)
+                    {
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+                    }
+					else if (i == 1 && j == 5)
+                    {
+						SubResult3[i,j-2] = result[i,j];
+						SubResult6[i-1, j-2] = result[i,j];
+                    }
+				// 3rd Row
+					else if (i == 2 && j == 0)
                     {
                         SubResult1[i, j] = result[i, j];
-                        SubResult3[i - 1, j] = result[i, j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult7[i-2, j] = result[i,j];
                     }
-                    else if (j == 4 && (i >= 1 && i <= 3))
+                    else if (i == 2 && j == 1)
                     {
-                        SubResult2[i, j - 1] = result[i, j];
-                        SubResult4[i - 1, j - 1] = result[i, j];
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+                    }
+					else if (i == 2 && j == 2)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 2 && j == 3)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 2 && j == 4)
+                    {
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 2 && j == 5)
+                    {
+						SubResult3[i,j-2] = result[i,j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+				// 4thRow
+					else if (i == 3 && j == 0)
+                    {
+                        SubResult1[i, j] = result[i, j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult7[i-2, j] = result[i,j];
+                    }
+                    else if (i == 3 && j == 1)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+                    }
+					else if (i == 3 && j == 2)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 3 && j == 3)
+                    {
+						SubResult1[i,j] = result[i,j];
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 3 && j == 4)
+                    {
+						SubResult2[i,j-1] = result[i,j];
+						SubResult3[i,j-2] = result[i,j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 3 && j == 5)
+                    {
+						SubResult3[i,j-2] = result[i,j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+				// 5th Row
+					else if (i == 4 && j == 0)
+                    {
+						SubResult4[i-1, j] = result[i, j];
+						SubResult7[i-2, j] = result[i,j];
+                    }
+                    else if (i == 4 && j == 1)
+                    {
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+                    }
+					else if (i == 4 && j == 2)
+                    {
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 4 && j == 3)
+                    {
+						SubResult4[i-1, j] = result[i, j];
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 4 && j == 4)
+                    {
+						SubResult5[i-1, j-1] = result[i, j];
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 4 && j == 5)
+                    {
+						SubResult6[i-1, j-2] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+				// 6th and last row
+					else if (i == 5 && j == 0)
+                    {
+						SubResult7[i-2, j] = result[i,j];
+                    }
+                    else if (i == 5 && j == 1)
+                    {
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+                    }
+					else if (i == 5 && j == 2)
+                    {
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 5 && j == 3)
+                    {
+						SubResult7[i-2, j] = result[i,j];
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 5 && j == 4)
+                    {
+						SubResult8[i-2, j-1] = result[i,j];
+						SubResult9[i-2, j-2] = result[i,j];
+                    }
+					else if (i == 5 && j == 5)
+                    {
+                        SubResult9[i - 2, j - 2] = result[i, j];
                     }
                     else
-                    {
-                        SubResult1[i, j] = result[i, j];
-                        SubResult2[i, j - 1] = result[i, j];
-                        SubResult3[i - 1, j] = result[i, j];
-                        SubResult4[i - 1, j - 1] = result[i, j];
-                    }
-
+                    {}
                 }
 
             }
@@ -583,6 +650,11 @@ namespace Test_TTT_Game
             CheckSubResults2(SubResult2);
             CheckSubResults3(SubResult3);
             CheckSubResults4(SubResult4);
+            CheckSubResults5(SubResult5);
+            CheckSubResults6(SubResult6);
+            CheckSubResults7(SubResult7);
+            CheckSubResults8(SubResult8);
+            CheckSubResults9(SubResult9);
             //check winner logistic in this   <==========NEED HELP========================>
 
             if (isWinner)
