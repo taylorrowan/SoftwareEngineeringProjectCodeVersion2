@@ -30,6 +30,8 @@ namespace Test_TTT_Game
         int[,] SubResult8 = new int[4, 4];
         int[,] SubResult9 = new int[4, 4];
 
+        int player1Points = 0;
+        int player2Points = 0;
 
         String[,] names = new String[6, 6] {{"A1","B1","C1","D1","E1","F1"},
                                             {"A2","B2","C2","D2","E2","F2"},
@@ -105,7 +107,7 @@ namespace Test_TTT_Game
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    result[i, j] = random.Next(2, 100000);
+                    result[i, j] = random.Next(2, 3);
                 }
 
             }
@@ -196,6 +198,8 @@ namespace Test_TTT_Game
                         result[i, j] = value;
                 }
             }
+            //Test to see the value of value
+            //MessageBox.Show(value.ToString());
         }
 
         // This function is taking the values in the 6x6 board called result and placing them in the 9 4x4 boards called
@@ -463,8 +467,9 @@ namespace Test_TTT_Game
                     }
                     else
                     {}
+                    MessageBox.Show(result[i, j].ToString());
                 }
-
+               
             }
         } // end copy results
 
@@ -509,6 +514,125 @@ namespace Test_TTT_Game
             }
             catch { }
         }//end disable button
+
+        private void CountSubResultsAll(int[,] temp)
+        {
+            if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3])
+            {
+                if (temp[0,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0,0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3])
+            {
+                if (temp[1,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[1,0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
+            {
+                if (temp[2,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[2,0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3])
+            {
+                if (temp[3,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[3,0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            //vertical line equal
+            if (temp[0, 0] == temp[1, 0] && temp[1, 1] == temp[2, 0] && temp[2, 0] == temp[3, 0])
+            {
+                if (temp[0,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0,0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1])
+            {
+                if (temp[0,1] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0,1] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
+                {
+                if (temp[0,2] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0,2] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3])
+                {
+                if (temp[0,3] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0,3] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            //diagonal line
+            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3] && (!A1.Enabled))
+                {
+                if (temp[0,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0,0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            else if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3] && (!A4.Enabled))
+            {
+                if (temp[0, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+
+            label_scoreboardP1_totalLabel.Text = "Total Points = " + player1Points;
+        }
+
 
         private void CheckSubResults1(int[,] temp)
         {
@@ -633,11 +757,11 @@ namespace Test_TTT_Game
 
             //check winner logistic in this  <==========NEED HELP========================>
 
-
-            CheckSubResults1(SubResult1);
-            CheckSubResults2(SubResult2);
-            CheckSubResults3(SubResult3);
-            CheckSubResults4(SubResult4);
+            CountSubResultsAll(SubResult1);
+            //CheckSubResults1(SubResult1);
+            //CheckSubResults2(SubResult2);
+            //CheckSubResults3(SubResult3);
+          //  CheckSubResults4(SubResult4);
            // CheckSubResults5(SubResult5);
             //CheckSubResults6(SubResult6);
             //CheckSubResults7(SubResult7);
