@@ -183,6 +183,8 @@ namespace Test_TTT_Game
             catch { }
         }
 
+
+        // This function is assigning a 1(one) or 0(zero) to the overall board called result, which is 6X6
         private void CompareMatrix(string name, int value)
         {
 
@@ -194,17 +196,10 @@ namespace Test_TTT_Game
                         result[i, j] = value;
                 }
             }
-            // // Orginal Code bellow
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    for (int j = 0; j < 6; j++)
-            //    {
-            //        if (name == names[i, j])
-            //            result[i, j] = value;
-            //    }
-            //}
         }
 
+        // This function is taking the values in the 6x6 board called result and placing them in the 9 4x4 boards called
+        // SubResult1 through SubResult9.
         private void CopyResults()
         {
             for (int i = 0; i < 6; i++)
@@ -475,11 +470,7 @@ namespace Test_TTT_Game
 
         private void button_click(object sender, EventArgs e)
         {
-            //SoundPlayer player = new SoundPlayer(Properties.Resources.click);
-            //player.Play();
-            /*button2.Enabled = false;
-            button3.Enabled = false;*/
-            //cast object sender as a button
+            
             Button b = (Button)sender;
 
             //set associativity when button is pressed
@@ -489,17 +480,14 @@ namespace Test_TTT_Game
                 b.Text = "X"; //player 2
                 CompareMatrix(b.Name, 1);
                 CopyResults();
-                //richTextBox1.AppendText(b.Name);
-                //b.BackgroundImage = ((System.Drawing.Image) (Properties.Resources.CHUX));
+                
             }
             else
             {
-                //b.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.CHU_O));
                 b.Text = "O"; //player 1
                 b.ForeColor = Color.Red;
                 CompareMatrix(b.Name, 0);
                 CopyResults();
-                //richTextBox2.AppendText(b.Name);
             }
             turn = !turn;
             b.Enabled = false;
@@ -650,11 +638,11 @@ namespace Test_TTT_Game
             CheckSubResults2(SubResult2);
             CheckSubResults3(SubResult3);
             CheckSubResults4(SubResult4);
-            CheckSubResults5(SubResult5);
-            CheckSubResults6(SubResult6);
-            CheckSubResults7(SubResult7);
-            CheckSubResults8(SubResult8);
-            CheckSubResults9(SubResult9);
+           // CheckSubResults5(SubResult5);
+            //CheckSubResults6(SubResult6);
+            //CheckSubResults7(SubResult7);
+            //CheckSubResults8(SubResult8);
+            //CheckSubResults9(SubResult9);
             //check winner logistic in this   <==========NEED HELP========================>
 
             if (isWinner)
