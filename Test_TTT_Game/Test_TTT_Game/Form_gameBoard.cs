@@ -113,6 +113,61 @@ namespace Test_TTT_Game
             }
         }
 
+        private void checkBoard()
+        {
+
+            bool temp = false;
+            int counter = 0;
+            //filling the matrix by default : 2 for empty, 1 and 0 for players
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (result[i, j] == 2)
+                    {
+
+                    }
+                    else
+                    {
+                        counter++;
+                    }
+                }
+
+            }
+
+            if (counter == 36)
+            {
+                //To test the values of a SubResult I select
+                //for (int i=0; i<4 ; i++)
+                //{
+                //    for (int j = 0; j < 4; j++)
+                //    {
+                //        MessageBox.Show(SubResult3[i,j].ToString());
+                //    }
+                //}
+                CountSubResultsAll(SubResult1);
+                countPointsOfHoro(SubResult2);
+                countPointsOfHoro(SubResult3);
+                countPointsOfPartialHoro(SubResult7);
+                countPointsOfPartialHoro(SubResult8);
+                countPointsOfPartialHoro(SubResult9);
+                countPointsOfVert(SubResult4);
+                countPointsOfVert(SubResult7);
+                countPointsOfPartialVert(SubResult3);
+                countPointsOfPartialVert(SubResult6);
+                countPointsOfPartialVert(SubResult9);
+                countPointsOfDiagonal(SubResult2);
+                countPointsOfDiagonal(SubResult3);
+                countPointsOfDiagonal(SubResult4);
+                countPointsOfDiagonal(SubResult5);
+                countPointsOfDiagonal(SubResult6);
+                countPointsOfDiagonal(SubResult7);
+                countPointsOfDiagonal(SubResult8);
+                countPointsOfDiagonal(SubResult9);
+            }
+        }
+
+
         public Form_gameBoard()
         {
             InitializeComponent();
@@ -467,7 +522,8 @@ namespace Test_TTT_Game
                     }
                     else
                     {}
-                    MessageBox.Show(result[i, j].ToString());
+                    // This message box is used to check if each value is correct on board after each selection, takes time.
+                   // MessageBox.Show(result[i, j].ToString());
                 }
                
             }
@@ -485,6 +541,7 @@ namespace Test_TTT_Game
                 b.Text = "X"; //player 2
                 CompareMatrix(b.Name, 1);
                 CopyResults();
+               
                 
             }
             else
@@ -493,12 +550,18 @@ namespace Test_TTT_Game
                 b.ForeColor = Color.Red;
                 CompareMatrix(b.Name, 0);
                 CopyResults();
+                
             }
             turn = !turn;
             b.Enabled = false;
 
             turnCount++;
-            Check_For_Winner();
+            // checkboard will check if every place on the board is selected, and then run an endgame counter
+            checkBoard();
+            // Will update the scores of the two players
+            adjustScore();
+            // Check for winner function finds 4 in a row and selects winner
+            //Check_For_Winner();
         }
 
         private void DisableButtons()
@@ -528,7 +591,7 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3])
+            if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3])
             {
                 if (temp[1,0] == 0)
                 {
@@ -539,7 +602,7 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
+            if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
             {
                 if (temp[2,0] == 0)
                 {
@@ -550,7 +613,7 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3])
+            if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3])
             {
                 if (temp[3,0] == 0)
                 {
@@ -562,7 +625,7 @@ namespace Test_TTT_Game
                 }
             }
             //vertical line equal
-            if (temp[0, 0] == temp[1, 0] && temp[1, 1] == temp[2, 0] && temp[2, 0] == temp[3, 0])
+            if (temp[0, 0] == temp[1, 0] && temp[1, 0] == temp[2, 0] && temp[2, 0] == temp[3, 0])
             {
                 if (temp[0,0] == 0)
                 {
@@ -573,7 +636,7 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1])
+            if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1])
             {
                 if (temp[0,1] == 0)
                 {
@@ -584,7 +647,7 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
+            if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
                 {
                 if (temp[0,2] == 0)
                 {
@@ -595,7 +658,7 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3])
+            if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3])
                 {
                 if (temp[0,3] == 0)
                 {
@@ -607,7 +670,7 @@ namespace Test_TTT_Game
                 }
             }
             //diagonal line
-            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3] && (!A1.Enabled))
+            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3])
                 {
                 if (temp[0,0] == 0)
                 {
@@ -618,7 +681,23 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
-            else if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3] && (!A4.Enabled))
+            if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3])
+            {
+                if (temp[3,0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[3, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+        }
+
+        //for counting SubResults 4 and 7
+        private void countPointsOfHoro(int[,] temp)
+        {
+            if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3])
             {
                 if (temp[0, 0] == 0)
                 {
@@ -629,8 +708,172 @@ namespace Test_TTT_Game
                     player2Points++;
                 }
             }
+            if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3])
+            {
+                if (temp[1, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[1, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
+            {
+                if (temp[2, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[2, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3])
+            {
+                if (temp[3, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[3, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+        }
 
+        //for counting parts of 3,6, and 9
+        private void countPointsOfPartialHoro(int[,] temp)
+        {
+            if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
+            {
+                if (temp[2, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[2, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3])
+            {
+                if (temp[3, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[3, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+        }
+
+        private void countPointsOfVert(int[,] temp)
+        {
+            if (temp[0, 0] == temp[1, 0] && temp[1, 0] == temp[2, 0] && temp[2, 0] == temp[3, 0])
+            {
+                if (temp[0, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1])
+            {
+                if (temp[0, 1] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 1] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
+            {
+                if (temp[0, 2] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 2] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3])
+            {
+                if (temp[0, 3] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 3] == 1)
+                {
+                    player2Points++;
+                }
+            }
+        }
+
+        private void countPointsOfPartialVert(int[,] temp)
+        {
+            if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
+            {
+                if (temp[0, 2] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 2] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3])
+            {
+                if (temp[0, 3] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 3] == 1)
+                {
+                    player2Points++;
+                }
+            }
+        }
+
+        private void countPointsOfDiagonal(int[,] temp)
+        {
+            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3])
+            {
+                if (temp[0, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[0, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+            if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3])
+            {
+                if (temp[3, 0] == 0)
+                {
+                    player1Points++;
+                }
+                else if (temp[3, 0] == 1)
+                {
+                    player2Points++;
+                }
+            }
+        }
+
+        private void adjustScore()
+        {
             label_scoreboardP1_totalLabel.Text = "Total Points = " + player1Points;
+            label_scoreboardP2_totalLabel.Text = "Total Points = " + player2Points;
         }
 
 
