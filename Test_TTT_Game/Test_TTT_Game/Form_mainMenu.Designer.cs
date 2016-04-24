@@ -128,6 +128,7 @@
             this.comboBox_player1Name.Name = "comboBox_player1Name";
             this.comboBox_player1Name.Size = new System.Drawing.Size(143, 21);
             this.comboBox_player1Name.TabIndex = 9;
+            this.comboBox_player1Name.SelectedIndexChanged += new System.EventHandler(this.comboBox_player1Name_SelectedIndexChanged);
             // 
             // comboBox_player2Name
             // 

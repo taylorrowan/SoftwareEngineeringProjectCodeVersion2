@@ -115,27 +115,29 @@ namespace Test_TTT_Game
 
         private void checkBoard()
         {
+            player1Points = 0;
+            player2Points = 0;
 
-            bool temp = false;
-            int counter = 0;
-            //filling the matrix by default : 2 for empty, 1 and 0 for players
-            for (int i = 0; i < 6; i++)
-            {
-                for (int j = 0; j < 6; j++)
-                {
-                    if (result[i, j] == 2)
-                    {
+            //int counter = 0;
+            //// counting how many buttons are still showing two.
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    for (int j = 0; j < 6; j++)
+            //    {
+            //        if (result[i, j] == 2)
+            //        {
 
-                    }
-                    else
-                    {
-                        counter++;
-                    }
-                }
+            //        }
+            //        else
+            //        {
+            //            counter++;
+            //        }
+            //    }
 
-            }
+            //}
 
-            if (counter == 36)
+            
+            if (true)
             {
                 //To test the values of a SubResult I select
                 //for (int i=0; i<4 ; i++)
