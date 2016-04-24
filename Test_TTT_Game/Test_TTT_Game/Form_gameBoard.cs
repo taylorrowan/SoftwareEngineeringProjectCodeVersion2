@@ -494,6 +494,8 @@ namespace Test_TTT_Game
             checkBoard();
             // Will update the scores of the two players
             adjustScore();
+            // Will display whose turn it is
+            playerTurn();
             // Check for winner function finds 4 in a row and selects winner
             //Check_For_Winner();
         }
@@ -810,5 +812,16 @@ namespace Test_TTT_Game
             label_scoreboardP2_totalLabel.Text = "Total Points = " + player2Points;
         }
 
+        private void playerTurn()
+        {
+            if (turn)
+            {
+                label_whoseTurn.Text = "Player 2's turn ";
+            }
+            else
+            {
+                label_whoseTurn.Text = "Player 1's turn ";
+            }
+        }
     }
 }
