@@ -41,62 +41,6 @@ namespace Test_TTT_Game
                                             {"A6","B6","C6","D6","E6","F6"}};
 
 
-
-        /// <summary>
-        /// this section reserved for all possiblities where this is a winner
-        /// </summary>
-        //case 1
-        int[,] result1 = new int[4, 4] {{1,1,1,1},
-                                        {0,0,0,0},
-                                        {0,0,0,0},
-                                        {0,0,0,0}};
-        //case 2
-        int[,] result2 = new int[4, 4] {{0,0,0,0},
-                                        {1,1,1,1},
-                                        {0,0,0,0},
-                                        {0,0,0,0}};
-        //case 3
-        int[,] result3 = new int[4, 4] {{0,0,0,0},
-                                        {0,0,0,0},
-                                        {1,1,1,1},
-                                        {0,0,0,0}};
-        //case 4
-        int[,] result4 = new int[4, 4] {{0,0,0,0},
-                                        {0,0,0,0},
-                                        {0,0,0,0},
-                                        {1,1,1,1}};
-        //case 5
-        int[,] result5 = new int[4, 4] {{1,0,0,0},
-                                        {0,1,0,0},
-                                        {0,0,1,0},
-                                        {0,0,0,1}};
-        //case 6
-        int[,] result6 = new int[4, 4] {{1,0,0,0},
-                                        {1,0,0,0},
-                                        {1,0,0,0},
-                                        {1,0,0,0}};
-        //case 7
-        int[,] result7 = new int[4, 4] {{0,1,0,0},
-                                        {0,1,0,0},
-                                        {0,1,0,0},
-                                        {0,1,0,0}};
-        //case 8
-        int[,] result8 = new int[4, 4] {{0,0,1,0},
-                                        {0,0,1,0},
-                                        {0,0,1,0},
-                                        {0,0,1,0}};
-        //case 9
-        int[,] result9 = new int[4, 4] {{0,0,0,1},
-                                        {0,0,0,1},
-                                        {0,0,0,1},
-                                        {0,0,0,1}};
-        //case 10
-        int[,] result10 = new int[4, 4] {{0,0,0,1},
-                                         {0,0,1,0},
-                                         {0,1,0,0},
-                                         {1,0,0,0}};
-
-
         /*STAR UP*/
         private void Form_gameBoard_Load(object sender, EventArgs e)
         {
@@ -865,10 +809,6 @@ namespace Test_TTT_Game
             label_scoreboardP1_totalLabel.Text = "Total Points = " + player1Points;
             label_scoreboardP2_totalLabel.Text = "Total Points = " + player2Points;
         }
-
-
-
-       
 
     }
 }
