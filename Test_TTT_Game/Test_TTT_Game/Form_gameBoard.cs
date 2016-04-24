@@ -97,7 +97,18 @@ namespace Test_TTT_Game
                                          {1,0,0,0}};
 
 
-
+        /*STAR UP*/
+        private void Form_gameBoard_Load(object sender, EventArgs e)
+        {
+            fillMatrix();
+            //button2.Enabled = false;
+            foreach (Control c in panel_gameBoard.Controls)
+            {
+                Button b = (Button)c;
+                b.Visible = false;
+                //MessageBox.Show(b.Name);
+            }
+        }
 
         private void fillMatrix()
         {
@@ -113,60 +124,35 @@ namespace Test_TTT_Game
             }
         }
 
+        // To count the points after every play
         private void checkBoard()
         {
+
+            // Resets points to zero so they are not added multiple times
             player1Points = 0;
             player2Points = 0;
 
-            //int counter = 0;
-            //// counting how many buttons are still showing two.
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    for (int j = 0; j < 6; j++)
-            //    {
-            //        if (result[i, j] == 2)
-            //        {
-
-            //        }
-            //        else
-            //        {
-            //            counter++;
-            //        }
-            //    }
-
-            //}
-
+            // All the different scoring possibilities are traversed through while adding to each players' score
+            CountSubResultsAll(SubResult1);           
+            countPointsOfHoro(SubResult2);       
+            countPointsOfHoro(SubResult3);          
+            countPointsOfPartialHoro(SubResult7);           
+            countPointsOfPartialHoro(SubResult8);           
+            countPointsOfPartialHoro(SubResult9);
+            countPointsOfVert(SubResult4);
+            countPointsOfVert(SubResult7);  
+            countPointsOfPartialVert(SubResult3);
+            countPointsOfPartialVert(SubResult6);
+            countPointsOfPartialVert(SubResult9);
+            countPointsOfDiagonal(SubResult2);
+            countPointsOfDiagonal(SubResult3);
+            countPointsOfDiagonal(SubResult4);
+            countPointsOfDiagonal(SubResult5);
+            countPointsOfDiagonal(SubResult6);
+            countPointsOfDiagonal(SubResult7);
+            countPointsOfDiagonal(SubResult8);
+            countPointsOfDiagonal(SubResult9);
             
-            if (true)
-            {
-                //To test the values of a SubResult I select
-                //for (int i=0; i<4 ; i++)
-                //{
-                //    for (int j = 0; j < 4; j++)
-                //    {
-                //        MessageBox.Show(SubResult3[i,j].ToString());
-                //    }
-                //}
-                CountSubResultsAll(SubResult1);
-                countPointsOfHoro(SubResult2);
-                countPointsOfHoro(SubResult3);
-                countPointsOfPartialHoro(SubResult7);
-                countPointsOfPartialHoro(SubResult8);
-                countPointsOfPartialHoro(SubResult9);
-                countPointsOfVert(SubResult4);
-                countPointsOfVert(SubResult7);
-                countPointsOfPartialVert(SubResult3);
-                countPointsOfPartialVert(SubResult6);
-                countPointsOfPartialVert(SubResult9);
-                countPointsOfDiagonal(SubResult2);
-                countPointsOfDiagonal(SubResult3);
-                countPointsOfDiagonal(SubResult4);
-                countPointsOfDiagonal(SubResult5);
-                countPointsOfDiagonal(SubResult6);
-                countPointsOfDiagonal(SubResult7);
-                countPointsOfDiagonal(SubResult8);
-                countPointsOfDiagonal(SubResult9);
-            }
         }
 
 
@@ -205,6 +191,7 @@ namespace Test_TTT_Game
 
         }
 
+        // Main Menu button to go back to main menu
         private void button_backToMenuFrmBoard_Click(object sender, EventArgs e)
         {
             Form_mainMenu frm_mM = new Form_mainMenu();
@@ -244,6 +231,7 @@ namespace Test_TTT_Game
 
 
         // This function is assigning a 1(one) or 0(zero) to the overall board called result, which is 6X6
+        // This gets called the moment a player presses a button.
         private void CompareMatrix(string name, int value)
         {
 
@@ -260,7 +248,7 @@ namespace Test_TTT_Game
         }
 
         // This function is taking the values in the 6x6 board called result and placing them in the 9 4x4 boards called
-        // SubResult1 through SubResult9.
+        // SubResult1 through SubResult9. 
         private void CopyResults()
         {
             for (int i = 0; i < 6; i++)
@@ -879,187 +867,8 @@ namespace Test_TTT_Game
         }
 
 
-        private void CheckSubResults1(int[,] temp)
-        {
-            //horizontal line equal
-            if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3] && (!A1.Enabled))
 
-                isWinner = true;
-
-            else if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3] && (!A2.Enabled))
-                isWinner = true;
-            else if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3] && (!A3.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3] && (!A4.Enabled))
-                isWinner = true;
-            //vertical line equal
-            if (temp[0, 0] == temp[1, 0] && temp[1, 1] == temp[2, 0] && temp[2, 0] == temp[3, 0] && (!A1.Enabled))
-                isWinner = true;
-            else if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1] && (!B1.Enabled))
-                isWinner = true;
-            else if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2] && (!C1.Enabled))
-                isWinner = true;
-            else if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3] && (!D1.Enabled))
-                isWinner = true;
-
-            //diagonal line
-            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3] && (!A1.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3] && (!A4.Enabled))
-                isWinner = true;
-        }//end check sub results.
-
-        private void CheckSubResults2(int[,] temp)
-        {
-            //horizontal line equal
-            if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3] && (!B1.Enabled))
-                isWinner = true;
-            else if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3] && (!B2.Enabled))
-                isWinner = true;
-            else if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3] && (!B3.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3] && (!B4.Enabled))
-                isWinner = true;
-
-            //vertical line equal
-            if (temp[0, 0] == temp[1, 0] && temp[1, 1] == temp[2, 0] && temp[2, 0] == temp[3, 0] && (!B1.Enabled))
-                isWinner = true;
-            else if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1] && (!C1.Enabled))
-                isWinner = true;
-            else if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2] && (!D1.Enabled))
-                isWinner = true;
-            else if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3] && (!E1.Enabled))
-                isWinner = true;
-
-            //diagonal line
-            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3] && (!B1.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3] && (!B4.Enabled))
-                isWinner = true;
-        }//end check sub results.
-
-        private void CheckSubResults3(int[,] temp)
-        {
-            //horizontal line equal
-            if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3] && (!A2.Enabled))
-                isWinner = true;
-            else if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3] && (!A3.Enabled))
-                isWinner = true;
-            else if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3] && (!A4.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3] && (!A5.Enabled))
-                isWinner = true;
-
-            //vertical line equal
-            if (temp[0, 0] == temp[1, 0] && temp[1, 1] == temp[2, 0] && temp[2, 0] == temp[3, 0] && (!A2.Enabled))
-                isWinner = true;
-            else if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1] && (!B2.Enabled))
-                isWinner = true;
-            else if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2] && (!C2.Enabled))
-                isWinner = true;
-            else if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3] && (!D2.Enabled))
-                isWinner = true;
-
-            //diagonal line
-            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3] && (!A2.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3] && (!A5.Enabled))
-                isWinner = true;
-        }//end check sub results.
-
-        private void CheckSubResults4(int[,] temp)
-        {
-            //horizontal line equal
-            if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3] && (!B2.Enabled))
-                isWinner = true;
-            else if (temp[1, 0] == temp[1, 1] && temp[1, 1] == temp[1, 2] && temp[1, 2] == temp[1, 3] && (!B3.Enabled))
-                isWinner = true;
-            else if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3] && (!B4.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[3, 1] && temp[3, 1] == temp[3, 2] && temp[3, 2] == temp[3, 3] && (!C5.Enabled))
-                isWinner = true;
-
-            //vertical line equal
-            if (temp[0, 0] == temp[1, 0] && temp[1, 1] == temp[2, 0] && temp[2, 0] == temp[3, 0] && (!B2.Enabled))
-                isWinner = true;
-            else if (temp[0, 1] == temp[1, 1] && temp[1, 1] == temp[2, 1] && temp[2, 1] == temp[3, 1] && (!C2.Enabled))
-                isWinner = true;
-            else if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2] && (!D2.Enabled))
-                isWinner = true;
-            else if (temp[0, 3] == temp[1, 3] && temp[1, 3] == temp[2, 3] && temp[2, 3] == temp[3, 3] && (!E2.Enabled))
-                isWinner = true;
-
-            //diagonal line
-            if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3] && (!B2.Enabled))
-                isWinner = true;
-            else if (temp[3, 0] == temp[2, 1] && temp[2, 1] == temp[1, 2] && temp[1, 2] == temp[0, 3] && (!B5.Enabled))
-                isWinner = true;
-        }
-
-        private void Check_For_Winner()
-        {
-            //bool isWinner = false;
-
-            //check winner logistic in this  <==========NEED HELP========================>
-
-            CountSubResultsAll(SubResult1);
-            //CheckSubResults1(SubResult1);
-            //CheckSubResults2(SubResult2);
-            //CheckSubResults3(SubResult3);
-          //  CheckSubResults4(SubResult4);
-           // CheckSubResults5(SubResult5);
-            //CheckSubResults6(SubResult6);
-            //CheckSubResults7(SubResult7);
-            //CheckSubResults8(SubResult8);
-            //CheckSubResults9(SubResult9);
-            //check winner logistic in this   <==========NEED HELP========================>
-
-            if (isWinner)
-            {
-                DisableButtons();
-                //String winner = "";
-                if (turn)
-                {
-                    /*winner = label13.Text;
-                    label17.Text = (Int32.Parse(label17.Text) + 1).ToString();
-                    label21.Text = (Int32.Parse(label21.Text) + 1).ToString();*/
-                    MessageBox.Show(/*winner + */" ABC Wins!", "Congratulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //UpdateWinLoss(label13.Text, label15.Text, false);
-                }
-                else
-                {
-                    /*winner = label15.Text;
-                    label18.Text = (Int32.Parse(label18.Text) + 1).ToString();
-                    label20.Text = (Int32.Parse(label20.Text) + 1).ToString();*/
-                    MessageBox.Show(/*winner + */" 123 Wins!", "Congratulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //UpdateWinLoss(label15.Text, label13.Text, false);
-                }
-            }
-            else
-            {
-                if (turnCount == 25)
-                {
-                    //update draw game result
-                    /*label19.Text = (Int32.Parse(label19.Text) + 1).ToString();
-                    label22.Text = (Int32.Parse(label22.Text) + 1).ToString();*/
-                    MessageBox.Show("Draw game!", "No Result");
-                    //UpdateWinLoss(label13.Text, label15.Text, true);
-                }
-            }
-        }//end Check_For_Winner
-
-        /*STAR UP*/
-        private void Form_gameBoard_Load(object sender, EventArgs e)
-        {
-            fillMatrix();
-            //button2.Enabled = false;
-            foreach (Control c in panel_gameBoard.Controls)
-            {
-                Button b = (Button)c;
-                b.Visible = false;
-                //MessageBox.Show(b.Name);
-            }
-        }
+       
 
     }
 }
