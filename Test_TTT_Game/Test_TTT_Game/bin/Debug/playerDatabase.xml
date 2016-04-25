@@ -1,9 +1,9 @@
 <Users>
   <User>
     <Name>DITZY</Name>
-    <Win>1</Win>
+    <Win>0</Win>
     <Loss>0</Loss>
-    <Tie>1</Tie>
+    <Tie>0</Tie>
   </User>
   <User>
     <Name>Guest1</Name>
@@ -32,8 +32,8 @@
   <User>
     <Name>TAYLOR</Name>
     <Win>0</Win>
-    <Loss>2</Loss>
-    <Tie>1</Tie>
+    <Loss>0</Loss>
+    <Tie>0</Tie>
   </User>
   <User>
     <Name>ZACH</Name>
@@ -43,7 +43,7 @@
   </User>
   <User>
     <Name>YIMING</Name>
-    <Win>1</Win>
+    <Win>0</Win>
     <Loss>0</Loss>
     <Tie>0</Tie>
   </User>
