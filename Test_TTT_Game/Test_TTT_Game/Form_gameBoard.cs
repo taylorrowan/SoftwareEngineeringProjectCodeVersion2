@@ -50,6 +50,7 @@ namespace Test_TTT_Game
         {
             playerTurn();
             //testValuesPassedFromMM();
+            setNamesOnLabels();
             fillMatrix();
 
             //button2.Enabled = false;
@@ -929,16 +930,22 @@ namespace Test_TTT_Game
             label_scoreboardP1_totalLabel.Text = "Total Points = " + player1Points;
             label_scoreboardP2_totalLabel.Text = "Total Points = " + player2Points;
         }
-        // Function used to change the Name on the Whose turn? Label
+        // Function to set player1Name label and player2Name label
+        private void setNamesOnLabels()
+        {
+            label_scoreboardP1_name.Text = player1Name;
+            label_scoreboardP2_name.Text = player2Name;
+        }
+        // Function used to change the Name on the Whose turn and tell the color
         private void playerTurn()
         {
             if (turn)
             {
-                label_whoseTurn.Text = player2Name;
+                label_whoseTurn.Text = player2Name + "\n" + player2Color;
             }
             else
             {
-                label_whoseTurn.Text = player1Name;
+                label_whoseTurn.Text = player1Name + "\n" + player1Color;
             }
         }
         // Used to import player1 Name from Main Menu Form
@@ -1022,6 +1029,11 @@ namespace Test_TTT_Game
             {
                 b.BackColor = Color.Black;
             }
+
+        }
+
+        private void label_scoreboardP2_totalLabel_Click(object sender, EventArgs e)
+        {
 
         }
 

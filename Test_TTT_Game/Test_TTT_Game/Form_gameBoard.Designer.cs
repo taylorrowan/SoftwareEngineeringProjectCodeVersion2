@@ -87,15 +87,9 @@
             this.groupBox_scoreboard = new System.Windows.Forms.GroupBox();
             this.groupBox_scoreboardPlayer2 = new System.Windows.Forms.GroupBox();
             this.label_scoreboardP2_totalLabel = new System.Windows.Forms.Label();
-            this.label_scoreboardP2_sixLabel = new System.Windows.Forms.Label();
-            this.label_scoreboardP2_fiveLabel = new System.Windows.Forms.Label();
-            this.label_scoreboardP2_fourLabel = new System.Windows.Forms.Label();
             this.label_scoreboardP2_name = new System.Windows.Forms.Label();
             this.groupBox_scoreboardPlayer1 = new System.Windows.Forms.GroupBox();
             this.label_scoreboardP1_totalLabel = new System.Windows.Forms.Label();
-            this.label_scoreboardP1_sixLabel = new System.Windows.Forms.Label();
-            this.label_scoreboardP1_fiveLabel = new System.Windows.Forms.Label();
-            this.label_scoreboardP1_fourLabel = new System.Windows.Forms.Label();
             this.label_scoreboardP1_name = new System.Windows.Forms.Label();
             this.panel_gameBoard.SuspendLayout();
             this.groupBox_instructions.SuspendLayout();
@@ -629,7 +623,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 16);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(271, 102);
+            this.richTextBox1.Size = new System.Drawing.Size(271, 146);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -637,9 +631,9 @@
             // groupBox_whoseTurn
             // 
             this.groupBox_whoseTurn.Controls.Add(this.label_whoseTurn);
-            this.groupBox_whoseTurn.Location = new System.Drawing.Point(509, 158);
+            this.groupBox_whoseTurn.Location = new System.Drawing.Point(509, 216);
             this.groupBox_whoseTurn.Name = "groupBox_whoseTurn";
-            this.groupBox_whoseTurn.Size = new System.Drawing.Size(283, 52);
+            this.groupBox_whoseTurn.Size = new System.Drawing.Size(283, 71);
             this.groupBox_whoseTurn.TabIndex = 4;
             this.groupBox_whoseTurn.TabStop = false;
             this.groupBox_whoseTurn.Text = "Whose Turn?";
@@ -657,9 +651,9 @@
             // 
             this.groupBox_scoreboard.Controls.Add(this.groupBox_scoreboardPlayer2);
             this.groupBox_scoreboard.Controls.Add(this.groupBox_scoreboardPlayer1);
-            this.groupBox_scoreboard.Location = new System.Drawing.Point(509, 226);
+            this.groupBox_scoreboard.Location = new System.Drawing.Point(509, 306);
             this.groupBox_scoreboard.Name = "groupBox_scoreboard";
-            this.groupBox_scoreboard.Size = new System.Drawing.Size(283, 231);
+            this.groupBox_scoreboard.Size = new System.Drawing.Size(283, 151);
             this.groupBox_scoreboard.TabIndex = 5;
             this.groupBox_scoreboard.TabStop = false;
             this.groupBox_scoreboard.Text = "Scoreboard";
@@ -667,9 +661,6 @@
             // groupBox_scoreboardPlayer2
             // 
             this.groupBox_scoreboardPlayer2.Controls.Add(this.label_scoreboardP2_totalLabel);
-            this.groupBox_scoreboardPlayer2.Controls.Add(this.label_scoreboardP2_sixLabel);
-            this.groupBox_scoreboardPlayer2.Controls.Add(this.label_scoreboardP2_fiveLabel);
-            this.groupBox_scoreboardPlayer2.Controls.Add(this.label_scoreboardP2_fourLabel);
             this.groupBox_scoreboardPlayer2.Controls.Add(this.label_scoreboardP2_name);
             this.groupBox_scoreboardPlayer2.Location = new System.Drawing.Point(142, 19);
             this.groupBox_scoreboardPlayer2.Name = "groupBox_scoreboardPlayer2";
@@ -681,39 +672,12 @@
             // label_scoreboardP2_totalLabel
             // 
             this.label_scoreboardP2_totalLabel.AutoSize = true;
-            this.label_scoreboardP2_totalLabel.Location = new System.Drawing.Point(6, 184);
+            this.label_scoreboardP2_totalLabel.Location = new System.Drawing.Point(6, 71);
             this.label_scoreboardP2_totalLabel.Name = "label_scoreboardP2_totalLabel";
             this.label_scoreboardP2_totalLabel.Size = new System.Drawing.Size(74, 13);
             this.label_scoreboardP2_totalLabel.TabIndex = 6;
             this.label_scoreboardP2_totalLabel.Text = "Total points = ";
-            // 
-            // label_scoreboardP2_sixLabel
-            // 
-            this.label_scoreboardP2_sixLabel.AutoSize = true;
-            this.label_scoreboardP2_sixLabel.Location = new System.Drawing.Point(6, 146);
-            this.label_scoreboardP2_sixLabel.Name = "label_scoreboardP2_sixLabel";
-            this.label_scoreboardP2_sixLabel.Size = new System.Drawing.Size(96, 13);
-            this.label_scoreboardP2_sixLabel.TabIndex = 5;
-            this.label_scoreboardP2_sixLabel.Text = "6 in a row points = ";
-            this.label_scoreboardP2_sixLabel.Click += new System.EventHandler(this.label_scoreboardP2_sixLabel_Click);
-            // 
-            // label_scoreboardP2_fiveLabel
-            // 
-            this.label_scoreboardP2_fiveLabel.AutoSize = true;
-            this.label_scoreboardP2_fiveLabel.Location = new System.Drawing.Point(6, 108);
-            this.label_scoreboardP2_fiveLabel.Name = "label_scoreboardP2_fiveLabel";
-            this.label_scoreboardP2_fiveLabel.Size = new System.Drawing.Size(96, 13);
-            this.label_scoreboardP2_fiveLabel.TabIndex = 5;
-            this.label_scoreboardP2_fiveLabel.Text = "5 in a row points = ";
-            // 
-            // label_scoreboardP2_fourLabel
-            // 
-            this.label_scoreboardP2_fourLabel.AutoSize = true;
-            this.label_scoreboardP2_fourLabel.Location = new System.Drawing.Point(6, 70);
-            this.label_scoreboardP2_fourLabel.Name = "label_scoreboardP2_fourLabel";
-            this.label_scoreboardP2_fourLabel.Size = new System.Drawing.Size(96, 13);
-            this.label_scoreboardP2_fourLabel.TabIndex = 2;
-            this.label_scoreboardP2_fourLabel.Text = "4 in a row points = ";
+            this.label_scoreboardP2_totalLabel.Click += new System.EventHandler(this.label_scoreboardP2_totalLabel_Click);
             // 
             // label_scoreboardP2_name
             // 
@@ -727,9 +691,6 @@
             // groupBox_scoreboardPlayer1
             // 
             this.groupBox_scoreboardPlayer1.Controls.Add(this.label_scoreboardP1_totalLabel);
-            this.groupBox_scoreboardPlayer1.Controls.Add(this.label_scoreboardP1_sixLabel);
-            this.groupBox_scoreboardPlayer1.Controls.Add(this.label_scoreboardP1_fiveLabel);
-            this.groupBox_scoreboardPlayer1.Controls.Add(this.label_scoreboardP1_fourLabel);
             this.groupBox_scoreboardPlayer1.Controls.Add(this.label_scoreboardP1_name);
             this.groupBox_scoreboardPlayer1.Location = new System.Drawing.Point(6, 19);
             this.groupBox_scoreboardPlayer1.Name = "groupBox_scoreboardPlayer1";
@@ -741,38 +702,11 @@
             // label_scoreboardP1_totalLabel
             // 
             this.label_scoreboardP1_totalLabel.AutoSize = true;
-            this.label_scoreboardP1_totalLabel.Location = new System.Drawing.Point(6, 184);
+            this.label_scoreboardP1_totalLabel.Location = new System.Drawing.Point(6, 71);
             this.label_scoreboardP1_totalLabel.Name = "label_scoreboardP1_totalLabel";
             this.label_scoreboardP1_totalLabel.Size = new System.Drawing.Size(74, 13);
             this.label_scoreboardP1_totalLabel.TabIndex = 4;
             this.label_scoreboardP1_totalLabel.Text = "Total points = ";
-            // 
-            // label_scoreboardP1_sixLabel
-            // 
-            this.label_scoreboardP1_sixLabel.AutoSize = true;
-            this.label_scoreboardP1_sixLabel.Location = new System.Drawing.Point(6, 146);
-            this.label_scoreboardP1_sixLabel.Name = "label_scoreboardP1_sixLabel";
-            this.label_scoreboardP1_sixLabel.Size = new System.Drawing.Size(96, 13);
-            this.label_scoreboardP1_sixLabel.TabIndex = 3;
-            this.label_scoreboardP1_sixLabel.Text = "6 in a row points = ";
-            // 
-            // label_scoreboardP1_fiveLabel
-            // 
-            this.label_scoreboardP1_fiveLabel.AutoSize = true;
-            this.label_scoreboardP1_fiveLabel.Location = new System.Drawing.Point(6, 108);
-            this.label_scoreboardP1_fiveLabel.Name = "label_scoreboardP1_fiveLabel";
-            this.label_scoreboardP1_fiveLabel.Size = new System.Drawing.Size(96, 13);
-            this.label_scoreboardP1_fiveLabel.TabIndex = 2;
-            this.label_scoreboardP1_fiveLabel.Text = "5 in a row points = ";
-            // 
-            // label_scoreboardP1_fourLabel
-            // 
-            this.label_scoreboardP1_fourLabel.AutoSize = true;
-            this.label_scoreboardP1_fourLabel.Location = new System.Drawing.Point(6, 70);
-            this.label_scoreboardP1_fourLabel.Name = "label_scoreboardP1_fourLabel";
-            this.label_scoreboardP1_fourLabel.Size = new System.Drawing.Size(96, 13);
-            this.label_scoreboardP1_fourLabel.TabIndex = 1;
-            this.label_scoreboardP1_fourLabel.Text = "4 in a row points = ";
             // 
             // label_scoreboardP1_name
             // 
@@ -874,15 +808,9 @@
         private System.Windows.Forms.Label label_whoseTurn;
         private System.Windows.Forms.GroupBox groupBox_scoreboard;
         private System.Windows.Forms.GroupBox groupBox_scoreboardPlayer2;
-        private System.Windows.Forms.Label label_scoreboardP2_sixLabel;
-        private System.Windows.Forms.Label label_scoreboardP2_fiveLabel;
-        private System.Windows.Forms.Label label_scoreboardP2_fourLabel;
         private System.Windows.Forms.Label label_scoreboardP2_name;
         private System.Windows.Forms.GroupBox groupBox_scoreboardPlayer1;
         private System.Windows.Forms.Label label_scoreboardP1_totalLabel;
-        private System.Windows.Forms.Label label_scoreboardP1_sixLabel;
-        private System.Windows.Forms.Label label_scoreboardP1_fiveLabel;
-        private System.Windows.Forms.Label label_scoreboardP1_fourLabel;
         private System.Windows.Forms.Label label_scoreboardP1_name;
         private System.Windows.Forms.Label label_scoreboardP2_totalLabel;
     }
