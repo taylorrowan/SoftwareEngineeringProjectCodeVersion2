@@ -36,14 +36,15 @@
             this.button_backToMenuFrmHistory = new System.Windows.Forms.Button();
             this.groupBox_history_playerInfo = new System.Windows.Forms.GroupBox();
             this.richTextBox_history_playerInfo = new System.Windows.Forms.RichTextBox();
+            this.button_historySearch_Clear = new System.Windows.Forms.Button();
             this.groupBox_historySearch.SuspendLayout();
             this.groupBox_history_playerInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_historySearch
             // 
-            this.groupBox_historySearch.Controls.Add(this.button_historySearch_viewAll);
             this.groupBox_historySearch.Controls.Add(this.button_historySearch_search);
+            this.groupBox_historySearch.Controls.Add(this.button_historySearch_Clear);
             this.groupBox_historySearch.Controls.Add(this.textBox_historySearch_name);
             this.groupBox_historySearch.Controls.Add(this.label_historySearch_name);
             this.groupBox_historySearch.Location = new System.Drawing.Point(12, 12);
@@ -55,7 +56,7 @@
             // 
             // button_historySearch_viewAll
             // 
-            this.button_historySearch_viewAll.Location = new System.Drawing.Point(341, 21);
+            this.button_historySearch_viewAll.Location = new System.Drawing.Point(272, 62);
             this.button_historySearch_viewAll.Name = "button_historySearch_viewAll";
             this.button_historySearch_viewAll.Size = new System.Drawing.Size(75, 23);
             this.button_historySearch_viewAll.TabIndex = 3;
@@ -119,11 +120,22 @@
             this.richTextBox_history_playerInfo.TabIndex = 0;
             this.richTextBox_history_playerInfo.Text = "";
             // 
+            // button_historySearch_Clear
+            // 
+            this.button_historySearch_Clear.Location = new System.Drawing.Point(341, 23);
+            this.button_historySearch_Clear.Name = "button_historySearch_Clear";
+            this.button_historySearch_Clear.Size = new System.Drawing.Size(75, 23);
+            this.button_historySearch_Clear.TabIndex = 5;
+            this.button_historySearch_Clear.Text = "Clear";
+            this.button_historySearch_Clear.UseVisualStyleBackColor = true;
+            this.button_historySearch_Clear.Click += new System.EventHandler(this.button_historySearch_Clear_Click);
+            // 
             // Form_playerHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 547);
+            this.Controls.Add(this.button_historySearch_viewAll);
             this.Controls.Add(this.button_backToMenuFrmHistory);
             this.Controls.Add(this.groupBox_history_playerInfo);
             this.Controls.Add(this.groupBox_historySearch);
@@ -133,6 +145,7 @@
             this.Name = "Form_playerHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DITZY PLAYER HISTORY";
+            this.Load += new System.EventHandler(this.Form_playerHistory_Load_1);
             this.groupBox_historySearch.ResumeLayout(false);
             this.groupBox_historySearch.PerformLayout();
             this.groupBox_history_playerInfo.ResumeLayout(false);
@@ -150,5 +163,6 @@
         private System.Windows.Forms.Button button_historySearch_search;
         private System.Windows.Forms.GroupBox groupBox_history_playerInfo;
         private System.Windows.Forms.RichTextBox richTextBox_history_playerInfo;
+        private System.Windows.Forms.Button button_historySearch_Clear;
     }
 }

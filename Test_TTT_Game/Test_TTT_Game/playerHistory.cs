@@ -108,5 +108,17 @@ namespace Test_TTT_Game
 
             }
         }
+
+        private void button_historySearch_Clear_Click(object sender, EventArgs e)
+        {
+            richTextBox_history_playerInfo.Clear();
+        }
+
+        private void Form_playerHistory_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
