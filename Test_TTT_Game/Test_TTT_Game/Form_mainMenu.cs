@@ -155,6 +155,22 @@ namespace Test_TTT_Game
         {
             get { return comboBox_player2Name.Text; }
         }
+
+        public bool getWhoGoesFirst
+        {
+            get 
+            {
+                if (checkBox_player1GoesFirst.Checked)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            
+            }
+        }
         private void button_startGame_Click(object sender, EventArgs e)
         {
             if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.Text == "..." && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.Text == "..t." && !(checkBox_player2Guest.Checked)))
@@ -174,6 +190,7 @@ namespace Test_TTT_Game
                 Form_gameBoard frm_gB = new Form_gameBoard();
                 frm_gB.player1NameGB = getPlayer1Name;
                 frm_gB.player2NameGB = getPlayer2Name;
+                frm_gB.whoseGoingFirst = getWhoGoesFirst;
                 frm_gB.Show();
                 this.Hide();
             }

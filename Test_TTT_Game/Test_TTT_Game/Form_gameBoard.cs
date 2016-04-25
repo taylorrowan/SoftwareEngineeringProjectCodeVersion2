@@ -17,7 +17,7 @@ namespace Test_TTT_Game
     {
         string player1Name = "";
         string player2Name = "";
-        bool turn = false; //true = X false = O
+        bool turn; //true = X false = O
         int turnCount = 0;
         bool isWinner = false;
         int[,] result = new int[6, 6]; //matrix contains moves of 2 players
@@ -41,10 +41,11 @@ namespace Test_TTT_Game
                                             {"A5","B5","C5","D5","E5","F5"},
                                             {"A6","B6","C6","D6","E6","F6"}};
 
-
+        
         /*STAR UP*/
         private void Form_gameBoard_Load(object sender, EventArgs e)
         {
+            playerTurn();
             fillMatrix();
             //button2.Enabled = false;
             foreach (Control c in panel_gameBoard.Controls)
@@ -53,6 +54,8 @@ namespace Test_TTT_Game
                 b.Visible = false;
                 //MessageBox.Show(b.Name);
             }
+
+            
         }
 
         private void fillMatrix()
@@ -104,6 +107,7 @@ namespace Test_TTT_Game
         public Form_gameBoard()
         {
             InitializeComponent();
+          
         }
 
         private void label_boardLetters_Click(object sender, EventArgs e)
@@ -837,6 +841,14 @@ namespace Test_TTT_Game
             set 
             { 
                 player2Name = value; 
+            }
+        }
+
+        public bool whoseGoingFirst
+        {
+            set
+            {
+                turn = value;
             }
         }
     }
