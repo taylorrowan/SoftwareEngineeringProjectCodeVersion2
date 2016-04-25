@@ -34,7 +34,9 @@ namespace Test_TTT_Game
                 checkBox_diffMedium.Enabled = false;
                 checkBox_diffHard.Enabled = false;
                 checkBox_PvC.Checked = false;
-                
+                comboBox_player1Name.SelectedIndex = -1;
+                comboBox_player2Name.SelectedIndex = -1;
+                comboBox_player2Stone.Text = "Yellow";
                 
             }
             else
@@ -48,7 +50,9 @@ namespace Test_TTT_Game
                 checkBox_diffMedium.Enabled = true;
                 checkBox_diffHard.Enabled = true;
                 checkBox_PvC.Checked = true;
+                comboBox_player1Name.SelectedIndex = -1;
                 comboBox_player2Name.SelectedIndex = 0;
+                comboBox_player2Stone.SelectedIndex = -1;
             }
         }
 
@@ -64,6 +68,7 @@ namespace Test_TTT_Game
                 checkBox_player2Guest.Enabled = false;
                 comboBox_player2Name.Enabled = false;
                 checkBox_PvP.Checked = false;
+                comboBox_player2Stone.SelectedIndex = -1;
                
                
             }
@@ -114,7 +119,7 @@ namespace Test_TTT_Game
             comboBox_player2Name.Enabled = false;
             checkBox_player2Guest.Enabled = false;
             comboBox_player1Stone.Text = "Green";
-            comboBox_player2Stone.Text = "...";
+            comboBox_player2Stone.Text = "";
             comboBox_player2Stone.Enabled = false;
             
             getPlayer();
