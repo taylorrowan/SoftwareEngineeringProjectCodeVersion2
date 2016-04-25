@@ -203,6 +203,10 @@ namespace Test_TTT_Game
             {
                 MessageBox.Show("Please select a different player name");
             }
+            else if (comboBox_player1Name.Text == "DITZY" || (checkBox_PvP.Checked && comboBox_player2Name.Text == "DITZY"))
+            {
+                MessageBox.Show("Please select a different player name, DITZY is the name of our AI");
+            }
             else if (comboBox_player1Stone.Text == comboBox_player2Stone.Text || (comboBox_player2Stone.Text == "..." && checkBox_PvP.Checked))
             {
                 MessageBox.Show("Please select a different stone color");
