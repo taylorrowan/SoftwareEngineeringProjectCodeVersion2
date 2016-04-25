@@ -502,7 +502,7 @@ namespace Test_TTT_Game
             // Will display whose turn it is
             playerTurn();
 
-            if (turnCount == 8)
+            if (turnCount == 36)
             {
                 DetermineWinnerLoser();
             }
@@ -530,14 +530,24 @@ namespace Test_TTT_Game
             if (player1Points > player2Points)
             {
                 a = 1;
+                MessageBox.Show("Congratulations " + player1Name + "!!!  You have won");
             }
             else if (player2Points > player1Points)
             {
                 a = 2;
+                if (player2Name != "DITZY")
+                {
+                    MessageBox.Show("Congratulations " + player2Name + "!!!  You have won");
+                }
+                else
+                {
+                    MessageBox.Show("I am sorry, " + player1Name + ". You have lost.");
+                }
             }
             else if (player1Points == player2Points)
             {
                 a = 3;
+                MessageBox.Show("Congratulations!!!  You have both won and lost equally, which is a tie");
             }
             else 
             {
