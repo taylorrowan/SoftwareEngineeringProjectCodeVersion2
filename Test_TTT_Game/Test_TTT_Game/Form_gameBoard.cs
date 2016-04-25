@@ -17,6 +17,9 @@ namespace Test_TTT_Game
     {
         string player1Name = "";
         string player2Name = "";
+        string player1Color = "";
+        string player2Color = "";
+
         bool turn; //true = X false = O
         int turnCount = 0;
         
@@ -46,6 +49,7 @@ namespace Test_TTT_Game
         private void Form_gameBoard_Load(object sender, EventArgs e)
         {
             playerTurn();
+            testValuesPassedFromMM();
             fillMatrix();
 
             //button2.Enabled = false;
@@ -939,6 +943,22 @@ namespace Test_TTT_Game
                 player2Name = value; 
             }
         }
+        // Used to import player1 Color from Main Menu
+        public string player1ColorGB
+        {
+            set
+            {
+                player1Color = value;
+            }
+        }
+        // Used to import player2 Color from Main Menu
+        public string player2ColorGB
+        {
+            set
+            {
+                player2Color = value;
+            }
+        }
         // Used to import Who goes first from Main Menu Form
         public bool whoseGoingFirst
         {
@@ -946,6 +966,16 @@ namespace Test_TTT_Game
             {
                 turn = value;
             }
+        }
+        // To test values that have been passed from Main Menu, function is called in Load function
+        private void testValuesPassedFromMM()
+        {
+            MessageBox.Show(player1Name);
+            MessageBox.Show(player2Name);
+            MessageBox.Show(player1Color);
+            MessageBox.Show(player2Color);
+            MessageBox.Show(turn.ToString() + "- False/Player1 or True/Player2");
+
         }
     }
 

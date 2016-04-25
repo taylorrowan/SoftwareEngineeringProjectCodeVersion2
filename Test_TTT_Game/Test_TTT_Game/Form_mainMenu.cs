@@ -155,12 +155,12 @@ namespace Test_TTT_Game
         {
             get { return comboBox_player1Name.Text; }
         }
-
+        // To pass the Player2 Name to the game board
         public string getPlayer2Name
         {
             get { return comboBox_player2Name.Text; }
         }
-
+        // To pass the who goes first to the game board
         public bool getWhoGoesFirst
         {
             get 
@@ -176,6 +176,27 @@ namespace Test_TTT_Game
             
             }
         }
+        // To pass the Player1 Color to the game board
+        public string getPlayer1Color
+        {
+            get { return comboBox_player1Stone.Text; }
+        }
+        // To pass the Player2 Color to the game board
+        public string getPlayer2Color
+        {
+            get
+            {
+                if (checkBox_PvC.Checked)
+                {
+                    return "Black";
+                }
+                else
+                {
+                    return comboBox_player2Stone.Text;
+                }
+            }
+        }
+
         private void button_startGame_Click(object sender, EventArgs e)
         {
             if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.Text == "..." && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.Text == "..t." && !(checkBox_player2Guest.Checked)))
@@ -195,6 +216,8 @@ namespace Test_TTT_Game
                 Form_gameBoard frm_gB = new Form_gameBoard();
                 frm_gB.player1NameGB = getPlayer1Name;
                 frm_gB.player2NameGB = getPlayer2Name;
+                frm_gB.player1ColorGB = getPlayer1Color;
+                frm_gB.player2ColorGB = getPlayer2Color;
                 frm_gB.whoseGoingFirst = getWhoGoesFirst;
                 frm_gB.Show();
                 this.Hide();
