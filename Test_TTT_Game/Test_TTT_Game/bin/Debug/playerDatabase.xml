@@ -1,5 +1,11 @@
 <Users>
   <User>
+    <Name>DITZY</Name>
+    <Win>0</Win>
+    <Loss>0</Loss>
+    <Tie>0</Tie>
+  </User>
+  <User>
     <Name>Guest1</Name>
     <Win>0</Win>
     <Loss>0</Loss>
@@ -7,18 +13,6 @@
   </User>
   <User>
     <Name>Guest2</Name>
-    <Win>0</Win>
-    <Loss>0</Loss>
-    <Tie>0</Tie>
-  </User>
-  <User>
-    <Name>TEST_1</Name>
-    <Win>0</Win>
-    <Loss>0</Loss>
-    <Tie>0</Tie>
-  </User>
-  <User>
-    <Name>TEST_2</Name>
     <Win>0</Win>
     <Loss>0</Loss>
     <Tie>0</Tie>
@@ -49,24 +43,6 @@
   </User>
   <User>
     <Name>YIMING</Name>
-    <Win>0</Win>
-    <Loss>0</Loss>
-    <Tie>0</Tie>
-  </User>
-  <User>
-    <Name>TOM</Name>
-    <Win>0</Win>
-    <Loss>0</Loss>
-    <Tie>0</Tie>
-  </User>
-  <User>
-    <Name>TOM JONES</Name>
-    <Win>0</Win>
-    <Loss>0</Loss>
-    <Tie>0</Tie>
-  </User>
-  <User>
-    <Name>TAYROW</Name>
     <Win>0</Win>
     <Loss>0</Loss>
     <Tie>0</Tie>

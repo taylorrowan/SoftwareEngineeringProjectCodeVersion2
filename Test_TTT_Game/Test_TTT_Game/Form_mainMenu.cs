@@ -22,6 +22,8 @@ namespace Test_TTT_Game
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            
+
             if (checkBox_PvP.Checked)
             {
                 checkBox_player2Guest.Enabled = true;
@@ -32,18 +34,21 @@ namespace Test_TTT_Game
                 checkBox_diffMedium.Enabled = false;
                 checkBox_diffHard.Enabled = false;
                 checkBox_PvC.Checked = false;
+                
+                
             }
             else
             {
                 checkBox_player2Guest.Enabled = false;
                 comboBox_player2Name.Enabled = false;
-                comboBox_player2Stone.Text = "...";
+                comboBox_player2Stone.Text = "";
                 comboBox_player2Stone.Enabled = false;
                 label_compStone.Enabled = true;
                 checkBox_diffEasy.Enabled = true;
                 checkBox_diffMedium.Enabled = true;
                 checkBox_diffHard.Enabled = true;
                 checkBox_PvC.Checked = true;
+                comboBox_player2Name.SelectedIndex = 0;
             }
         }
 
@@ -59,6 +64,8 @@ namespace Test_TTT_Game
                 checkBox_player2Guest.Enabled = false;
                 comboBox_player2Name.Enabled = false;
                 checkBox_PvP.Checked = false;
+               
+               
             }
             else
             {
@@ -109,8 +116,9 @@ namespace Test_TTT_Game
             comboBox_player1Stone.Text = "Green";
             comboBox_player2Stone.Text = "...";
             comboBox_player2Stone.Enabled = false;
-
+            
             getPlayer();
+            
         }
 
         private void checkBox_player1GoesFirst_CheckedChanged(object sender, EventArgs e)
@@ -137,6 +145,16 @@ namespace Test_TTT_Game
             }
         }
 
+        // To pass the Player1 Name to the game board
+        public string getPlayer1Name
+        {
+            get { return comboBox_player1Name.Text; }
+        }
+
+        public string getPlayer2Name
+        {
+            get { return comboBox_player2Name.Text; }
+        }
         private void button_startGame_Click(object sender, EventArgs e)
         {
             if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.Text == "..." && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.Text == "..t." && !(checkBox_player2Guest.Checked)))
@@ -154,6 +172,8 @@ namespace Test_TTT_Game
             else
             {
                 Form_gameBoard frm_gB = new Form_gameBoard();
+                frm_gB.player1NameGB = getPlayer1Name;
+                frm_gB.player2NameGB = getPlayer2Name;
                 frm_gB.Show();
                 this.Hide();
             }
@@ -287,7 +307,7 @@ namespace Test_TTT_Game
             foreach (XmlNode xn in xnlist)
             {
                 name = xn["Name"].InnerText;
-                if (name != "")
+                if (name != "" )
 
                     comboBox_player1Name.Items.Add(name);
                 //cmbPlayer2.Items.Add(name);
@@ -303,7 +323,7 @@ namespace Test_TTT_Game
 
             }
             //comboBox_player1Name.SelectedIndex = 0;
-            //comboBox_player2Name.SelectedIndex = 0;
+            comboBox_player2Name.SelectedIndex = 0;
         }
 
         private void comboBox_player1Name_SelectedIndexChanged(object sender, EventArgs e)

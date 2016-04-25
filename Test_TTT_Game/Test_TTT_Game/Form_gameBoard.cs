@@ -15,7 +15,8 @@ namespace Test_TTT_Game
 {
     public partial class Form_gameBoard : Form
     {
-        //string a, b, c, d;
+        string player1Name = "";
+        string player2Name = "";
         bool turn = false; //true = X false = O
         int turnCount = 0;
         bool isWinner = false;
@@ -816,12 +817,29 @@ namespace Test_TTT_Game
         {
             if (turn)
             {
-                label_whoseTurn.Text = "Player 2's turn ";
+                label_whoseTurn.Text = player2Name;
             }
             else
             {
-                label_whoseTurn.Text = "Player 1's turn ";
+                label_whoseTurn.Text = player1Name;
+            }
+        }
+
+        public string player1NameGB
+        {
+            set 
+            { 
+                player1Name = value; 
+            }
+        }
+        public string player2NameGB
+        {
+            set 
+            { 
+                player2Name = value; 
             }
         }
     }
+
+    // Do not write code in here
 }
