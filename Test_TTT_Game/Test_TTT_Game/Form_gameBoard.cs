@@ -501,8 +501,11 @@ namespace Test_TTT_Game
             adjustScore();
             // Will display whose turn it is
             playerTurn();
-            // Check for winner function finds 4 in a row and selects winner
-            //Check_For_Winner();
+
+            if (turnCount == 8)
+            {
+                DetermineWinnerLoser();
+            }
         }
 
         private void DisableButtons()
@@ -519,6 +522,98 @@ namespace Test_TTT_Game
             catch { }
         }//end disable button
 
+        private void DetermineWinnerLoser()
+        {
+            // integer to be 1, 2, or 3. My options 1 is p1 wins, 2 is p2 wins, 3 is draw
+            int a;
+
+            if (player1Points > player2Points)
+            {
+                a = 1;
+            }
+            else if (player2Points > player1Points)
+            {
+                a = 2;
+            }
+            else if (player1Points == player2Points)
+            {
+                a = 3;
+            }
+            else 
+            {
+                a = 0;
+            }
+
+            UpdateWinLossDraw(a);
+        }
+
+        private void UpdateWinLossDraw(int x)
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load("playerDatabase.xml");
+            //MessageBox.Show(name);
+            XmlNodeList xnlist = xml.SelectNodes("/Users/User");
+            foreach (XmlNode xn in xnlist)
+            {
+                if (xn["Name"].InnerText == player1Name)
+                {
+                    //XmlNodeList xnn = xml.SelectNodes("/Users/User/Win");
+                    int a;
+                    switch (x)
+                    {
+                        case 1:
+                            a = Int16.Parse(xn["Win"].InnerText.ToString());
+                            a++;
+                            xn["Win"].InnerText = a.ToString();
+                            break;
+                        case 2:
+                            a = Int16.Parse(xn["Loss"].InnerText.ToString());
+                            a++;
+                            xn["Loss"].InnerText = a.ToString();
+                            break;
+                        case 3:
+                            a = Int16.Parse(xn["Tie"].InnerText.ToString());
+                            a++;
+                            xn["Tie"].InnerText = a.ToString();
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else if (xn["Name"].InnerText == player2Name)
+                {
+                    int a;
+                    switch (x)
+                    {
+                        case 1:
+                            a = Int16.Parse(xn["Loss"].InnerText.ToString());
+                            a++;
+                            xn["Loss"].InnerText = a.ToString();
+                            break;
+                        case 2:
+                            a = Int16.Parse(xn["Win"].InnerText.ToString());
+                            a++;
+                            xn["Win"].InnerText = a.ToString();
+                            break;
+                        case 3:
+                            a = Int16.Parse(xn["Tie"].InnerText.ToString());
+                            a++;
+                            xn["Tie"].InnerText = a.ToString();
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            xml.Save("playerDatabase.xml");
+        }
+
+        // Used to count all the points in SubResult1
         private void CountSubResultsAll(int[,] temp)
         {
             if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3])
@@ -634,8 +729,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-
-        //for counting SubResults 4 and 7
+        //for counting SubResults 2 and 3
         private void countPointsOfHoro(int[,] temp)
         {
             if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3])
@@ -683,8 +777,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-
-        //for counting parts of 3,6, and 9
+        //for counting parts of 7, 8, and 9
         private void countPointsOfPartialHoro(int[,] temp)
         {
             if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
@@ -710,7 +803,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-
+        // for counting SubResults 4 and 7
         private void countPointsOfVert(int[,] temp)
         {
             if (temp[0, 0] == temp[1, 0] && temp[1, 0] == temp[2, 0] && temp[2, 0] == temp[3, 0])
@@ -758,7 +851,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-
+        // for counting parts of 3, 6, and 9
         private void countPointsOfPartialVert(int[,] temp)
         {
             if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
@@ -784,7 +877,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-
+        // to count all diagonals of SubResults except SubResult1
         private void countPointsOfDiagonal(int[,] temp)
         {
             if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3])
@@ -810,13 +903,13 @@ namespace Test_TTT_Game
                 }
             }
         }
-
+        // Function used to update the Player's scores labels
         private void adjustScore()
         {
             label_scoreboardP1_totalLabel.Text = "Total Points = " + player1Points;
             label_scoreboardP2_totalLabel.Text = "Total Points = " + player2Points;
         }
-
+        // Function used to change the Name on the Whose turn? Label
         private void playerTurn()
         {
             if (turn)
@@ -828,7 +921,7 @@ namespace Test_TTT_Game
                 label_whoseTurn.Text = player1Name;
             }
         }
-
+        // Used to import player1 Name from Main Menu Form
         public string player1NameGB
         {
             set 
@@ -836,6 +929,7 @@ namespace Test_TTT_Game
                 player1Name = value; 
             }
         }
+        // Used to import player2 Name from Main Menu Form
         public string player2NameGB
         {
             set 
@@ -843,7 +937,7 @@ namespace Test_TTT_Game
                 player2Name = value; 
             }
         }
-
+        // Used to import Who goes first from Main Menu Form
         public bool whoseGoingFirst
         {
             set

@@ -32,7 +32,7 @@
   <User>
     <Name>TAYLOR</Name>
     <Win>0</Win>
-    <Loss>0</Loss>
+    <Loss>1</Loss>
     <Tie>0</Tie>
   </User>
   <User>
@@ -43,7 +43,7 @@
   </User>
   <User>
     <Name>YIMING</Name>
-    <Win>0</Win>
+    <Win>1</Win>
     <Loss>0</Loss>
     <Tie>0</Tie>
   </User>
