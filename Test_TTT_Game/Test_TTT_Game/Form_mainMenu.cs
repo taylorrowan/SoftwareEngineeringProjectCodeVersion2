@@ -36,7 +36,7 @@ namespace Test_TTT_Game
                 checkBox_PvC.Checked = false;
                 comboBox_player1Name.SelectedIndex = -1;
                 comboBox_player2Name.SelectedIndex = -1;
-                comboBox_player2Stone.Text = "Yellow";
+                comboBox_player2Stone.Text = "Royal Blue";
                 
             }
             else
@@ -118,7 +118,7 @@ namespace Test_TTT_Game
             checkBox_diffEasy.Checked = true;
             comboBox_player2Name.Enabled = false;
             checkBox_player2Guest.Enabled = false;
-            comboBox_player1Stone.Text = "Green";
+            comboBox_player1Stone.Text = "Gold";
             comboBox_player2Stone.Text = "";
             comboBox_player2Stone.Enabled = false;
             
@@ -372,6 +372,11 @@ namespace Test_TTT_Game
         }
 
         private void comboBox_player1Name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_player1Stone_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

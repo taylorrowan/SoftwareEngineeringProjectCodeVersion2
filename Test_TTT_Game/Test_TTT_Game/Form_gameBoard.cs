@@ -49,7 +49,7 @@ namespace Test_TTT_Game
         private void Form_gameBoard_Load(object sender, EventArgs e)
         {
             playerTurn();
-            testValuesPassedFromMM();
+            //testValuesPassedFromMM();
             fillMatrix();
 
             //button2.Enabled = false;
@@ -57,10 +57,9 @@ namespace Test_TTT_Game
             {
                 Button b = (Button)c;
                 b.Visible = false;
-                //MessageBox.Show(b.Name);
+               // MessageBox.Show(b.BackColor.ToString());
             }
 
-            
         }
 
         private void fillMatrix()
@@ -159,7 +158,9 @@ namespace Test_TTT_Game
             //-filled up with random number in the beginning.
             fillMatrix();
             CopyResults();
-
+            player1Points = 0;
+            player2Points = 0;
+            adjustScore();
             turnCount = 0;  // make the player 1 goes first as default.
             turn = false;
             foreach (var c in panel_gameBoard.Controls)
@@ -168,7 +169,9 @@ namespace Test_TTT_Game
                 {
                     Button b = (Button)c;
                     b.Enabled = true;
-                    b.Text = "";
+                    b.BackColor = SystemColors.ButtonFace;
+                    b.UseVisualStyleBackColor = true;
+                    //b.Text = "";
                 }
             }
         }
@@ -468,12 +471,16 @@ namespace Test_TTT_Game
         {
             
             Button b = (Button)sender;
+            // To tell color before change
+           // MessageBox.Show(b.BackColor.ToString());
 
             //set associativity when button is pressed
             if (turn) //true
             {
-                b.ForeColor = Color.Green;
-                b.Text = "X"; //player 2
+                
+               // b.ForeColor = Color.Green;
+               // b.Text = "X"; //player 2
+                backgroundStoneColor(player2Color, b);
                 CompareMatrix(b.Name, 1);
                 CopyResults();
                
@@ -481,12 +488,17 @@ namespace Test_TTT_Game
             }
             else
             {
-                b.Text = "O"; //player 1
-                b.ForeColor = Color.Red;
+               // b.Text = "O"; //player 1
+                //b.ForeColor = Color.Red;
+                backgroundStoneColor(player1Color, b);
                 CompareMatrix(b.Name, 0);
                 CopyResults();
                 
             }
+
+            // To show color after changing
+          //  MessageBox.Show(A1.BackColor.ToString());
+
             turn = !turn;
             b.Enabled = false;
 
@@ -518,6 +530,7 @@ namespace Test_TTT_Game
             catch { }
         }//end disable button
 
+        // Function called at the end of 36 turns to determine winner and call the update xml function
         private void DetermineWinnerLoser()
         {
             // integer to be 1, 2, or 3. My options 1 is p1 wins, 2 is p2 wins, 3 is draw
@@ -553,6 +566,7 @@ namespace Test_TTT_Game
             UpdateWinLossDraw(a);
         }
 
+        // Access to xml to update win loss tie to the right player
         private void UpdateWinLossDraw(int x)
         {
             XmlDocument xml = new XmlDocument();
@@ -977,6 +991,40 @@ namespace Test_TTT_Game
             MessageBox.Show(turn.ToString() + "- False/Player1 or True/Player2");
 
         }
+
+        private void backgroundStoneColor(string a, Button b)
+        {
+            if (a == "Royal Blue")
+            {
+                b.BackColor = Color.RoyalBlue;
+            }
+            else if (a == "Gold")
+            {
+                b.BackColor = Color.Gold;
+            }
+            else if (a == "Silver")
+            {
+                b.BackColor = Color.Silver;
+            }
+            else if (a == "Sea Green")
+            {
+                b.BackColor = Color.SeaGreen;
+            }
+            else if (a == "Dark Orange")
+            {
+                b.BackColor = Color.DarkOrange;
+            }
+            else if (a == "Deep Pink")
+            {
+                b.BackColor = Color.DeepPink;
+            }
+            else if ( a == "Black")
+            {
+                b.BackColor = Color.Black;
+            }
+
+        }
+
     }
 
     // Do not write code in here

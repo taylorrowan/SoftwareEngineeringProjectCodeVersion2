@@ -184,23 +184,29 @@
             this.comboBox_player1Stone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player1Stone.FormattingEnabled = true;
             this.comboBox_player1Stone.Items.AddRange(new object[] {
-            "Green",
-            "Red",
-            "Yellow"});
+            "Royal Blue",
+            "Gold",
+            "Silver",
+            "Deep Pink",
+            "Sea Green",
+            "Dark Orange"});
             this.comboBox_player1Stone.Location = new System.Drawing.Point(22, 46);
             this.comboBox_player1Stone.Name = "comboBox_player1Stone";
             this.comboBox_player1Stone.Size = new System.Drawing.Size(133, 21);
             this.comboBox_player1Stone.TabIndex = 15;
+            this.comboBox_player1Stone.SelectedIndexChanged += new System.EventHandler(this.comboBox_player1Stone_SelectedIndexChanged);
             // 
             // comboBox_player2Stone
             // 
             this.comboBox_player2Stone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_player2Stone.FormattingEnabled = true;
             this.comboBox_player2Stone.Items.AddRange(new object[] {
-            "Green",
-            "Red",
-            "Yellow",
-            "..."});
+            "Royal Blue",
+            "Gold",
+            "Silver",
+            "Deep Pink",
+            "Sea Green",
+            "Dark Orange"});
             this.comboBox_player2Stone.Location = new System.Drawing.Point(22, 95);
             this.comboBox_player2Stone.Name = "comboBox_player2Stone";
             this.comboBox_player2Stone.Size = new System.Drawing.Size(133, 21);
