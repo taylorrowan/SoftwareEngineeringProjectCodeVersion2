@@ -19,7 +19,7 @@ namespace Test_TTT_Game
         string player2Name = "";
         bool turn; //true = X false = O
         int turnCount = 0;
-        bool isWinner = false;
+        
         int[,] result = new int[6, 6]; //matrix contains moves of 2 players
         int[,] SubResult1 = new int[4, 4]; //case 1
         int[,] SubResult2 = new int[4, 4]; //case 1
@@ -47,6 +47,7 @@ namespace Test_TTT_Game
         {
             playerTurn();
             fillMatrix();
+
             //button2.Enabled = false;
             foreach (Control c in panel_gameBoard.Controls)
             {
@@ -150,33 +151,24 @@ namespace Test_TTT_Game
 
         private void button_playAgain_Click(object sender, EventArgs e)
         {
-            /*Form_gameBoard frm_gB = new Form_gameBoard();
-            frm_gB.Show();
-            this.Hide();*/
-            /*foreach (Control c in panel_gameBoard.Controls)
-            {
-                Button b = (Button)c;
-                b.Visible = true;
-                //MessageBox.Show(b.Name);
-            }*/
-            fillMatrix(); //initialize a new matrix which hold the value of steps from players--filled up with random number in the beginning.
-            //button3.Enabled = true; // make optional 'player 2 goes first avalable'
-            //button2.Enabled = true;
-            isWinner = false;
+            //initialize a new matrix which hold the value of steps from players-
+            //-filled up with random number in the beginning.
+            fillMatrix();
+            CopyResults();
+
             turnCount = 0;  // make the player 1 goes first as default.
-            //GetWinRatio();
-            try
+            turn = false;
+            foreach (var c in panel_gameBoard.Controls)
             {
-                turn = false;
-                foreach (Control c in panel_gameBoard.Controls)
+                if (c.GetType() == typeof(Button))
                 {
                     Button b = (Button)c;
                     b.Enabled = true;
                     b.Text = "";
                 }
             }
-            catch { }
         }
+          
 
 
         // This function is assigning a 1(one) or 0(zero) to the overall board called result, which is 6X6
