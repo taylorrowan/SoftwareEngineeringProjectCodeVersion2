@@ -33,7 +33,7 @@
     <Name>TAYLOR</Name>
     <Win>4</Win>
     <Loss>0</Loss>
-    <Tie>0</Tie>
+    <Tie>1</Tie>
   </User>
   <User>
     <Name>ZACH</Name>
@@ -46,5 +46,11 @@
     <Win>0</Win>
     <Loss>0</Loss>
     <Tie>0</Tie>
+  </User>
+  <User>
+    <Name>ABDUL</Name>
+    <Win>0</Win>
+    <Loss>0</Loss>
+    <Tie>1</Tie>
   </User>
 </Users>

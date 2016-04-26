@@ -1090,12 +1090,12 @@ namespace Test_TTT_Game
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
-            MessageBox.Show(result[i, j].ToString());
+           // MessageBox.Show(result[i, j].ToString());
             while (result[i, j] != 2)
             {
                 i = rand.Next(0, 6);
                 j = rand.Next(0, 6);
-                MessageBox.Show(result[i, j].ToString());
+               // MessageBox.Show(result[i, j].ToString());
             }
             String buttonName = names[i, j];
 
