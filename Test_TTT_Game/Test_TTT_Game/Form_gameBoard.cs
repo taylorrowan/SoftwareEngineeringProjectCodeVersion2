@@ -19,6 +19,7 @@ namespace Test_TTT_Game
         string player2Name = "";
         string player1Color = "";
         string player2Color = "";
+        string AILevelOfDiff = "";
 
         bool turn; //true = X false = O
         bool rememberWhoWentFirst;
@@ -50,6 +51,7 @@ namespace Test_TTT_Game
         private void Form_gameBoard_Load(object sender, EventArgs e)
         {
             playerTurn();
+            // Used to test values passed from Main Menu
             //testValuesPassedFromMM();
             setNamesOnLabels();
             fillMatrix();
@@ -998,7 +1000,16 @@ namespace Test_TTT_Game
             MessageBox.Show(player1Color);
             MessageBox.Show(player2Color);
             MessageBox.Show(turn.ToString() + "- False/Player1 or True/Player2");
+            MessageBox.Show(AILevelOfDiff);
 
+        }
+        // Used to import difficulty
+        public string AIdifficulty
+        {
+            set
+            {
+                AILevelOfDiff = value;
+            }
         }
 
         private void backgroundStoneColor(string a, Button b)
@@ -1051,6 +1062,39 @@ namespace Test_TTT_Game
 
         private void label_scoreboardP2_totalLabel_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void backUpAI()
+        {
+            if (player2Name == "DITZY" && turn == true)
+            {
+
+            }
+        }
+
+        private void AIEasy()
+        {
+            
+            Random rand = new Random();
+            int i = rand.Next(0, 6);
+            int j = rand.Next(0, 6);
+            String buttonName = names[i, j];
+
+            foreach (var c in panel_gameBoard.Controls)
+            {
+                if (c.GetType() == typeof(Button))
+                {
+                    Button b = (Button)c;
+                    if (b.Name == buttonName)
+                    {
+                        b.Enabled = false;
+                        b.BackColor = Color.Black;
+                        //b.Text = "";
+                    }
+                }
+            }
+
 
         }
 

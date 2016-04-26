@@ -196,6 +196,29 @@ namespace Test_TTT_Game
                 }
             }
         }
+        // To pass Difficulty
+        public string getDifficulty
+        {
+            get
+            {
+                if (checkBox_diffEasy.Checked)
+                {
+                    return checkBox_diffEasy.Text;
+                }
+                else if (checkBox_diffMedium.Checked)
+                {
+                    return checkBox_diffMedium.Text;
+                }
+                else if (checkBox_diffHard.Checked)
+                {
+                    return checkBox_diffHard.Text;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
 
         private void button_startGame_Click(object sender, EventArgs e)
         {
@@ -223,6 +246,7 @@ namespace Test_TTT_Game
                 frm_gB.player1ColorGB = getPlayer1Color;
                 frm_gB.player2ColorGB = getPlayer2Color;
                 frm_gB.whoseGoingFirst = getWhoGoesFirst;
+                frm_gB.AIdifficulty = getDifficulty;
                 frm_gB.Show();
                 this.Hide();
             }
