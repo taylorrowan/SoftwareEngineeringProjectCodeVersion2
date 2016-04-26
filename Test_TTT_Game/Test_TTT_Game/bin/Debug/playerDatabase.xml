@@ -9,13 +9,13 @@
     <Name>Guest1</Name>
     <Win>0</Win>
     <Loss>0</Loss>
-    <Tie>0</Tie>
+    <Tie>1</Tie>
   </User>
   <User>
     <Name>Guest2</Name>
     <Win>0</Win>
     <Loss>0</Loss>
-    <Tie>0</Tie>
+    <Tie>1</Tie>
   </User>
   <User>
     <Name>DANIEL</Name>

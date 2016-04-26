@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox_historySearch = new System.Windows.Forms.GroupBox();
-            this.button_historySearch_viewAll = new System.Windows.Forms.Button();
             this.button_historySearch_search = new System.Windows.Forms.Button();
+            this.button_historySearch_Clear = new System.Windows.Forms.Button();
             this.textBox_historySearch_name = new System.Windows.Forms.TextBox();
             this.label_historySearch_name = new System.Windows.Forms.Label();
+            this.button_historySearch_viewAll = new System.Windows.Forms.Button();
             this.button_backToMenuFrmHistory = new System.Windows.Forms.Button();
             this.groupBox_history_playerInfo = new System.Windows.Forms.GroupBox();
             this.richTextBox_history_playerInfo = new System.Windows.Forms.RichTextBox();
-            this.button_historySearch_Clear = new System.Windows.Forms.Button();
             this.groupBox_historySearch.SuspendLayout();
             this.groupBox_history_playerInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_historySearch
             // 
+            this.groupBox_historySearch.Controls.Add(this.button_historySearch_viewAll);
             this.groupBox_historySearch.Controls.Add(this.button_historySearch_search);
             this.groupBox_historySearch.Controls.Add(this.button_historySearch_Clear);
             this.groupBox_historySearch.Controls.Add(this.textBox_historySearch_name);
@@ -54,43 +55,53 @@
             this.groupBox_historySearch.TabStop = false;
             this.groupBox_historySearch.Text = "Search Player";
             // 
-            // button_historySearch_viewAll
-            // 
-            this.button_historySearch_viewAll.Location = new System.Drawing.Point(272, 62);
-            this.button_historySearch_viewAll.Name = "button_historySearch_viewAll";
-            this.button_historySearch_viewAll.Size = new System.Drawing.Size(75, 23);
-            this.button_historySearch_viewAll.TabIndex = 3;
-            this.button_historySearch_viewAll.Text = "View All";
-            this.button_historySearch_viewAll.UseVisualStyleBackColor = true;
-            this.button_historySearch_viewAll.Click += new System.EventHandler(this.button_historySearch_viewAll_Click_1);
-            // 
             // button_historySearch_search
             // 
-            this.button_historySearch_search.Location = new System.Drawing.Point(260, 21);
+            this.button_historySearch_search.Location = new System.Drawing.Point(247, 21);
             this.button_historySearch_search.Name = "button_historySearch_search";
-            this.button_historySearch_search.Size = new System.Drawing.Size(75, 23);
+            this.button_historySearch_search.Size = new System.Drawing.Size(55, 23);
             this.button_historySearch_search.TabIndex = 2;
             this.button_historySearch_search.Text = "Search";
             this.button_historySearch_search.UseVisualStyleBackColor = true;
             this.button_historySearch_search.Click += new System.EventHandler(this.button_historySearch_search_Click_1);
             // 
+            // button_historySearch_Clear
+            // 
+            this.button_historySearch_Clear.Location = new System.Drawing.Point(369, 21);
+            this.button_historySearch_Clear.Name = "button_historySearch_Clear";
+            this.button_historySearch_Clear.Size = new System.Drawing.Size(55, 23);
+            this.button_historySearch_Clear.TabIndex = 5;
+            this.button_historySearch_Clear.Text = "Clear";
+            this.button_historySearch_Clear.UseVisualStyleBackColor = true;
+            this.button_historySearch_Clear.Click += new System.EventHandler(this.button_historySearch_Clear_Click);
+            // 
             // textBox_historySearch_name
             // 
             this.textBox_historySearch_name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox_historySearch_name.Location = new System.Drawing.Point(85, 23);
+            this.textBox_historySearch_name.Location = new System.Drawing.Point(75, 23);
             this.textBox_historySearch_name.Name = "textBox_historySearch_name";
-            this.textBox_historySearch_name.Size = new System.Drawing.Size(159, 20);
+            this.textBox_historySearch_name.Size = new System.Drawing.Size(166, 20);
             this.textBox_historySearch_name.TabIndex = 1;
             this.textBox_historySearch_name.TextChanged += new System.EventHandler(this.textBox_historySearch_name_TextChanged);
             // 
             // label_historySearch_name
             // 
             this.label_historySearch_name.AutoSize = true;
-            this.label_historySearch_name.Location = new System.Drawing.Point(16, 26);
+            this.label_historySearch_name.Location = new System.Drawing.Point(6, 26);
             this.label_historySearch_name.Name = "label_historySearch_name";
             this.label_historySearch_name.Size = new System.Drawing.Size(63, 13);
             this.label_historySearch_name.TabIndex = 0;
             this.label_historySearch_name.Text = "Enter Name";
+            // 
+            // button_historySearch_viewAll
+            // 
+            this.button_historySearch_viewAll.Location = new System.Drawing.Point(308, 21);
+            this.button_historySearch_viewAll.Name = "button_historySearch_viewAll";
+            this.button_historySearch_viewAll.Size = new System.Drawing.Size(55, 23);
+            this.button_historySearch_viewAll.TabIndex = 3;
+            this.button_historySearch_viewAll.Text = "View All";
+            this.button_historySearch_viewAll.UseVisualStyleBackColor = true;
+            this.button_historySearch_viewAll.Click += new System.EventHandler(this.button_historySearch_viewAll_Click_1);
             // 
             // button_backToMenuFrmHistory
             // 
@@ -120,22 +131,11 @@
             this.richTextBox_history_playerInfo.TabIndex = 0;
             this.richTextBox_history_playerInfo.Text = "";
             // 
-            // button_historySearch_Clear
-            // 
-            this.button_historySearch_Clear.Location = new System.Drawing.Point(341, 23);
-            this.button_historySearch_Clear.Name = "button_historySearch_Clear";
-            this.button_historySearch_Clear.Size = new System.Drawing.Size(75, 23);
-            this.button_historySearch_Clear.TabIndex = 5;
-            this.button_historySearch_Clear.Text = "Clear";
-            this.button_historySearch_Clear.UseVisualStyleBackColor = true;
-            this.button_historySearch_Clear.Click += new System.EventHandler(this.button_historySearch_Clear_Click);
-            // 
             // Form_playerHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 547);
-            this.Controls.Add(this.button_historySearch_viewAll);
             this.Controls.Add(this.button_backToMenuFrmHistory);
             this.Controls.Add(this.groupBox_history_playerInfo);
             this.Controls.Add(this.groupBox_historySearch);
