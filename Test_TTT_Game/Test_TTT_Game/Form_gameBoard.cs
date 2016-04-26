@@ -1129,7 +1129,45 @@ namespace Test_TTT_Game
 
         private void AIMedium()
         {
+            Thread.Sleep(1000);
+            Random rand = new Random();
+            int i = rand.Next(0, 6);
+            int j = rand.Next(0, 6);
+            MessageBox.Show(result[i, j].ToString());
+            while (result[i, j] != 2)
+            {
+                i = rand.Next(0, 6);
+                j = rand.Next(0, 6);
+                MessageBox.Show(result[i, j].ToString());
+            }
+            String buttonName = names[i, j];
 
+            foreach (var c in panel_gameBoard.Controls)
+            {
+                if (c.GetType() == typeof(Button))
+                {
+
+                    Button b = (Button)c;
+                    if (b.Name == buttonName)
+                    {
+                        b.Enabled = false;
+                        b.BackColor = Color.Black;
+                        //b.Text = "";
+                    }
+                }
+            }
+
+            CompareMatrix(buttonName, 1);
+            CopyResults();
+            turn = !turn;
+            // counting turns
+            turnCount++;
+            // checkboard will check if every place on the board is selected, and then run an endgame counter
+            checkBoard();
+            // Will update the scores of the two players
+            adjustScore();
+            // Will display whose turn it is
+            playerTurn();
         }
 
         private void AIHard()
