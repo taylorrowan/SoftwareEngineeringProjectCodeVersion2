@@ -160,14 +160,14 @@ namespace Test_TTT_Game
         private void button_playAgain_Click(object sender, EventArgs e)
         {
             //initialize a new matrix which hold the value of steps from players-
-            //-filled up with random number in the beginning.
+            //filled up with random number in the beginning.
             fillMatrix();
             CopyResults();
             player1Points = 0;
             player2Points = 0;
             adjustScore();
             turnCount = 0;  // make the player 1 goes first as default.
-            switchWhoGoesFirst();
+            
             foreach (var c in panel_gameBoard.Controls)
             {
                 if (c.GetType() == typeof(Button))
@@ -178,6 +178,11 @@ namespace Test_TTT_Game
                     b.UseVisualStyleBackColor = true;
                     //b.Text = "";
                 }
+            }
+            switchWhoGoesFirst();
+            if (turn)
+            {
+                backUpAI();
             }
         }
           
@@ -1072,7 +1077,10 @@ namespace Test_TTT_Game
         {
             if (player2Name == "DITZY" && turn == true)
             {
-                AIEasy();
+                if (AILevelOfDiff == "Easy")
+                {
+                    AIEasy();
+                }
             }
         }
 
@@ -1082,12 +1090,20 @@ namespace Test_TTT_Game
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
+            MessageBox.Show(result[i, j].ToString());
+            while (result[i, j] != 2)
+            {
+                i = rand.Next(0, 6);
+                j = rand.Next(0, 6);
+                MessageBox.Show(result[i, j].ToString());
+            }
             String buttonName = names[i, j];
 
             foreach (var c in panel_gameBoard.Controls)
             {
                 if (c.GetType() == typeof(Button))
                 {
+                    
                     Button b = (Button)c;
                     if (b.Name == buttonName)
                     {
@@ -1098,6 +1114,8 @@ namespace Test_TTT_Game
                 }
             }
 
+            CompareMatrix(buttonName, 1);
+            CopyResults();
             turn = !turn;
             // counting turns
             turnCount++;
@@ -1107,6 +1125,16 @@ namespace Test_TTT_Game
             adjustScore();
             // Will display whose turn it is
             playerTurn();
+        }
+
+        private void AIMedium()
+        {
+
+        }
+
+        private void AIHard()
+        {
+
         }
 
     }
