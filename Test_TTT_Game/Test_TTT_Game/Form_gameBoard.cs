@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.Xml;
 using System.IO;
+using System.Threading;
 
 namespace Test_TTT_Game
 {
@@ -513,6 +514,8 @@ namespace Test_TTT_Game
             adjustScore();
             // Will display whose turn it is
             playerTurn();
+            // Will cause computer to go if PvC
+            backUpAI();
 
             if (turnCount == 36)
             {
@@ -1069,13 +1072,13 @@ namespace Test_TTT_Game
         {
             if (player2Name == "DITZY" && turn == true)
             {
-
+                AIEasy();
             }
         }
 
         private void AIEasy()
         {
-            
+            Thread.Sleep(1000);
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
@@ -1095,7 +1098,15 @@ namespace Test_TTT_Game
                 }
             }
 
-
+            turn = !turn;
+            // counting turns
+            turnCount++;
+            // checkboard will check if every place on the board is selected, and then run an endgame counter
+            checkBoard();
+            // Will update the scores of the two players
+            adjustScore();
+            // Will display whose turn it is
+            playerTurn();
         }
 
     }
