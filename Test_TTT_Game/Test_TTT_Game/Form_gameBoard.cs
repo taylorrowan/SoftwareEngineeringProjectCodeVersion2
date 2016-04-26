@@ -21,6 +21,7 @@ namespace Test_TTT_Game
         string player2Color = "";
 
         bool turn; //true = X false = O
+        bool rememberWhoWentFirst;
         int turnCount = 0;
         
         int[,] result = new int[6, 6]; //matrix contains moves of 2 players
@@ -163,7 +164,7 @@ namespace Test_TTT_Game
             player2Points = 0;
             adjustScore();
             turnCount = 0;  // make the player 1 goes first as default.
-            turn = false;
+            switchWhoGoesFirst();
             foreach (var c in panel_gameBoard.Controls)
             {
                 if (c.GetType() == typeof(Button))
@@ -986,6 +987,7 @@ namespace Test_TTT_Game
             set
             {
                 turn = value;
+                rememberWhoWentFirst = value;
             }
         }
         // To test values that have been passed from Main Menu, function is called in Load function
@@ -1030,6 +1032,21 @@ namespace Test_TTT_Game
                 b.BackColor = Color.Black;
             }
 
+        }
+
+        private void switchWhoGoesFirst()
+        {
+            rememberWhoWentFirst = !rememberWhoWentFirst;
+            turn = rememberWhoWentFirst;
+            playerTurn();
+            if (turn)
+            {
+                MessageBox.Show(player2Name + "'s turn to go first");
+            }
+            else
+            {
+                MessageBox.Show(player1Name + "'s turn to go first");
+            }
         }
 
         private void label_scoreboardP2_totalLabel_Click(object sender, EventArgs e)
