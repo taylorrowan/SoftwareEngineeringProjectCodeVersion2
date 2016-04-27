@@ -180,10 +180,12 @@ namespace Test_TTT_Game
                     //b.Text = "";
                 }
             }
+            // Once Play Again is selected, this function switches who goes first
             switchWhoGoesFirst();
+            // If AI goes first, will call AI to make first move
             if (turn)
             {
-                backUpAI();
+                AICallFunction();
             }
         }
           
@@ -503,10 +505,7 @@ namespace Test_TTT_Game
                 backgroundStoneColor(player1Color, b);
                 CompareMatrix(b.Name, 0);
                 CopyResults();
-                //if (turnCount == 35)
-                //{
-                //    DetermineWinnerLoser();
-                //}
+               
                 
             }
 
@@ -524,7 +523,7 @@ namespace Test_TTT_Game
             // Will display whose turn it is
             playerTurn();
             // Will cause computer to go if PvC
-            backUpAI();
+            AICallFunction();
 
             if (turnCount == 36)
             {
@@ -532,15 +531,18 @@ namespace Test_TTT_Game
             }
         }
 
+        // Function not used, but kept as a reference
         private void DisableButtons()
         {
             try
             {
                 foreach (Control c in panel_gameBoard.Controls)
                 {
-                    Button b = (Button)c;
-                    b.Enabled = false;
-
+                    if (c.GetType() == typeof(Button))
+                    {
+                        Button b = (Button)c;
+                        b.Enabled = false;
+                    }
                 }
             }
             catch { }
@@ -1077,18 +1079,23 @@ namespace Test_TTT_Game
 
         }
 
-        private void backUpAI()
+        private void AICallFunction()
         {
             if (player2Name == "DITZY" && turn == true && turnCount !=36)
             {
-                //if (AILevelOfDiff == "Easy")
-               // {
-                    AIEasy();
-                //}
+                if (true)
+                {
+                    AIDaniel();
+                }
+                else
+                {
+                    // As a backup AI
+                   // DummyAI();
+                }
             }
         }
-
-        private void AIEasy()
+        //A basic AI
+        private void DummyAI()
         {
             
             Random rand = new Random();
@@ -1131,55 +1138,8 @@ namespace Test_TTT_Game
             playerTurn();
         }
 
-        private void AIMedium()
-        {
-           
-            Random rand = new Random();
-
-            int i = rand.Next(0, 6);
-            int j = rand.Next(0, 6);
-           // MessageBox.Show(result[i, j].ToString());
-            while (result[i, j] != 2)
-            {
-                i = rand.Next(0, 6);
-                j = rand.Next(0, 6);
-                //MessageBox.Show(result[i, j].ToString());
-            }
-            String buttonName = names[i, j];
-
-            foreach (var c in panel_gameBoard.Controls)
-            {
-                if (c.GetType() == typeof(Button))
-                {
-
-                    Button b = (Button)c;
-                    if (b.Name == buttonName)
-                    {
-                        b.Enabled = false;
-                        b.BackColor = Color.Black;
-                        //b.Text = "";
-                    }
-                }
-            }
-
-            CompareMatrix(buttonName, 1);
-            CopyResults();
-            turn = !turn;
-            // counting turns
-            turnCount++;
-            // checkboard will check if every place on the board is selected, and then run an endgame counter
-            checkBoard();
-            // Will update the scores of the two players
-            adjustScore();
-            // Will display whose turn it is
-            playerTurn();
-        }
-
-        private void AIHard()
-        {
-
-        }
-
+     
+        // limits DummyAI moves based on difficulty
         private bool AISmart(int a, int b)
         {
             if (AILevelOfDiff == "Medium")
@@ -1213,6 +1173,13 @@ namespace Test_TTT_Game
                 return false;
             }
         }
+
+        private void AIDaniel()
+        {
+           // This is where to place SmartAI code. You do not need to validate anything, before this function is called
+            // it will check if there is an AI to begin with.
+        }
+
     }
 
     // Do not write code in here
