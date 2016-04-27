@@ -1081,10 +1081,10 @@ namespace Test_TTT_Game
         {
             if (player2Name == "DITZY" && turn == true && turnCount !=36)
             {
-                if (AILevelOfDiff == "Easy")
-                {
+                //if (AILevelOfDiff == "Easy")
+               // {
                     AIEasy();
-                }
+                //}
             }
         }
 
@@ -1095,7 +1095,7 @@ namespace Test_TTT_Game
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
            // MessageBox.Show(result[i, j].ToString());
-            while (result[i, j] != 2)
+            while ( AISmart(i,j) || result[i, j] != 2 )
             {
                 i = rand.Next(0, 6);
                 j = rand.Next(0, 6);
@@ -1135,14 +1135,15 @@ namespace Test_TTT_Game
         {
            
             Random rand = new Random();
+
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
-            MessageBox.Show(result[i, j].ToString());
+           // MessageBox.Show(result[i, j].ToString());
             while (result[i, j] != 2)
             {
                 i = rand.Next(0, 6);
                 j = rand.Next(0, 6);
-                MessageBox.Show(result[i, j].ToString());
+                //MessageBox.Show(result[i, j].ToString());
             }
             String buttonName = names[i, j];
 
@@ -1179,15 +1180,38 @@ namespace Test_TTT_Game
 
         }
 
-        async Task PutTaskDelay()
+        private bool AISmart(int a, int b)
         {
-            await Task.Delay(2000);
-        }
-
-        private async void AIDelay()
-        {
-            await PutTaskDelay();
-            MessageBox.Show("I am back");
+            if (AILevelOfDiff == "Medium")
+            {
+                if (((a > 0 && a < 5) && (b > 0 && b < 5)) && (turnCount < 16))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else if (AILevelOfDiff == "Hard")
+            {
+                if (((a > 1 && a < 4) && (b > 1 && b < 4)) && (turnCount < 4))
+                {
+                    return false;
+                }
+                else if (((a > 0 && a < 5) && (b > 0 && b < 5)) && (turnCount >= 4 && turnCount < 16))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
