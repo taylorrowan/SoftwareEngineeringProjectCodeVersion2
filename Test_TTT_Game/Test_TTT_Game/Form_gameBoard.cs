@@ -56,7 +56,7 @@ namespace Test_TTT_Game
             //testValuesPassedFromMM();
             setNamesOnLabels();
             fillMatrix();
-
+            adjustScore();
             //button2.Enabled = false;
             foreach (Control c in panel_gameBoard.Controls)
             {
@@ -109,7 +109,8 @@ namespace Test_TTT_Game
             countPointsOfDiagonal(SubResult7);
             countPointsOfDiagonal(SubResult8);
             countPointsOfDiagonal(SubResult9);
-            
+
+            adjustScore();
         }
 
 
@@ -493,7 +494,6 @@ namespace Test_TTT_Game
                 backgroundStoneColor(player2Color, b);
                 CompareMatrix(b.Name, 1);
                 CopyResults();
-               
                 
             }
             else
@@ -503,6 +503,10 @@ namespace Test_TTT_Game
                 backgroundStoneColor(player1Color, b);
                 CompareMatrix(b.Name, 0);
                 CopyResults();
+                //if (turnCount == 35)
+                //{
+                //    DetermineWinnerLoser();
+                //}
                 
             }
 
@@ -511,12 +515,12 @@ namespace Test_TTT_Game
 
             turn = !turn;
             b.Enabled = false;
-
+            //MessageBox.Show(turnCount.ToString());
             turnCount++;
             // checkboard will check if every place on the board is selected, and then run an endgame counter
             checkBoard();
             // Will update the scores of the two players
-            adjustScore();
+          //  adjustScore();
             // Will display whose turn it is
             playerTurn();
             // Will cause computer to go if PvC
@@ -1075,7 +1079,7 @@ namespace Test_TTT_Game
 
         private void backUpAI()
         {
-            if (player2Name == "DITZY" && turn == true)
+            if (player2Name == "DITZY" && turn == true && turnCount !=36)
             {
                 if (AILevelOfDiff == "Easy")
                 {
@@ -1086,7 +1090,7 @@ namespace Test_TTT_Game
 
         private void AIEasy()
         {
-            Thread.Sleep(1000);
+            
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
@@ -1122,14 +1126,14 @@ namespace Test_TTT_Game
             // checkboard will check if every place on the board is selected, and then run an endgame counter
             checkBoard();
             // Will update the scores of the two players
-            adjustScore();
+          //  adjustScore();
             // Will display whose turn it is
             playerTurn();
         }
 
         private void AIMedium()
         {
-            Thread.Sleep(1000);
+           
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
@@ -1175,6 +1179,16 @@ namespace Test_TTT_Game
 
         }
 
+        async Task PutTaskDelay()
+        {
+            await Task.Delay(2000);
+        }
+
+        private async void AIDelay()
+        {
+            await PutTaskDelay();
+            MessageBox.Show("I am back");
+        }
     }
 
     // Do not write code in here
