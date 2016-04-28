@@ -1178,6 +1178,25 @@ namespace Test_TTT_Game
         {
            // This is where to place SmartAI code. You do not need to validate anything, before this function is called
             // it will check if there is an AI to begin with.
+
+
+            //*******
+            // In Compare Matrix, you will need to input the button selected name for example, A1 or B5 or F3
+            // The 1 can should stay the same
+            CompareMatrix(buttonName, 1);
+            // CopyResults splits the result Array into 9 subResults, should stay the same
+            CopyResults();
+            // Flips turn to other player
+            turn = !turn;
+            // counting turns
+            turnCount++;
+            // checkboard will check if every place on the board is selected, and then run an endgame counter
+            checkBoard();
+            // Will update the scores of the two players
+            // Moved adjustScore to checkBoard
+            //  adjustScore();
+            // Will display whose turn it is
+            playerTurn();
         }
 
     }
