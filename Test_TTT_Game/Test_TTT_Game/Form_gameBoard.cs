@@ -22,6 +22,9 @@ namespace Test_TTT_Game
         string player2Color = "";
         string AILevelOfDiff = "";
 
+        int xForAI;
+        int yForAI;
+
         bool turn; //true = X false = O
         bool rememberWhoWentFirst;
         int turnCount = 0;
@@ -65,6 +68,8 @@ namespace Test_TTT_Game
                // MessageBox.Show(b.BackColor.ToString());
             }
 
+            // Test position
+          //  testArray();
         }
 
         private void fillMatrix()
@@ -162,6 +167,7 @@ namespace Test_TTT_Game
         {
             //initialize a new matrix which hold the value of steps from players-
             //filled up with random number in the beginning.
+
             fillMatrix();
             CopyResults();
             player1Points = 0;
@@ -482,7 +488,8 @@ namespace Test_TTT_Game
 
         private void button_click(object sender, EventArgs e)
         {
-            
+
+           // testArray();
             Button b = (Button)sender;
             // To tell color before change
            // MessageBox.Show(b.BackColor.ToString());
@@ -1083,14 +1090,17 @@ namespace Test_TTT_Game
         {
             if (player2Name == "DITZY" && turn == true && turnCount !=36)
             {
-                if (true)
+                if (AILevelOfDiff == "Hard")
                 {
-                    AIDaniel();
+                    DummyAI();
+                    //AISym();
+                    //AITaylor();
+                   // AIDaniel();
                 }
                 else
                 {
                     // As a backup AI
-                   // DummyAI();
+                   DummyAI();
                 }
             }
         }
@@ -1144,7 +1154,7 @@ namespace Test_TTT_Game
         {
             if (AILevelOfDiff == "Medium")
             {
-                if (((a > 0 && a < 5) && (b > 0 && b < 5)) && (turnCount < 16))
+                if (((a > 0 && a < 5) && (b > 0 && b < 5)) && (turnCount < 17))
                 {
                     return false;
                 }
@@ -1159,7 +1169,11 @@ namespace Test_TTT_Game
                 {
                     return false;
                 }
-                else if (((a > 0 && a < 5) && (b > 0 && b < 5)) && (turnCount >= 4 && turnCount < 16))
+                else if (((a > 0 && a < 5) && (b > 0 && b < 5)) && (turnCount >= 4 && turnCount < 17))
+                {
+                    return false;
+                }
+                else if (turnCount >= 17)
                 {
                     return false;
                 }
@@ -1180,6 +1194,201 @@ namespace Test_TTT_Game
             // it will check if there is an AI to begin with.
         }
 
+        private void AITaylor()
+        {
+            Random rand = new Random();
+            int i = rand.Next(0, 6);
+            int j = rand.Next(0, 6);
+            // MessageBox.Show(result[i, j].ToString());
+            while (AISmart(i, j) || result[i, j] != 2)
+            {
+                i = rand.Next(0, 6);
+                j = rand.Next(0, 6);
+                // MessageBox.Show(result[i, j].ToString());
+            }
+
+            String buttonName = names[i, j];
+
+            foreach (var c in panel_gameBoard.Controls)
+            {
+                if (c.GetType() == typeof(Button))
+                {
+
+                    Button b = (Button)c;
+                    if (b.Name == buttonName)
+                    {
+                        b.Enabled = false;
+                        b.BackColor = Color.Black;
+                        //b.Text = "";
+                    }
+                }
+            }
+
+            CompareMatrix(buttonName, 1);
+            CopyResults();
+            turn = !turn;
+            // counting turns
+            turnCount++;
+            // checkboard will check if every place on the board is selected, and then run an endgame counter
+            checkBoard();
+            // Will update the scores of the two players
+            //  adjustScore();
+            // Will display whose turn it is
+            playerTurn();
+        }
+
+
+        private void AISym()
+        {
+            int a, d;
+            String buttonName;
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (checkForSym(i, j))
+                    {
+                        a = i;
+                        d = j;
+                        xForAI = i;
+                        yForAI = j;
+                        buttonName = names[a, d];
+                    }
+                    else
+                    {
+                        a = i;
+                        d = j;
+                        buttonName = names[a, d];
+                    }
+                    
+                }
+
+               
+
+                foreach (var c in panel_gameBoard.Controls)
+                {
+                    
+                    if (c.GetType() == typeof(Button))
+                    {
+
+                        Button b = (Button)c;
+                        if (b.Name == names[xForAI, yForAI])
+                        {
+                            b.Enabled = false;
+                            b.BackColor = Color.Black;
+                            //b.Text = "";
+                        }
+                    }
+                }
+
+                CompareMatrix(names[xForAI,yForAI], 1);
+                CopyResults();
+                turn = !turn;
+                // counting turns
+                turnCount++;
+                // checkboard will check if every place on the board is selected, and then run an endgame counter
+                checkBoard();
+                // Will update the scores of the two players
+                //  adjustScore();
+                // Will display whose turn it is
+                playerTurn();
+            }
+        }
+
+        private bool checkForSym(int a, int b)
+        {
+            if (result[0, 0] == 0 && result[5, 5] == 1)
+            {
+                return false;
+            }
+            else if (result[1, 0] == 0 && result[4, 5] == 1)
+            {
+                return false;
+            }
+            else if (result[2, 0] == 0 && result[3, 5] == 1)
+            {
+                return false;
+            }
+            else if (result[3, 0] == 0 && result[2, 5] == 1)
+            {
+                return false;
+            }
+            else if (result[4, 0] == 0 && result[1, 5] == 1)
+            {
+                return false;
+            }
+            else if (result[5, 0] == 0 && result[0, 5] == 1)
+            {
+                return false;
+            }
+            else if (result[2, 1] == 0 && result[3, 4] == 1)
+            {
+                return false;
+            }
+            else if (result[3, 1] == 0 && result[2, 4] == 1)
+            {
+                return false;
+            }
+            else if (result[4, 1] == 0 && result[1, 4] == 1)
+            {
+                return false;
+            }
+            else if (result[5, 1] == 0 && result[0, 4] == 1)
+            {
+                return false;
+            }
+            else if (result[2, 2] == 0 && result[3, 3] == 1)
+            {
+                return false;
+            }
+            else if (result[3, 2] == 0 && result[2, 3] == 1)
+            {
+                return false;
+            }
+            else if (result[4, 2] == 0 && result[1, 3] == 1)
+            {
+                return false;
+            }
+            else if (result[5, 2] == 0 && result[0, 3] == 1)
+            {
+                return false;
+            }
+            else if (result[4, 3] == 0 && result[1, 2] == 1)
+            {
+                return false;
+            }
+            else if (result[5, 3] == 0 && result[0, 2] == 1)
+            {
+                return false;
+            }
+            else if (result[4, 4] == 0 && result[1, 1] == 1)
+            {
+                return false;
+            }
+            else if (result[5, 4] == 0 && result[0, 1] == 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+            //String[,] names = new String[6,{{"A1"    ,"B1","C1","D1","E1","F1"},
+            //                                {"A2"    ,"B2","C2","D2","E2","F2"},
+            //                                {"A3","B3","C3"    ,"D3","E3","F3"},
+            //                                {"A4","B4","C4"    ,"D4","E4","F4"},
+            //                                {"A5","B5","C5","D5","E5","    F5"},
+            //                                {"A6","B6","C6","D6","E6","    F6"}};
+            
+        }
+
+
+        private void testArray()
+        {
+            MessageBox.Show(names[0, 1]); //B1
+            MessageBox.Show(names[1, 0]); //A2
+        }
     }
 
     // Do not write code in here
