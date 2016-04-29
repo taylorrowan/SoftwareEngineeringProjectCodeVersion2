@@ -86,6 +86,7 @@ namespace Test_TTT_Game
             {
                 comboBox_player1Name.Enabled = false;
                 comboBox_player1Name.Text = "Guest1";
+      
             }
             else 
             {

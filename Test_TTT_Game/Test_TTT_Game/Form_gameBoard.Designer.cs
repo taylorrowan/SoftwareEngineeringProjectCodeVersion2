@@ -646,6 +646,7 @@
             this.label_whoseTurn.Size = new System.Drawing.Size(204, 13);
             this.label_whoseTurn.TabIndex = 0;
             this.label_whoseTurn.Text = "Display \"Player name or Comp\" and stone";
+            this.label_whoseTurn.Click += new System.EventHandler(this.label_whoseTurn_Click);
             // 
             // groupBox_scoreboard
             // 

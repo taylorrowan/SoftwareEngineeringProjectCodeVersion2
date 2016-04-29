@@ -60,6 +60,7 @@ namespace Test_TTT_Game
             setNamesOnLabels();
             fillMatrix();
             adjustScore();
+            //AICallFunction();
             //button2.Enabled = false;
             foreach (Control c in panel_gameBoard.Controls)
             {
@@ -70,6 +71,7 @@ namespace Test_TTT_Game
 
             // Test position
           //  testArray();
+            
         }
 
         private void fillMatrix()
@@ -1107,7 +1109,7 @@ namespace Test_TTT_Game
         //A basic AI
         private void DummyAI()
         {
-            
+            Thread.Sleep(1500);
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
@@ -1120,6 +1122,7 @@ namespace Test_TTT_Game
             }
             String buttonName = names[i, j];
 
+            
             foreach (var c in panel_gameBoard.Controls)
             {
                 if (c.GetType() == typeof(Button))
@@ -1234,7 +1237,7 @@ namespace Test_TTT_Game
             // Will update the scores of the two players
             //  adjustScore();
             // Will display whose turn it is
-            playerTurn();
+            //playerTurn();
         }
 
 
@@ -1291,7 +1294,7 @@ namespace Test_TTT_Game
                 // Will update the scores of the two players
                 //  adjustScore();
                 // Will display whose turn it is
-                playerTurn();
+              //  playerTurn();
             }
         }
 
@@ -1388,6 +1391,11 @@ namespace Test_TTT_Game
         {
             MessageBox.Show(names[0, 1]); //B1
             MessageBox.Show(names[1, 0]); //A2
+        }
+
+        private void label_whoseTurn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
