@@ -20,11 +20,13 @@ namespace Test_TTT_Game
             InitializeComponent();
         }
 
+        // When player history is loaded
         private void Form_playerHistory_Load(object sender, EventArgs e)
         {
-            richTextBox_history_playerInfo.Text = "";
+            richTextBox_history_playerInfo.Text = ""; // Clear text box
         }
 
+        // If back to main menu is clicked...
         private void button_backToMenuFrmHistory_Click(object sender, EventArgs e)
         {
             Form_mainMenu frm_mM = new Form_mainMenu();
@@ -37,6 +39,7 @@ namespace Test_TTT_Game
 
         }
 
+        // Search player name and display info
         private void button_historySearch_search_Click_1(object sender, EventArgs e)
         {
             richTextBox_history_playerInfo.Text = "";
@@ -66,7 +69,7 @@ namespace Test_TTT_Game
 
                         total1 = (win1 / (win1 + loss1 + tie1)) * 100;
                         richTextBox_history_playerInfo.AppendText("Ratio  : " + Math.Round(total1, 2) + "%\n");
-                        richTextBox_history_playerInfo.AppendText("------------------------------------------------\n");
+                        richTextBox_history_playerInfo.AppendText("------------------------------------------------------------------------\n");
                         found = true;
                     }
 
@@ -81,6 +84,7 @@ namespace Test_TTT_Game
 
         }
 
+        // Display all player names and info
         private void button_historySearch_viewAll_Click_1(object sender, EventArgs e)
         {
             double win1, loss1, tie1, total1;
@@ -109,6 +113,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // Clear player history text box
         private void button_historySearch_Clear_Click(object sender, EventArgs e)
         {
             richTextBox_history_playerInfo.Clear();

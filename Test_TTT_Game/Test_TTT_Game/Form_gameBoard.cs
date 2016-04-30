@@ -25,24 +25,29 @@ namespace Test_TTT_Game
         int xForAI;
         int yForAI;
 
-        bool turn; //true = X false = O
+        bool turn; //true = 1st player to go; false = 2nd player to go
         bool rememberWhoWentFirst;
         int turnCount = 0;
         
-        int[,] result = new int[6, 6]; //matrix contains moves of 2 players
-        int[,] SubResult1 = new int[4, 4]; //case 1
-        int[,] SubResult2 = new int[4, 4]; //case 1
-        int[,] SubResult3 = new int[4, 4]; //case 1
-        int[,] SubResult4 = new int[4, 4]; //case 1
+        int[,] result = new int[6, 6]; // Matrix contains moves of 2 players
+
+        // Each matrix contain a 4x4 section of the 6x6 grid; hence 9 matrices
+        // Each matrix will be used to determine 4-in-a-rows vertically, horizontally, and diagonally
+        int[,] SubResult1 = new int[4, 4];
+        int[,] SubResult2 = new int[4, 4];
+        int[,] SubResult3 = new int[4, 4];
+        int[,] SubResult4 = new int[4, 4];
         int[,] SubResult5 = new int[4, 4];
         int[,] SubResult6 = new int[4, 4];
         int[,] SubResult7 = new int[4, 4];
         int[,] SubResult8 = new int[4, 4];
         int[,] SubResult9 = new int[4, 4];
 
+        // Initialize player points
         int player1Points = 0;
         int player2Points = 0;
 
+        // Set name/location of each square
         String[,] names = new String[6, 6] {{"A1","B1","C1","D1","E1","F1"},
                                             {"A2","B2","C2","D2","E2","F2"},
                                             {"A3","B3","C3","D3","E3","F3"},
@@ -51,32 +56,32 @@ namespace Test_TTT_Game
                                             {"A6","B6","C6","D6","E6","F6"}};
 
         
-        /*STAR UP*/
+        // When gameboard is loaded...
         private void Form_gameBoard_Load(object sender, EventArgs e)
         {
+            button_playAgain.Enabled = false;
+
             playerTurn();
-            // Used to test values passed from Main Menu
+            // Test values passed from Main Menu:
             //testValuesPassedFromMM();
             setNamesOnLabels();
             fillMatrix();
             adjustScore();
-            //AICallFunction();
-            //button2.Enabled = false;
+
             foreach (Control c in panel_gameBoard.Controls)
             {
                 Button b = (Button)c;
                 b.Visible = false;
-               // MessageBox.Show(b.BackColor.ToString());
             }
 
-            // Test position
-          //  testArray();
+          // Test position:
+          //testArray();
             
         }
 
+        // Assign value of 2 to unused squares when board loads
         private void fillMatrix()
         {
-            //filling the matrix by default : 2 for empty, 1 and 0 for players
             Random random = new Random();
             for (int i = 0; i < 6; i++)
             {
@@ -165,18 +170,20 @@ namespace Test_TTT_Game
             this.Hide();
         }
 
+        // Play again button to play again and who goes first is alternated
         private void button_playAgain_Click(object sender, EventArgs e)
         {
-            //initialize a new matrix which hold the value of steps from players-
-            //filled up with random number in the beginning.
+            // Initialize a new matrix which hold the value of steps from players
 
             fillMatrix();
             CopyResults();
             player1Points = 0;
             player2Points = 0;
             adjustScore();
-            turnCount = 0;  // make the player 1 goes first as default.
-            
+            turnCount = 0;  // Make the player 1 goes first as default.
+
+            button_playAgain.Enabled = false;
+
             foreach (var c in panel_gameBoard.Controls)
             {
                 if (c.GetType() == typeof(Button))
@@ -212,7 +219,7 @@ namespace Test_TTT_Game
                         result[i, j] = value;
                 }
             }
-            //Test to see the value of value
+            // Test to see the value of value:
             //MessageBox.Show(value.ToString());
         }
 
@@ -224,6 +231,7 @@ namespace Test_TTT_Game
             {
                 for (int j = 0; j < 6; j++)
                 {
+                // 1st row
                     if (i == 0 && j == 0)
                         SubResult1[i, j] = result[i, j];
                     else if (i == 0 && j == 1)
@@ -252,7 +260,7 @@ namespace Test_TTT_Game
                     {
 						SubResult3[i,j-2] = result[i,j];
                     }
-						// new row
+			    // 2nd row
 					else if (i == 1 && j == 0)
                     {
                         SubResult1[i, j] = result[i, j];
@@ -295,7 +303,7 @@ namespace Test_TTT_Game
 						SubResult3[i,j-2] = result[i,j];
 						SubResult6[i-1, j-2] = result[i,j];
                     }
-				// 3rd Row
+		        // 3rd Row
 					else if (i == 2 && j == 0)
                     {
                         SubResult1[i, j] = result[i, j];
@@ -350,7 +358,7 @@ namespace Test_TTT_Game
 						SubResult6[i-1, j-2] = result[i,j];
 						SubResult9[i-2, j-2] = result[i,j];
                     }
-				// 4thRow
+				// 4th Row
 					else if (i == 3 && j == 0)
                     {
                         SubResult1[i, j] = result[i, j];
@@ -482,53 +490,48 @@ namespace Test_TTT_Game
                     else
                     {}
                     // This message box is used to check if each value is correct on board after each selection, takes time.
-                   // MessageBox.Show(result[i, j].ToString());
+                   //MessageBox.Show(result[i, j].ToString());
                 }
                
             }
-        } // end copy results
+        } // End copy results
 
+        // If a square is selected...
         private void button_click(object sender, EventArgs e)
         {
+            button_backToMenuFrmBoard.Enabled = false;
 
-           // testArray();
+            // testArray();
             Button b = (Button)sender;
             // To tell color before change
-           // MessageBox.Show(b.BackColor.ToString());
+            // MessageBox.Show(b.BackColor.ToString());
 
             //set associativity when button is pressed
             if (turn) //true
             {
-                
-               // b.ForeColor = Color.Green;
-               // b.Text = "X"; //player 2
                 backgroundStoneColor(player2Color, b);
                 CompareMatrix(b.Name, 1);
-                CopyResults();
-                
+                CopyResults();  
             }
             else
             {
-               // b.Text = "O"; //player 1
-                //b.ForeColor = Color.Red;
                 backgroundStoneColor(player1Color, b);
                 CompareMatrix(b.Name, 0);
                 CopyResults();
-               
-                
             }
 
-            // To show color after changing
-          //  MessageBox.Show(A1.BackColor.ToString());
+            // To show color after changing:
+            //MessageBox.Show(A1.BackColor.ToString());
 
             turn = !turn;
             b.Enabled = false;
+            // To test turn count:
             //MessageBox.Show(turnCount.ToString());
             turnCount++;
-            // checkboard will check if every place on the board is selected, and then run an endgame counter
+            // Checkboard will check if every place on the board is selected, and then run an endgame counter
             checkBoard();
             // Will update the scores of the two players
-          //  adjustScore();
+            //adjustScore();
             // Will display whose turn it is
             playerTurn();
             // Will cause computer to go if PvC
@@ -591,6 +594,9 @@ namespace Test_TTT_Game
             }
 
             UpdateWinLossDraw(a);
+
+            button_playAgain.Enabled = true;
+            button_backToMenuFrmBoard.Enabled = true;
         }
 
         // Access to xml to update win loss tie to the right player
@@ -604,7 +610,6 @@ namespace Test_TTT_Game
             {
                 if (xn["Name"].InnerText == player1Name)
                 {
-                    //XmlNodeList xnn = xml.SelectNodes("/Users/User/Win");
                     int a;
                     switch (x)
                     {
@@ -776,7 +781,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-        //for counting SubResults 2 and 3
+        // For counting SubResults 2 and 3
         private void countPointsOfHoro(int[,] temp)
         {
             if (temp[0, 0] == temp[0, 1] && temp[0, 1] == temp[0, 2] && temp[0, 2] == temp[0, 3])
@@ -824,7 +829,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-        //for counting parts of 7, 8, and 9
+        // For counting parts of 7, 8, and 9
         private void countPointsOfPartialHoro(int[,] temp)
         {
             if (temp[2, 0] == temp[2, 1] && temp[2, 1] == temp[2, 2] && temp[2, 2] == temp[2, 3])
@@ -850,7 +855,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-        // for counting SubResults 4 and 7
+        // For counting SubResults 4 and 7
         private void countPointsOfVert(int[,] temp)
         {
             if (temp[0, 0] == temp[1, 0] && temp[1, 0] == temp[2, 0] && temp[2, 0] == temp[3, 0])
@@ -898,7 +903,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-        // for counting parts of 3, 6, and 9
+        // For counting parts of 3, 6, and 9
         private void countPointsOfPartialVert(int[,] temp)
         {
             if (temp[0, 2] == temp[1, 2] && temp[1, 2] == temp[2, 2] && temp[2, 2] == temp[3, 2])
@@ -924,7 +929,7 @@ namespace Test_TTT_Game
                 }
             }
         }
-        // to count all diagonals of SubResults except SubResult1
+        // To count all diagonals of SubResults except SubResult1
         private void countPointsOfDiagonal(int[,] temp)
         {
             if (temp[0, 0] == temp[1, 1] && temp[1, 1] == temp[2, 2] && temp[2, 2] == temp[3, 3])
@@ -1035,6 +1040,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // Set stone colors
         private void backgroundStoneColor(string a, Button b)
         {
             if (a == "Royal Blue")
@@ -1068,6 +1074,7 @@ namespace Test_TTT_Game
 
         }
 
+        // Alternate who goes first
         private void switchWhoGoesFirst()
         {
             rememberWhoWentFirst = !rememberWhoWentFirst;
@@ -1088,6 +1095,7 @@ namespace Test_TTT_Game
 
         }
 
+        // Call different AI functions
         private void AICallFunction()
         {
             if (player2Name == "DITZY" && turn == true && turnCount !=36)
@@ -1095,9 +1103,9 @@ namespace Test_TTT_Game
                 if (AILevelOfDiff == "Hard")
                 {
                     DummyAI();
-                    //AISym();
-                    //AITaylor();
-                   // AIDaniel();
+                    // AIDaniel();
+                    // AITaylor();
+                    // AISym();
                 }
                 else
                 {
@@ -1106,10 +1114,11 @@ namespace Test_TTT_Game
                 }
             }
         }
-        //A basic AI
+
+        // A basic AI
         private void DummyAI()
         {
-            Thread.Sleep(1500);
+            Thread.Sleep(10); // pause to pretend AI is thinking
             Random rand = new Random();
             int i = rand.Next(0, 6);
             int j = rand.Next(0, 6);
@@ -1133,7 +1142,7 @@ namespace Test_TTT_Game
                     {
                         b.Enabled = false;
                         b.BackColor = Color.Black;
-                        //b.Text = "";
+                        // b.Text = "";
                     }
                 }
             }
@@ -1146,7 +1155,7 @@ namespace Test_TTT_Game
             // checkboard will check if every place on the board is selected, and then run an endgame counter
             checkBoard();
             // Will update the scores of the two players
-          //  adjustScore();
+            // adjustScore();
             // Will display whose turn it is
             playerTurn();
         }
@@ -1193,8 +1202,8 @@ namespace Test_TTT_Game
 
         private void AIDaniel()
         {
-           // This is where to place SmartAI code. You do not need to validate anything, before this function is called
-            // it will check if there is an AI to begin with.
+           // This is where to place SmartAI code. You do not need to validate anything before this function is called
+           // it will check if there is an AI to begin with.
         }
 
         private void AITaylor()
@@ -1235,9 +1244,9 @@ namespace Test_TTT_Game
             // checkboard will check if every place on the board is selected, and then run an endgame counter
             checkBoard();
             // Will update the scores of the two players
-            //  adjustScore();
+            // adjustScore();
             // Will display whose turn it is
-            //playerTurn();
+            // playerTurn();
         }
 
 
@@ -1294,7 +1303,7 @@ namespace Test_TTT_Game
                 // Will update the scores of the two players
                 //  adjustScore();
                 // Will display whose turn it is
-              //  playerTurn();
+                //  playerTurn();
             }
         }
 

@@ -20,6 +20,7 @@ namespace Test_TTT_Game
             InitializeComponent();
         }
 
+        // If player vs. player is checked
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             
@@ -56,6 +57,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // If player vs. computer is checked...
         private void checkBox_PvC_CheckedChanged(object sender, EventArgs e)
         {
             comboBox_player1Name.Text = "";
@@ -69,8 +71,6 @@ namespace Test_TTT_Game
                 comboBox_player2Name.Enabled = false;
                 checkBox_PvP.Checked = false;
                 comboBox_player2Stone.SelectedIndex = -1;
-               
-               
             }
             else
             {
@@ -80,6 +80,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // If player 1 guest is checked...
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBox_player1Guest.Checked)
@@ -94,6 +95,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // If player 2 guest is checked...
         private void checkBox_player2Guest_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_player2Guest.Checked)
@@ -112,6 +114,7 @@ namespace Test_TTT_Game
 
         }
 
+        // Items that are enabled/disabled when main menu is loaded
         private void mainMenu_Load(object sender, EventArgs e)
         {
             checkBox_PvC.Checked = true;
@@ -123,10 +126,11 @@ namespace Test_TTT_Game
             comboBox_player2Stone.Text = "";
             comboBox_player2Stone.Enabled = false;
             
-            getPlayer();
+            getPlayer(); // Populate player combo boxes with registered player names
             
         }
 
+        // If player 1 goes first is checked...
         private void checkBox_player1GoesFirst_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_player1GoesFirst.Checked)
@@ -139,6 +143,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // If player 2 goes first is checked...
         private void checkBox_player2GoesFirst_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_player2GoesFirst.Checked)
@@ -189,7 +194,7 @@ namespace Test_TTT_Game
             {
                 if (checkBox_PvC.Checked)
                 {
-                    return "Black";
+                    return "Black"; // AI color is black
                 }
                 else
                 {
@@ -221,6 +226,7 @@ namespace Test_TTT_Game
             }
         }
 
+        // If start game is selected...
         private void button_startGame_Click(object sender, EventArgs e)
         {
             if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.Text == "..." && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.Text == "..t." && !(checkBox_player2Guest.Checked)))
@@ -258,36 +264,37 @@ namespace Test_TTT_Game
 
         }
 
+        // If Easy is checked...
         private void checkBox_diffEasy_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_diffEasy.Checked)
             {
-                //checkBox_diffEasy.Checked = true;
                 checkBox_diffMedium.Checked = false;
                 checkBox_diffHard.Checked = false;
             }
         }
 
+        // If Medium is checked...
         private void checkBox_diffMedium_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_diffMedium.Checked)
             {
-                // checkBox_diffMedium.Checked = true;
                 checkBox_diffEasy.Checked = false;
                 checkBox_diffHard.Checked = false;
             }
         }
 
+        // If Hard is checked...
         private void checkBox_diffHard_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_diffHard.Checked)
             {
-                // checkBox_diffHard.Checked = true;
                 checkBox_diffEasy.Checked = false;
                 checkBox_diffMedium.Checked = false;
             }
         }
 
+        // If view player history is clicked...
         private void button_viewHistory_Click(object sender, EventArgs e)
         {
             Form_playerHistory frm_pH = new Form_playerHistory();
@@ -295,14 +302,14 @@ namespace Test_TTT_Game
             this.Hide();
         }
 
-        /*INSERT USERNAME TO DATABASE XML*/
+        // Insert new player name to xml database
         private void insertNode(string username)
         {
-            //create an instant of xmldocument and load content of xml file.
+            // Create an instant of xml document and load content of xml file
             XmlDocument doc = new XmlDocument();
             doc.Load("playerDatabase.xml");
 
-            //add user details node
+            // Add user info node
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "User", "");
 
             XmlNode nodeName = doc.CreateElement("Name");
@@ -323,6 +330,7 @@ namespace Test_TTT_Game
             doc.Save("playerDatabase.xml");
         }
 
+        // If register button is clicked...
         private void button_regNewPlayer_Click(object sender, EventArgs e)
         {
             try
@@ -331,7 +339,8 @@ namespace Test_TTT_Game
                 {
                     string name;
                     bool nameExist = false;
-                    //start checking if user exists
+
+                    // Check if player already exist
                     XmlDocument xml = new XmlDocument();
                     xml.Load("playerDatabase.xml");
 
@@ -364,14 +373,16 @@ namespace Test_TTT_Game
                 MessageBox.Show(ex.Message);
             }
 
-            getPlayer();
+            getPlayer(); // Updates player 1 & 2 combo boxes
         }
 
+        // To load registered players' names in player 1 & 2 combo boxes
         private void getPlayer() 
         {
             comboBox_player1Name.Items.Clear();
             comboBox_player2Name.Items.Clear();
             string name;
+
             //start checking if user exists
             XmlDocument xml = new XmlDocument();
             xml.Load("playerDatabase.xml");
@@ -384,19 +395,16 @@ namespace Test_TTT_Game
                 if (name != "" )
 
                     comboBox_player1Name.Items.Add(name);
-                //cmbPlayer2.Items.Add(name);
-
             }
             foreach (XmlNode xn in xnlist)
             {
                 name = xn["Name"].InnerText;
                 if (name != "")
 
-                    // cmbPlayer1.Items.Add(name);
                     comboBox_player2Name.Items.Add(name);
 
             }
-            //comboBox_player1Name.SelectedIndex = 0;
+
             comboBox_player2Name.SelectedIndex = 0;
         }
 
