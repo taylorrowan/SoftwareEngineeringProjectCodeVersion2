@@ -229,7 +229,7 @@ namespace Test_TTT_Game
         // If start game is selected...
         private void button_startGame_Click(object sender, EventArgs e)
         {
-            if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.Text == "..." && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.Text == "..t." && !(checkBox_player2Guest.Checked)))
+            if (comboBox_player1Name.Text == comboBox_player2Name.Text || (comboBox_player1Name.SelectedIndex == -1 && !(checkBox_player1Guest.Checked)) || (comboBox_player2Name.SelectedIndex == -1 && !(checkBox_player2Guest.Checked)))
             {
                 MessageBox.Show("Please select a different player name");
             }
