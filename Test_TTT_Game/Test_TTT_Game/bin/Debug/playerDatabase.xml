@@ -1,8 +1,8 @@
 <Users>
   <User>
     <Name>DITZY</Name>
-    <Win>2</Win>
-    <Loss>13</Loss>
+    <Win>1</Win>
+    <Loss>12</Loss>
     <Tie>1</Tie>
   </User>
   <User>
@@ -38,14 +38,14 @@
   <User>
     <Name>ZACH</Name>
     <Win>2</Win>
-    <Loss>1</Loss>
-    <Tie>2</Tie>
+    <Loss>0</Loss>
+    <Tie>1</Tie>
   </User>
   <User>
     <Name>YIMING</Name>
-    <Win>3</Win>
-    <Loss>1</Loss>
-    <Tie>3</Tie>
+    <Win>1</Win>
+    <Loss>0</Loss>
+    <Tie>2</Tie>
   </User>
   <User>
     <Name>THEMAN</Name>
