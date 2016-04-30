@@ -2,7 +2,7 @@
   <User>
     <Name>DITZY</Name>
     <Win>1</Win>
-    <Loss>12</Loss>
+    <Loss>15</Loss>
     <Tie>1</Tie>
   </User>
   <User>
@@ -25,7 +25,7 @@
   </User>
   <User>
     <Name>IMRAN</Name>
-    <Win>0</Win>
+    <Win>2</Win>
     <Loss>1</Loss>
     <Tie>2</Tie>
   </User>
@@ -43,7 +43,7 @@
   </User>
   <User>
     <Name>YIMING</Name>
-    <Win>1</Win>
+    <Win>2</Win>
     <Loss>0</Loss>
     <Tie>2</Tie>
   </User>

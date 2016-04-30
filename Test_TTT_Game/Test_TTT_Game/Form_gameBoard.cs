@@ -71,7 +71,9 @@ namespace Test_TTT_Game
             foreach (Control c in panel_gameBoard.Controls)
             {
                 Button b = (Button)c;
-                b.Visible = false;
+                b.Visible = true;
+                Label l = (Label)c;
+                l.Visible = true;
             }
 
           // Test position:
