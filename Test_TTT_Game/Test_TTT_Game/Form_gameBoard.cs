@@ -72,8 +72,6 @@ namespace Test_TTT_Game
             {
                 Button b = (Button)c;
                 b.Visible = true;
-                Label l = (Label)c;
-                l.Visible = true;
             }
 
           // Test position:

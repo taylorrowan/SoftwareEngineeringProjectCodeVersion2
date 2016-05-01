@@ -30,18 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_gameBoard));
             this.panel_gameBoard = new System.Windows.Forms.Panel();
-            this.label_boardLetterF = new System.Windows.Forms.Label();
-            this.label_boardLetterE = new System.Windows.Forms.Label();
-            this.label_boardLetterD = new System.Windows.Forms.Label();
-            this.label_boardLetterC = new System.Windows.Forms.Label();
-            this.label_boardLetterB = new System.Windows.Forms.Label();
-            this.label_boardLetterA = new System.Windows.Forms.Label();
-            this.label_boardNum6 = new System.Windows.Forms.Label();
-            this.label_boardNum5 = new System.Windows.Forms.Label();
-            this.label_boardNum4 = new System.Windows.Forms.Label();
-            this.label_boardNum3 = new System.Windows.Forms.Label();
-            this.label_boardNum2 = new System.Windows.Forms.Label();
-            this.label_boardNum1 = new System.Windows.Forms.Label();
             this.F5 = new System.Windows.Forms.Button();
             this.E6 = new System.Windows.Forms.Button();
             this.F6 = new System.Windows.Forms.Button();
@@ -102,18 +90,6 @@
             // panel_gameBoard
             // 
             this.panel_gameBoard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_gameBoard.Controls.Add(this.label_boardLetterF);
-            this.panel_gameBoard.Controls.Add(this.label_boardLetterE);
-            this.panel_gameBoard.Controls.Add(this.label_boardLetterD);
-            this.panel_gameBoard.Controls.Add(this.label_boardLetterC);
-            this.panel_gameBoard.Controls.Add(this.label_boardLetterB);
-            this.panel_gameBoard.Controls.Add(this.label_boardLetterA);
-            this.panel_gameBoard.Controls.Add(this.label_boardNum6);
-            this.panel_gameBoard.Controls.Add(this.label_boardNum5);
-            this.panel_gameBoard.Controls.Add(this.label_boardNum4);
-            this.panel_gameBoard.Controls.Add(this.label_boardNum3);
-            this.panel_gameBoard.Controls.Add(this.label_boardNum2);
-            this.panel_gameBoard.Controls.Add(this.label_boardNum1);
             this.panel_gameBoard.Controls.Add(this.F5);
             this.panel_gameBoard.Controls.Add(this.E6);
             this.panel_gameBoard.Controls.Add(this.F6);
@@ -154,115 +130,6 @@
             this.panel_gameBoard.Name = "panel_gameBoard";
             this.panel_gameBoard.Size = new System.Drawing.Size(480, 480);
             this.panel_gameBoard.TabIndex = 0;
-            // 
-            // label_boardLetterF
-            // 
-            this.label_boardLetterF.AutoSize = true;
-            this.label_boardLetterF.Location = new System.Drawing.Point(428, 5);
-            this.label_boardLetterF.Name = "label_boardLetterF";
-            this.label_boardLetterF.Size = new System.Drawing.Size(13, 13);
-            this.label_boardLetterF.TabIndex = 48;
-            this.label_boardLetterF.Text = "F";
-            this.label_boardLetterF.Click += new System.EventHandler(this.label_boardLetterF_Click);
-            // 
-            // label_boardLetterE
-            // 
-            this.label_boardLetterE.AutoSize = true;
-            this.label_boardLetterE.Location = new System.Drawing.Point(352, 5);
-            this.label_boardLetterE.Name = "label_boardLetterE";
-            this.label_boardLetterE.Size = new System.Drawing.Size(14, 13);
-            this.label_boardLetterE.TabIndex = 47;
-            this.label_boardLetterE.Text = "E";
-            // 
-            // label_boardLetterD
-            // 
-            this.label_boardLetterD.AutoSize = true;
-            this.label_boardLetterD.Location = new System.Drawing.Point(275, 5);
-            this.label_boardLetterD.Name = "label_boardLetterD";
-            this.label_boardLetterD.Size = new System.Drawing.Size(15, 13);
-            this.label_boardLetterD.TabIndex = 46;
-            this.label_boardLetterD.Text = "D";
-            // 
-            // label_boardLetterC
-            // 
-            this.label_boardLetterC.AutoSize = true;
-            this.label_boardLetterC.Location = new System.Drawing.Point(201, 5);
-            this.label_boardLetterC.Name = "label_boardLetterC";
-            this.label_boardLetterC.Size = new System.Drawing.Size(14, 13);
-            this.label_boardLetterC.TabIndex = 45;
-            this.label_boardLetterC.Text = "C";
-            // 
-            // label_boardLetterB
-            // 
-            this.label_boardLetterB.AutoSize = true;
-            this.label_boardLetterB.Location = new System.Drawing.Point(124, 5);
-            this.label_boardLetterB.Name = "label_boardLetterB";
-            this.label_boardLetterB.Size = new System.Drawing.Size(14, 13);
-            this.label_boardLetterB.TabIndex = 44;
-            this.label_boardLetterB.Text = "B";
-            // 
-            // label_boardLetterA
-            // 
-            this.label_boardLetterA.AutoSize = true;
-            this.label_boardLetterA.Location = new System.Drawing.Point(49, 5);
-            this.label_boardLetterA.Name = "label_boardLetterA";
-            this.label_boardLetterA.Size = new System.Drawing.Size(14, 13);
-            this.label_boardLetterA.TabIndex = 43;
-            this.label_boardLetterA.Text = "A";
-            // 
-            // label_boardNum6
-            // 
-            this.label_boardNum6.AutoSize = true;
-            this.label_boardNum6.Location = new System.Drawing.Point(3, 430);
-            this.label_boardNum6.Name = "label_boardNum6";
-            this.label_boardNum6.Size = new System.Drawing.Size(13, 13);
-            this.label_boardNum6.TabIndex = 42;
-            this.label_boardNum6.Text = "6";
-            // 
-            // label_boardNum5
-            // 
-            this.label_boardNum5.AutoSize = true;
-            this.label_boardNum5.Location = new System.Drawing.Point(3, 354);
-            this.label_boardNum5.Name = "label_boardNum5";
-            this.label_boardNum5.Size = new System.Drawing.Size(13, 13);
-            this.label_boardNum5.TabIndex = 41;
-            this.label_boardNum5.Text = "5";
-            // 
-            // label_boardNum4
-            // 
-            this.label_boardNum4.AutoSize = true;
-            this.label_boardNum4.Location = new System.Drawing.Point(3, 278);
-            this.label_boardNum4.Name = "label_boardNum4";
-            this.label_boardNum4.Size = new System.Drawing.Size(13, 13);
-            this.label_boardNum4.TabIndex = 40;
-            this.label_boardNum4.Text = "4";
-            // 
-            // label_boardNum3
-            // 
-            this.label_boardNum3.AutoSize = true;
-            this.label_boardNum3.Location = new System.Drawing.Point(3, 202);
-            this.label_boardNum3.Name = "label_boardNum3";
-            this.label_boardNum3.Size = new System.Drawing.Size(13, 13);
-            this.label_boardNum3.TabIndex = 39;
-            this.label_boardNum3.Text = "3";
-            // 
-            // label_boardNum2
-            // 
-            this.label_boardNum2.AutoSize = true;
-            this.label_boardNum2.Location = new System.Drawing.Point(3, 126);
-            this.label_boardNum2.Name = "label_boardNum2";
-            this.label_boardNum2.Size = new System.Drawing.Size(13, 13);
-            this.label_boardNum2.TabIndex = 38;
-            this.label_boardNum2.Text = "2";
-            // 
-            // label_boardNum1
-            // 
-            this.label_boardNum1.AutoSize = true;
-            this.label_boardNum1.Location = new System.Drawing.Point(3, 50);
-            this.label_boardNum1.Name = "label_boardNum1";
-            this.label_boardNum1.Size = new System.Drawing.Size(13, 13);
-            this.label_boardNum1.TabIndex = 37;
-            this.label_boardNum1.Text = "1";
             // 
             // F5
             // 
@@ -737,7 +604,6 @@
             this.Text = "DITZY GAME BOARD";
             this.Load += new System.EventHandler(this.Form_gameBoard_Load);
             this.panel_gameBoard.ResumeLayout(false);
-            this.panel_gameBoard.PerformLayout();
             this.groupBox_instructions.ResumeLayout(false);
             this.groupBox_whoseTurn.ResumeLayout(false);
             this.groupBox_whoseTurn.PerformLayout();
@@ -765,18 +631,6 @@
         private System.Windows.Forms.Button D1;
         private System.Windows.Forms.Button E1;
         private System.Windows.Forms.Button F1;
-        private System.Windows.Forms.Label label_boardLetterF;
-        private System.Windows.Forms.Label label_boardLetterE;
-        private System.Windows.Forms.Label label_boardLetterD;
-        private System.Windows.Forms.Label label_boardLetterC;
-        private System.Windows.Forms.Label label_boardLetterB;
-        private System.Windows.Forms.Label label_boardLetterA;
-        private System.Windows.Forms.Label label_boardNum6;
-        private System.Windows.Forms.Label label_boardNum5;
-        private System.Windows.Forms.Label label_boardNum4;
-        private System.Windows.Forms.Label label_boardNum3;
-        private System.Windows.Forms.Label label_boardNum2;
-        private System.Windows.Forms.Label label_boardNum1;
         private System.Windows.Forms.Button F5;
         private System.Windows.Forms.Button E6;
         private System.Windows.Forms.Button F6;
